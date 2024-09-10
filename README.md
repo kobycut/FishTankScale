@@ -11,6 +11,6 @@ The perfect tool for people who want a fish tank but know nothing about fish. Th
 + Ability to add and remove fish from the tank
 + Cautions about current tank displayed
 + Ability to add a filter
-+ 
++ Display of recommended water specifications such as ph, temperature, and hardness.
 + Ability to add a tank
 + Ability to change filter options, such as to display in Celsius instead of Fahrenheit
