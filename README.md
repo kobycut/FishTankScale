@@ -9,6 +9,8 @@ The perfect tool for people who want a fish tank but know nothing about fish. Th
 ### Key Features
 + Display of current Fish Tank
 + Ability to add and remove fish from the tank
++ Cautions about current tank displayed
 + Ability to add a filter
++ 
 + Ability to add a tank
 + Ability to change filter options, such as to display in Celsius instead of Fahrenheit
