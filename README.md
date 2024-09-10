@@ -1,1 +1,2 @@
-# startup
+# FishTankScale
+## Elevator Pitch
