@@ -14,3 +14,6 @@ The perfect tool for people who want a fish tank but know nothing about fish. Th
 + Display of recommended water specifications such as ph, temperature, and hardness.
 + Ability to add a tank
 + Ability to change filter options, such as to display in Celsius instead of Fahrenheit
+### Technologies
+I am going to use the required technologies in the following ways:
++ 
