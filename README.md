@@ -16,4 +16,10 @@ The perfect tool for people who want a fish tank but know nothing about fish. Th
 + Ability to change filter options, such as to display in Celsius instead of Fahrenheit
 ### Technologies
 I am going to use the required technologies in the following ways:
-+ 
+HTML - One HTML page, used to display the application.
+CSS - Makes the application adaptable to different devices and provides style to display.
+JavaScript - Used for all buttons and different actions the user can perform on the screen.
+React - Reactive to user's actions on webpage.
+Service - Provides the service in the backend. Enables storing fish tank choices, recieving filter/tank choices, and updating the recommended values.
+DB/Login - Keep track of users choices in the database.
+WebSocket - Keeps the values displayed on the screen updated between the user and the server.
