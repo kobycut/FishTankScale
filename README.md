@@ -5,7 +5,7 @@ This is the beginning of my Specification Deliverable
 ### Elevator Pitch
 The perfect tool for people who want a fish tank but know nothing about fish. There are many complicated aspects to owning a fish tank of any size. What fish will work together? What temperature should the water be? Can I put a crab with shrimp? How high should the ph be? There are many questions a beginner fish tank owner might have. But with my application, FishTankScale, it will be easier than ever to be able to have your own fish tank. FishTankScale performs all these tasks for you plus more. Simply input your tank size, filter type, fish species, and the number of fish you want, and the application will assess your setup, providing suggestions for any necessary adjustments. It is easy to use and a great way for all levels of fish tank owners to better plan out their next aquarium.
 ### Design
-![This is an image of what the first version FishTankScale application could look like.](Screenshot 2024-09-10 190151.png)
+![This is an image of what the first version FishTankScale application could look like.](https://github.com/kobycut/startup/blob/main/Screenshot%202024-09-10%20190151.png)
 ### Key Features
 + Display of current Fish Tank
 + Ability to add and remove fish from the tank
