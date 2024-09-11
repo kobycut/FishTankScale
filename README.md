@@ -19,7 +19,7 @@ The perfect tool for people who want a fish tank but know nothing about fish. Th
 + HTML - One HTML page, used to display the application.
 + CSS - Makes the application adaptable to different devices and provides style to display.
 + JavaScript - Used for all buttons and different actions the user can perform on the screen.
-+ React - Reactive to user's actions on webpage.
++ React - Reactive to user's actions on webpage such as pressing the drop down menues to choose from and adding fish to the tank.
 + Service - Provides the service in the backend. Enables storing fish tank choices, recieving filter/tank choices, and updating the recommended values.
 + DB/Login - Keep track of users choices in the database.
-+ WebSocket - Keeps the values displayed on the screen updated between the user and the server.
++ WebSocket - Keeps the values displayed on the screen updated in real time between the user and the server.
