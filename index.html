@@ -145,6 +145,8 @@
 
 
         </select>
+        <textarea id="recommended-GPH" readonly rows="1" cols="30"></textarea>
+        <!--if tank size selected, recommend 4 times the tank size for gph.-->
         <div id="customGPHInput" style="display:none;">
             <label for="customGPH">Enter your custom GPH:</label>
             <input type="number" id="customGPH" name="customGPH" min="1" placeholder="Enter GPH">
@@ -591,8 +593,11 @@
             </optgroup>
 
         </select>
-        <button id="add-fishButton">+</button>
+        <button id="add_fishButton">+</button>
         <!--button to add fish to list-->
+    </div>
+    <div>
+        <button id="save_tank">Save Tank</button>
     </div>
     <hr>
     <div id="recommendations">
