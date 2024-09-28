@@ -24,4 +24,12 @@ The perfect tool for people who want a fish tank but know nothing about fish. Th
   - Lordicon - This outside API will provide an animated Icon for my homepage to make it lively.
 + DB/Login - Keep track of users choices in the database.
 + WebSocket - Keeps the values displayed on the screen updated in real time between the user and the server.
-
+## HTML Deliverable
+This is the beginning of my HTML Deliverable.
+For this deliverable I built out my website using HTML.
+- [x] **HTML pages** - Made an HTML page that allows for testing out fish tank requirements and compatibilities. Only one page needed for my startup.
+- [x] **Links** - There is only one necessary page so there are no links to other pages on my website. However there is a link to my github as well as to a few articles that could be useful to the user.
+- [x] **Text** - Multiple uses of text. Used to describe the webpage and do things such as selecting a tank, filter, or fish.
+- [x] **Images** - Used images for a favicon as well as for a title on the webpage.
+- [ ] **DB/Login** - Each time a specification such as a tank, filter, or fish is added, the database updates the fish tank recommendations.
+- [ ] **WebSocket** - 
