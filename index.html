@@ -46,8 +46,22 @@
         Welcome to FishTankScale! Input specifications to test out different tank environments and fish varieties.
     </p>
     <hr>
-    <h3>
-        Filter Options:
+    <form method="get" action=""></form>
+    <div>
+        <span>@
+        </span>
+        <input type="text" placeholder="your@email.com" />
+    </div>
+    <div>
+        <span>🔒</span>
+        <input type="password" placeholder="password" />
+    </div>
+    <button type="submit">Login</button>
+    <button type="submit">Create</button>
+    </form>
+    <!-- <hr> -->
+    <!-- <h3> -->
+    <!-- Filter Options:
     </h3>
     <div>
         <input type="radio" id="Gallons" name="Water_unit" value="Gallons">
@@ -66,7 +80,7 @@
         <label for="Centimeters">Centimeters</label> <br>
 
 
-    </div>
+    </div> -->
     <hr>
     <div>
         <label for="Tanks">Add Tank:</label>
@@ -141,9 +155,9 @@
 
     <hr>
 
-    <p>
+    <h1>
         Fish Tank
-    </p>
+    </h1>
     <div id="container">
         <!--Scrollable list where fish are added-->
         <div id="item-list">
@@ -153,15 +167,429 @@
             <!--fish decrement counter-->
 
         </div>
-
+        <input type="text" id="search-bar" placeholder="Search for fish..." onkeyup="filterOptions()">
+        <br>
         <select id="item-select">
             <!--Dropdown for selecting fish-->
             <option value="" disabled selected>Select Fish</option>
-            <option value="Betta">Betta</option>
-            <option value="Tetra">Tetra</option>
-            <option value="Guppy">Guppy</option>
-            <option value="Rasbora">Rasbora</option>
-            <option value="African_Dwarf_Frog">African Dwarf Frog</option>
+
+            <!-- Angelfish -->
+            <optgroup label="Angelfish">
+                <option value="Silver_Angelfish">Silver Angelfish</option>
+                <option value="Golden_Angelfish">Golden Angelfish</option>
+                <option value="Black_Angelfish">Black Angelfish</option>
+                <option value="Marble_Angelfish">Marble Angelfish</option>
+                <option value="Koi_Angelfish">Koi Angelfish</option>
+                <option value="Blue_Angelfish">Blue Angelfish</option>
+                <option value="Lace_Angelfish">Lace Angelfish</option>
+                <option value="Blushing_Angelfish">Blushing Angelfish</option>
+                <option value="Zebra_Angelfish">Zebra Angelfish</option>
+                <option value="Other_Angelfish">Other Angelfish</option>
+            </optgroup>
+
+
+            <!-- Barbs-->
+            <optgroup label="Barbs">
+                <option value="Tiger_Barb">Tiger Barb</option>
+                <option value="Cherry_Barb">Cherry Barb</option>
+                <option value="Clown_Barb">Clown Barb</option>
+                <option value="Rosy_Barb">Rosy Barb</option>
+                <option value="Rainbow_Barb">Rainbow Barb</option>
+                <option value="Gold_Barb">Gold Barb</option>
+                <option value="Puntius_Barb">Puntius Barb</option>
+                <option value="Borneo_Sucker_Barb">Borneo Sucker Barb</option>
+                <option value="Odessa_Barb">Odessa Barb</option>
+                <option value="Bamboo_Barb">Bamboo Barb</option>
+                <option value="Green_Barb">Green Barb</option>
+                <option value="Other_Barb">Other Barb</option>
+            </optgroup>
+
+            <!--Bettas-->
+            <optgroup label="Bettas">
+                <option value="Betta_Female">Female Betta</option>
+                <option value="Betta_Male">Male Betta</option>
+            </optgroup>
+            <!-- Plecos -->
+            <optgroup label="Plecos">
+                <option value="Zebra_Pleco">Zebra Pleco</option>
+                <option value="Leopard_Frog_Pleco">Leopard Frog Pleco</option>
+                <option value="Gold_Nugget_Pleco">Gold Nugget Pleco</option>
+                <option value="Blue_Phantom_Pleco">Blue Phantom Pleco</option>
+                <option value="Clown_Pleco">Clown Pleco</option>
+                <option value="Red_Lizard_Whiptail">Red Lizard Whiptail</option>
+                <option value="Emperor_Pleco">Emperor Pleco</option>
+                <option value="False_Zebra_Pleco">False Zebra Pleco</option>
+                <option value="Red_Bristlenose_Pleco">Red Bristlenose Pleco</option>
+                <option value="Medusa_Bushynose_Pleco">Medusa Bushynose Pleco</option>
+                <option value="Other_Pleco">Other Pleco</option>
+            </optgroup>
+
+
+            <!--Corydoras-->
+            <optgroup label="Corydoras">
+                <option value="Bandit_Cory">Bandit Cory</option>
+                <option value="Bronze_Cory">Bronze Cory</option>
+                <option value="Julii_Cory">Julii Cory</option>
+                <option value="Panda_Cory">Panda Cory</option>
+                <option value="Pepper_Cory">Pepper Cory</option>
+                <option value="Skunk_Cory">Skunk Cory</option>
+                <option value="Three_Stripe_Cory">Three Stripe Cory</option>
+                <option value="Sterbai_Cory">Sterbai Cory</option>
+                <option value="Pygmy_Cory">Pygmy Cory</option>
+                <option value="Albino_Cory">Albino Cory</option>
+                <option value="Barbatus_Cory">Barbatus Cory</option>
+                <option value="Orange_Laser_Cory">Orange Laser Cory</option>
+                <option value="Other_Cory">Other Cory</option>
+
+            </optgroup>
+
+
+
+
+
+            <!--Danios-->
+            <optgroup label="Danios">
+                <option value="Zebra_Danio">Zebra Danio</option>
+                <option value="Leopard_Danio">Leopard Danio</option>
+                <option value="Glofish_Danio">GloFish Danio</option>
+                <option value="Pearl_Danio">Pearl Danio</option>
+                <option value="Blue_Danio">Blue Danio</option>
+                <option value="Spotted_Danio">Spotted Danio</option>
+                <option value="Gold_Danio">Gold Danio</option>
+                <option value="Other_Danio">Other Danio</option>
+            </optgroup>
+
+            <!--Discus-->
+            <optgroup label="Discus">
+                <option value="Blue_Discus">Blue Discus</option>
+                <option value="Red_Discus">Red Discus</option>
+                <option value="Green_Discus">Green Discus</option>
+                <option value="Pigeon_Blood_Discus">Pigeon Blood Discus</option>
+                <option value="Marlboro_Discus">Marlboro Discus</option>
+                <option value="Turquoise_Discus">Turquoise Discus</option>
+                <option value="Wild_Caught_Discus">Wild Caught Discus</option>
+                <option value="Snake_Skin_Discus">Snake Skin Discus</option>
+                <option value="Leopard_Discus">Leopard Discus</option>
+                <option value="Sunset_Discus">Sunset Discus</option>
+            </optgroup>
+
+
+            <!--Eels-->
+            <optgroup label="Eels">
+                <option value="African_Eel">African Eel</option>
+                <option value="Tire_Track_Eel">Tire Track Eel</option>
+                <option value="Rainbow_Eel">Rainbow Eel</option>
+                <option value="Moray_Eel">Moray Eel</option>
+                <option value="Zebra_Eel">Zebra Eel</option>
+                <option value="Asian_Eel">Asian Eel</option>
+                <option value="Kuhli_Loch">Kuhli Loach</option>
+                <option value="Banded_Eel">Banded Eel</option>
+                <option value="Other_Eel">Other Eel</option>
+            </optgroup>
+
+
+
+
+            <!-- Goldfish-->
+            <optgroup label="Goldfish">
+                <option value="Common_Goldfish">Common Goldfish</option>
+                <option value="Fancy_Goldfish">Fancy Goldfish</option>
+            </optgroup>
+            <!-- Gouramis-->
+            <optgroup label="Gouramis">
+                <option value="Dwarf_Gourami">Dwarf Gourami</option>
+                <option value="Honey_Gourami">Honey Gourami</option>
+                <option value="Powder_Blue_Gourami">Powder Blue Gourami</option>
+                <option value="Flame_Gourami">Flame Gourami</option>
+                <option value="Neon_Gourami">Neon Gourami</option>
+                <option value="Super_Dwarf_Gourami">Super Dwarf Gourami</option>
+                <option value="Other_Gourami">Other Gourami</option>
+            </optgroup>
+
+            <!--Gudgeons-->
+            <optgroup label="Gudgeons">
+                <option value="Spotted_Gudgeon">Spotted Gudgeon</option>
+                <option value="Murray_Cod_Gudgeon">Murray Cod Gudgeon</option>
+                <option value="Flat_Headed_Gudgeon">Flat-Headed Gudgeon</option>
+                <option value="Australian_Gudgeon">Australian Gudgeon</option>
+                <option value="Banded_Gudgeon">Banded Gudgeon</option>
+                <option value="Blue_Gudgeon">Blue Gudgeon</option>
+                <option value="Eastern_Gudgeon">Eastern Gudgeon</option>
+                <option value="Other_Gudgeon">Other Gudgeon</option>
+            </optgroup>
+            <!--Guppys-->
+            <optgroup label="Guppys">
+                <option value="Fancy_Guppy">Fancy Guppy</option>
+                <option value="Endler_Guppy">Endler Guppy</option>
+                <option value="Rainbow_Guppy">Rainbow Guppy</option>
+                <option value="Moscow_Guppy">Moscow Guppy</option>
+                <option value="Snakeskin_Guppy">Snakeskin Guppy</option>
+                <option value="Tiger_Guppy">Tiger Guppy</option>
+                <option value="Cobra_Guppy">Cobra Guppy</option>
+                <option value="Yellow_Guppy">Yellow Guppy</option>
+                <option value="Dragon_Guppy">Dragon Guppy</option>
+                <option value="Other_Guppy">Other Guppy</option>
+            </optgroup>
+            <!--Killifish-->
+            <optgroup label="Killifish">
+                <option value="Lampeye_Killifish">Lampeye Killifish</option>
+                <option value="Golden_Killifish">Golden Killifish</option>
+                <option value="Banded_Killifish">Banded Killifish</option>
+                <option value="Striped_Killifish">Striped Killifish</option>
+                <option value="Blue_Killifish">Blue Killifish</option>
+                <option value="Blue_Globe_Killifish">Blue Globe Killifish</option>
+                <option value="Red_Killifish">Red Killifish</option>
+                <option value="Clown_Killifish">Clown Killifish</option>
+                <option value="Jungle_Killifish">Jungle Killifish</option>
+                <option value="Other_Killifish">Other Killifish</option>
+            </optgroup>
+            <!--Loaches-->
+            <optgroup label="Loaches">
+                <option value="Clown_Loach">Clown Loach</option>
+                <option value="Yo_yo_Loach">Yo-yo Loach</option>
+                <option value="Kuhli_Loach">Kuhli Loach</option>
+                <option value="Zebra_Loach">Zebra Loach</option>
+                <option value="Weather_Loach">Weather Loach</option>
+                <option value="Dwarf_Chain_Loach">Dwarf Chain Loach</option>
+                <option value="Siamese_Loach">Siamese Loach</option>
+                <option value="Borneo_Loach">Borneo Loach</option>
+                <option value="Skunk_Loach">Skunk Loach</option>
+                <option value="Botia_Loach">Botia Loach</option>
+                <option value="Golden_Loach">Golden Loach</option>
+                <option value="Other_Loach">Other Loach</option>
+            </optgroup>
+            <!--Mollies-->
+            <optgroup label="Mollies">
+                <option value="Black_Molly">Black Molly</option>
+                <option value="Sailfin_Molly">Sailfin Molly</option>
+                <option value="Dalmatian_Molly">Dalmatian Molly</option>
+                <option value="Gold_Dust_Molly">Gold Dust Molly</option>
+                <option value="Lyretail_Molly">Lyretail Molly</option>
+                <option value="Balloon_Molly">Balloon Molly</option>
+                <option value="Silver_Molly">Silver Molly</option>
+                <option value="White_Molly">White Molly</option>
+                <option value="Marble_Molly">Marble Molly</option>
+                <option value="Golden_Molly">Golden Molly</option>
+                <option value="Platinum_Molly">Platinum Molly</option>
+                <option value="Other_Mollie">Other Mollie</option>
+            </optgroup>
+
+
+            <!--Oscars and Large Cichlids-->
+            <optgroup label="Oscars and Large Cichlids">
+                <option value="Oscar">Oscar</option>
+                <option value="Tiger_Oscar">Tiger Oscar</option>
+                <option value="Red_Oscar">Red Oscar</option>
+                <option value="Albino_Oscar">Albino Oscar</option>
+                <option value="Yellow_Oscar">Yellow Oscar</option>
+                <option value="Jewel_Cichlid">Jewel Cichlid</option>
+                <option value="Green_Terror">Green Terror</option>
+                <option value="Severum">Severum</option>
+                <option value="Midas_Cichlid">Midas Cichlid</option>
+                <option value="Blood_Parrot_Cichlid">Blood Parrot Cichlid</option>
+                <option value="Flowerhorn_Cichlid">Flowerhorn Cichlid</option>
+                <option value="Frontosa">Frontosa</option>
+                <option value="Convict_Cichlid">Convict Cichlid</option>
+                <option value="Jack_Dempsey">Jack Dempsey</option>
+                <option value="Nicaraguan_Cichlid">Nicaraguan Cichlid</option>
+                <option value="Other_Large_Cichlid">Other Large Cichlid</option>
+            </optgroup>
+
+
+
+            <!-- Plants-->
+            <optgroup label="Plants">
+                <option value="Plants">Plant</option>
+            </optgroup>
+            <!-- Platys-->
+            <optgroup label="Platys">
+                <option value="Sunset_Platy">Sunset Platy</option>
+                <option value="Red_Platy">Red Platy</option>
+                <option value="Blue_Platy">Blue Platy</option>
+                <option value="Yellow_Platy">Yellow Platy</option>
+                <option value="Mickey_Mouse_Platy">Mickey Mouse Platy</option>
+                <option value="Green_Platy">Green Platy</option>
+                <option value="Gold_Platy">Gold Platy</option>
+                <option value="Calico_Platy">Calico Platy</option>
+                <option value="Lemon_Platy">Lemon Platy</option>
+                <option value="Rainbow_Platy">Rainbow Platy</option>
+                <option value="Speckled_Platy">Speckled Platy</option>
+                <option value="Chocolate_Platy">Chocolate Platy</option>
+                <option value="Other_Platy">Other Platy</option>
+            </optgroup>
+
+            <!-- Rainbowfish-->
+            <optgroup label="Rainbowfish">
+                <option value="Forktail_Rainbowfish">Forktail Rainbowfish</option>
+                <option value="Red_Neon_Rainbowfish">Red Neon Rainbowfish</option>
+                <option value="Threadfin_Rainbowfish">Threadfin Rainbowfish</option>
+                <option value="Gertrudes_Rainbowfish">Gertrudes Spotte Blue-Eye Rainbowfish</option>
+                <option value="Celebes_Rainbowfish">Celebes Rainbowfish</option>
+                <option value="Dwarf_Neon_Rainbowfish">Dwarf Neon Rainbowfish</option>
+                <option value="Boesemani_Rainbowfish">Boesemani Rainbowfish</option>
+                <option value="Turqoise_Rainbowfish">Turqoise Rainbowfish</option>
+                <option value="Red_Rainbowfish">Red Rainbowfish</option>
+                <option value="Lake_Tebera_Rainbowfish">Lake Tebera Rainbowfish</option>
+                <option value="Other_Rainbowfish">Other Rainbowfish</option>
+            </optgroup> <!-- Rasboras -->
+            <optgroup label="Rasboras">
+                <option value="Harlequin_Rasbora">Harlequin Rasbora</option>
+                <option value="Lambchop_Rasbora">Lambchop Rasbora</option>
+                <option value="Scissortail_Rasbora">Scissortail Rasbora</option>
+                <option value="Galaxy_Rasbora">Galaxy Rasbora</option>
+                <option value="Rasbora_Espei">Rasbora Espei</option>
+                <option value="Green_Rasbora">Green Rasbora</option>
+                <option value="Red_Rasbora">Red Rasbora</option>
+                <option value="Tiger_Rasbora">Tiger Rasbora</option>
+                <option value="Pygmy_Rasbora">Pygmy Rasbora</option>
+                <option value="Blue_Rasbora">Blue Rasbora</option>
+                <option value="Mikrogeophagus_Rasbora">Mikrogeophagus Rasbora</option>
+                <option value="Black_Rasbora">Black Rasbora</option>
+                <option value="Pearl_Rasbora">Pearl Rasbora</option>
+                <option value="Chili_Rasbora">Chili Rasbora</option>
+                <option value="Asian_Rummy-Nose_Rasbora">Asian Rummy-Nose Rasbora</option>
+                <option value="Clown_Rasbora">Clown Rasbora</option>
+                <option value="Other_Rasbora">Other Rasbora</option>
+            </optgroup>
+            <!-- Arowanas-->
+            <optgroup label="Arowanas">
+                <option value="Asian Arowana">Asian Arowana</option>
+                <option value="Silver Arowana">Silver Arowana</option>
+                <option value="Black Arowana">Black Arowana</option>
+                <option value="Green Arowana">Green Arowana</option>
+                <option value="Red Arowana">Red Arowana</option>
+                <option value="Blue Arowana">Blue Arowana</option>
+                <option value="Gold Arowana">Gold Arowana</option>
+                <option value="Other Arowana">Other Arowana</option>
+            </optgroup>
+            <!-- Sharks -->
+            <optgroup label="Sharks">
+                <option value="Rainbow_Shark">Rainbow Shark</option>
+                <option value="Red_Tail_Shark">Red Tail Shark</option>
+                <option value="Harlequin">Harlequin Shark</option>
+                <option value="Bala_Shark">Bala Shark</option>
+                <option value="Black_Shark">Black Shark</option>
+                <option value="Albino_Rainbow Shark">Albino Rainbow Shark</option>
+                <option value="Siamese_Shark">Siamese Shark</option>
+                <option value="Silver_Shark">Silver Shark</option>
+                <option value="Roseline_Shark">Roseline Shark</option>
+                <option value="Other_Shark">Other Shark</option>
+            </optgroup>
+
+
+            <!-- Silver Dollars -->
+            <optgroup label="Silver Dollars">
+                <option value="Silver_Dollar_Metynnis">Silver Dollar</option>
+                <option value="Silver_Dollar_Red_Hook">Red Hook Silver Dollar</option>
+                <option value="Silver_Dollar_Tetra">Tetra Silver Dollar</option>
+                <option value="Silver_Dollar_Margarita">Margarita Silver Dollar</option>
+                <option value="Silver_Dollar_Barred">Barred Silver Dollar</option>
+                <option value="Silver_Dollar_Tin_Foil">Tin Foil Silver Dollar</option>
+                <option value="Other_Silver_Dollar">Other Silver Dollar</option>
+            </optgroup>
+            <!-- Shrimp -->
+            <optgroup label="Shrimp">
+                <option value="Cherry_Shrimp">Cherry Shrimp</option>
+                <option value="Amano_Shrimp">Amano Shrimp</option>
+                <option value="Ghost_Shrimp">Ghost Shrimp</option>
+                <option value="Bamboo_Shrimp">Bamboo Shrimp</option>
+                <option value="Blue_Velvet_Shrimp">Blue Velvet Shrimp</option>
+                <option value="Crystal_Red_Shrimp">Crystal Red Shrimp</option>
+                <option value="Red_Rili_Shrimp">Red Rili Shrimp</option>
+                <option value="Tiger_Shrimp">Tiger Shrimp</option>
+                <option value="Blue_Dream_Shrimp">Blue Dream Shrimp</option>
+                <option value="Snowball_Shrimp">Snowball Shrimp</option>
+                <option value="Other_Shrimp">Other Shrimp</option>
+            </optgroup> <!-- Crabs -->
+            <optgroup label="Crabs">
+                <option value="Fiddler_Crab">Fiddler Crab</option>
+                <option value="Red_Claw_Crab">Red Claw Crab</option>
+                <option value="Thai_Micro_Crab">Thai Micro Crab</option>
+                <option value="Panther_Crab">Panther Crab</option>
+                <option value="Rainbow_Crab">Rainbow Crab</option>
+                <option value="Matano_Crab">Matano Crab</option>
+                <option value="Other_Crab">Other Crab</option>
+            </optgroup> <!-- Yabbies -->
+            <optgroup label="Yabbies">
+                <option value="Common_Yabby">Common Yabby</option>
+                <option value="Blue_Yabby">Blue Yabby</option>
+                <option value="Murray_Crayfish">Murray Crayfish</option>
+                <option value="Cherax_Destructor">Cherax Destructor</option>
+                <option value="Red_Claw_Crayfish">Red Claw Crayfish</option>
+                <option value="Marbled_Crayfish">Marbled Crayfish</option>
+                <option value="Electric_Blue_Crayfish">Electric Blue Crayfish</option>
+                <option value="Other_Crayfish">Other Crayfish</option>
+            </optgroup> <!-- Snails -->
+            <optgroup label="Snails">
+                <option value="Bladder_Snail">Bladder Snail</option>
+                <option value="Nerite_Snail">Nerite Snail</option>
+                <option value="Ramshorn_Snail">Ramshorn Snail</option>
+                <option value="Mystery_Snail">Mystery Snail</option>
+                <option value="Malaysian_Trumpet_Snail">Malaysian Trumpet Snail</option>
+                <option value="Assassin_Snail">Assassin Snail</option>
+                <option value="Rabbit_Snail">Rabbit Snail</option>
+                <option value="Racer_Snail">Racer Snail</option>
+                <option value="Thiara_Snail">Thiara Snail</option>
+                <option value="Faunus_Snail">Faunus Snail</option>
+                <option value="Broatia_Snail">Broatia Snail</option>
+                <option value="Ivory_Snail">Ivory Snail</option> <!-- Added common freshwater snail -->
+                <option value="Other_Snail">Other Snail</option>
+            </optgroup>
+            <!-- Swordtails -->
+            <optgroup label="Swordtails">
+                <option value="Green_Swordtail">Green Swordtail</option>
+                <option value="Red_Swordtail">Red Swordtail</option>
+                <option value="Pineapple_Swordtail">Pineapple Swordtail</option>
+                <option value="Lyretail_Swordtail">Lyretail Swordtail</option>
+                <option value="Neon_Swordtail">Neon Swordtail</option>
+                <option value="Marigold_Swordtail">Marigold Swordtail</option>
+                <option value="Black_Swordtail">Black Swordtail</option>
+                <option value="Hi-Fin_Swordtail">Hi-Fin Swordtail</option>
+                <option value="Wagtail_Swordtail">Wagtail Swordtail</option>
+                <option value="Albino_Swordtail">Albino Swordtail</option>
+                <option value="Berlin_Swordtail">Berlin Swordtail</option>
+                <option value="Other_Swordtail">Other Swordtail</option>
+            </optgroup>
+            <!-- Tetras -->
+            <optgroup label="Tetras">
+                <option value="Neon_Tetra">Neon Tetra</option>
+                <option value="Cardinal_Tetra">Cardinal Tetra</option>
+                <option value="Black_Skirt_Tetra">Black Skirt Tetra</option>
+                <option value="Ember_Tetra">Ember Tetra</option>
+                <option value="Rummy_Nose_Tetra">Rummy Nose Tetra</option>
+                <option value="Glowlight_Tetra">Glowlight Tetra</option>
+                <option value="Lemon_Tetra">Lemon Tetra</option>
+                <option value="Bloodfin_Tetra">Bloodfin Tetra</option>
+                <option value="Serpae_Tetra">Serpae Tetra</option>
+                <option value="Diamond_Tetra">Diamond Tetra</option>
+                <option value="Silvertip_Tetra">Silvertip Tetra</option>
+                <option value="Congo_Tetra">Congo Tetra</option>
+                <option value="Emperor_Tetra">Emperor Tetra</option>
+                <option value="Flame_Tetra">Flame Tetra</option>
+                <option value="Blue_Tetra">Blue Tetra</option>
+                <option value="Ruby_Tetra">Ruby Tetra</option>
+                <option value="Rainbow_Tetra">Rainbow Tetra</option>
+                <option value="Buenos_Aires_Tetra">Buenos Aires Tetra</option>
+                <option value="Penguin_Tetra">Penguin Tetra</option>
+                <option value="Bleeding_Heart_Tetra">Bleeding Heart Tetra</option>
+                <option value="Redeye_Tetra">Redeye Tetra</option>
+                <option value="Black_Phantom_Tetra">Black Phantom Tetra</option>
+                <option value="Mexican_Tetra">Mexican Tetra</option>
+                <option value="Columbian_Tetra">Columbian Tetra</option>
+                <option value="Panda_Tetra">Panda Tetra</option>
+                <option value="X-Ray_Tetra">X-Ray Tetra</option>
+                <option value="Glowlight_Danio_Tetra">Glowlight Danio Tetra</option>
+                <option value="Other_Tetra">Other Tetra</option>
+                <!-- Added as another popular species -->
+            </optgroup>
+            <optgroup label="Misc. Fish">
+                <option value="Murray_Cod">Murray Cod</option>
+                <option value="Silver_And_Golden_Perch">Silver and Golden Perch </option>
+                <option value="Flying_Fox">Flying Fox</option>
+                <option value="Tandanus_Eel-tailed_Catfish">Tandanus Eel-tailed Catfish</option>
+                <option value="African_Dwarf_Frog">African Dwarf Frog</option>
+            </optgroup>
+
         </select>
         <button id="add-fishButton">+</button>
         <!--button to add fish to list-->
