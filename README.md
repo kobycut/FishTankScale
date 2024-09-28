@@ -24,4 +24,7 @@ The perfect tool for people who want a fish tank but know nothing about fish. Th
   - Lordicon - This outside API will provide an animated Icon for my homepage to make it lively.
 + DB/Login - Keep track of users choices in the database.
 + WebSocket - Keeps the values displayed on the screen updated in real time between the user and the server.
-
+## HTML Deliverable
+This is the beginning of my HTML Deliverable.
+For this deliverable I built out my website using HTML.
++ 
