@@ -31,5 +31,5 @@ For this deliverable I built out my website using HTML.
 - [x] **Links** - There is only one necessary page so there are no links to other pages on my website. However there is a link to my github as well as to a few articles that could be useful to the user.
 - [x] **Text** - Multiple uses of text. Used to describe the webpage and do things such as selecting a tank, filter, or fish.
 - [x] **Images** - Used images for a favicon as well as for a title on the webpage.
-- [ ] **DB/Login** - Each time a specification such as a tank, filter, or fish is added, the database updates the fish tank recommendations.
-- [ ] **WebSocket** - 
+- [x] **DB/Login** - Each time a specification such as a tank, filter, or fish is added, the database provides suggestions and whether or not the fish tank is compatible. Added a login to remember users tanks. The database will hold the user information and remember their choices.
+- [x] **WebSocket** - As the user puts in various specifications, the suggestions and tank compatibility will update in real time through communicating with the server and the database.
