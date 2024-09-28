@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fishtankscale HTML</title>
     <link rel="icon" href="favicon (2).ico" />
-
-    <!-- Function to show custom tank input when "Input Your Own" is selected -->
     <script>
         function toggleCustomTank() {
             var select = document.getElementById("Tanks");
@@ -22,8 +20,6 @@
             }
         }
     </script>
-
-    <!-- Function to show custom GPH input when "Input Your Own" is selected -->
     <script>
         function toggleCustomGPH() {
             var select2 = document.getElementById("FilterGPH");
@@ -39,18 +35,21 @@
 
 <body>
     <header>
-        <h1>FishTankScale<sup></sup></h1>
+        <h1>FishTankScale<sup>
+            </sup></h1>
         <div id="picture" class="picture-box"><img width="200px" src="FishTankScale.png" alt="random" /></div>
+
+
     </header>
 
     <p>
         Welcome to FishTankScale! Input specifications to test out different tank environments and fish varieties.
     </p>
     <hr>
-
-    <h3>Filter Options:</h3>
+    <h3>
+        Filter Options:
+    </h3>
     <div>
-        <!-- Radio buttons for water units and temperature units -->
         <input type="radio" id="Gallons" name="Water_unit" value="Gallons">
         <label for="Gallons">Gallons</label>
         <input type="radio" id="Litres" name="Water_unit" value="Litres">
@@ -65,11 +64,11 @@
         <label for="Inches">Inches</label>
         <input type="radio" id="Centimeters" name="Length_unit" value="Centimeters">
         <label for="Centimeters">Centimeters</label> <br>
+
+
     </div>
     <hr>
-
     <div>
-        <!-- Dropdown for selecting tank size or custom input -->
         <label for="Tanks">Add Tank:</label>
         <select name="Tanks" id="Tanks" onchange="toggleCustomTank()">
             <option value="" disabled selected>Select Tank</option>
@@ -91,23 +90,21 @@
                 <option value="55_gal">55 gal</option>
                 <option value="65_gal">65 gal</option>
                 <option value="75_gal">75 gal</option>
-                <option value="90_gal">90 gal</option>
-                <option value="125_gal">100 gal</option>
+                <option value="100_gal">90 gal</option>
                 <option value="150_gal">150 gal</option>
                 <option value="200_gal">200 gal</option>
-            </optgroup>
-        </select>
 
-        <!-- Hidden custom input for tank size -->
+            </optgroup>
+
+
+        </select>
         <div id="customTankInput" style="display:none;">
             <label for="customTank">Enter your custom tank size (gallons):</label>
             <input type="number" id="customTank" name="customTank" min="1" placeholder="Enter size in gallons">
-
         </div>
     </div>
 
     <div>
-        <!-- Dropdown for selecting filter GPH or custom input -->
         <label for="FilterGPH">Add Filter Flow Rate (GPH)</label>
         <select name="FilterGPH" id="FilterGPH" onchange="toggleCustomGPH()">
             <option value="" disabled selected>Select GPH</option>
@@ -116,64 +113,113 @@
             <option value="30_GPH">30 GPH</option>
             <option value="40_GPH">40 GPH</option>
             <option value="50_GPH">50 GPH</option>
-            <!-- Additional GPH options -->
-        </select>
+            <option value="60_GPH">60 GPH</option>
+            <option value="70_GPH">70 GPH</option>
+            <option value="80_GPH">80 GPH</option>
+            <option value="90_GPH">90 GPH</option>
+            <option value="100_GPH">100 GPH</option>
+            <option value="120_GPH">120 GPH</option>
+            <option value="140_GPH">140 GPH</option>
+            <option value="160_GPH">160 GPH</option>
+            <option value="180_GPH">180 GPH</option>
+            <option value="200_GPH">200 GPH</option>
+            <option value="230_GPH">240 GPH</option>
+            <option value="260_GPH">270 GPH</option>
+            <option value="300_GPH">300 GPH</option>
+            <option value="350_GPH">350 GPH</option>
+            <option value="400_GPH">400 GPH</option>
 
-        <!-- Hidden custom input for filter GPH -->
+
+        </select>
         <div id="customGPHInput" style="display:none;">
             <label for="customGPH">Enter your custom GPH:</label>
             <input type="number" id="customGPH" name="customGPH" min="1" placeholder="Enter GPH">
-
         </div>
+
     </div>
+
+
     <hr>
 
-    <p>Fish Tank</p>
+    <p>
+        Fish Tank
+    </p>
     <div id="container">
-        <!-- Scrollable list where fish are added -->
+        <!--Scrollable list where fish are added-->
         <div id="item-list">
-            <!-- TODO: add fish and their increment/decrement buttons here -->
+            <!--Fish will be added here-->
+            <!--fish names-->
+            <!--fish increment counter-->
+            <!--fish decrement counter-->
+
         </div>
 
-        <!-- Dropdown for selecting fish -->
         <select id="item-select">
+            <!--Dropdown for selecting fish-->
             <option value="" disabled selected>Select Fish</option>
             <option value="Betta">Betta</option>
             <option value="Tetra">Tetra</option>
             <option value="Guppy">Guppy</option>
             <option value="Rasbora">Rasbora</option>
             <option value="African_Dwarf_Frog">African Dwarf Frog</option>
-            <!-- Add more fish options -->
         </select>
         <button id="add-fishButton">+</button>
-        <!-- TODO: Implement functionality to add selected fish to the list -->
+        <!--button to add fish to list-->
     </div>
     <hr>
-
     <div id="recommendations">
-        <h2>Tank Recommendations:</h2>
+        <h2>
+            Tank Recommendations:
+        </h2>
         <div>
+
             <p>Stocking Level: <span id="stocking_level">--%</span></p>
             <p>Filter Capacity: <span id="filter_capacity">--%</span></p>
             <p>Water Temperature: <span id="water_temp">--°F</span></p>
             <p>Water pH: <span id="water_ph">--pH</span></p>
             <p>Water Hardness: <span id="water_hardness">--gpg</span></p>
-            <!-- TODO: update recommendations based on input -->
+
+
+
         </div>
+
     </div>
     <hr>
 
     <div id="suggestions">
-        <h2>Suggestions:</h2>
+        <h2>
+            Suggestions:
+        </h2>
         <textarea id="suggestions-box" readonly rows="5" cols="50">No suggestions yet</textarea>
-        <!-- TODO: generate suggestions based on fish and tank conditions -->
+
     </div>
+    <hr>
+    <div>
+        <h3>
+            Helpful Articles
+        </h3>
+    </div>
+    <div>
+        <a href="https://www.pharmaquatics.com/post/10-stocking-ideas-for-5-10-and-20-gallon-fish-tanks">Stocking
+            Ideas</a>
+    </div>
+    <div>
+        <a
+            href="https://www.freshwatersystems.com/blogs/blog/how-to-cycle-a-fish-tank?srsltid=AfmBOooX6GqRD6-WK5Pd_VpLudLNNjSe99fVrRrcFFiQLmbzNCaTU0iW">Cycling
+            a fish tank</a>
+    </div>
+    <div>
+        <a href="https://www.thesprucepets.com/before-buying-aquarium-1380710">What to know before owning a fish
+            tank</a>
+    </div>
+
+
 </body>
 
 <footer>
     <hr>
     Author: Koby Cutler
     <div>
-        <a href="https://github.com/kobycut/startup">GitHub</a>
+        <a href="https://github.com/kobycut/startup"> GitHub</a>
     </div>
 </footer>
