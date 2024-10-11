@@ -8,6 +8,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fishtankscale HTML</title>
     <link rel="icon" href="favicon (2).ico" />
+    <link rel="stylesheet" href="main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .custom-paragraph {
+
+            font-size: 1.25rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .button-container {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+    </style>
     <script>
         function toggleCustomTank() {
             var select = document.getElementById("Tanks");
@@ -33,54 +55,25 @@
     </script>
 </head>
 
-<body>
+<body class="bg-white text-black">
+    <div class="button-container">
+        <button type="submit" class="btn btn-primary">Login</button>
+    </div>
     <header>
         <!-- <h1>FishTankScale<sup>
             </sup></h1> -->
-        <div id="picture" class="picture-box"><img width="200px" src="FishTankScale.png" alt="random" /></div>
+        <div id="picture" class="d-flex justify-content-center"><img width="200px" src="FishTankScale.png"
+                alt="random" /></div>
 
 
     </header>
 
-    <p>
+    <p class="text-center custom-paragraph">
         Welcome to FishTankScale! Input specifications to test out different tank environments and fish varieties.
     </p>
-    <hr>
-    <form method="get" action=""></form>
-    <div>
-        <span>@
-        </span>
-        <input type="text" placeholder="your@email.com" />
-    </div>
-    <div>
-        <span>🔒</span>
-        <input type="password" placeholder="password" />
-    </div>
-    <button type="submit">Login</button>
-    <button type="submit">Create</button>
-    </form>
-    <!-- <hr> -->
-    <!-- <h3> -->
-    <!-- Filter Options:
-    </h3>
-    <div>
-        <input type="radio" id="Gallons" name="Water_unit" value="Gallons">
-        <label for="Gallons">Gallons</label>
-        <input type="radio" id="Litres" name="Water_unit" value="Litres">
-        <label for="Litres">Litres</label> <br>
-
-        <input type="radio" id="Fahrenheit" name="Temperature_unit" value="Fahrenheit">
-        <label for="Fahrenheit">Fahrenheit</label>
-        <input type="radio" id="Celsius" name="Temperature_unit" value="Celsius">
-        <label for="Celsius">Celsius</label> <br>
-
-        <input type="radio" id="Inches" name="Length_unit" value="Inches">
-        <label for="Inches">Inches</label>
-        <input type="radio" id="Centimeters" name="Length_unit" value="Centimeters">
-        <label for="Centimeters">Centimeters</label> <br>
 
 
-    </div> -->
+
     <hr>
     <div>
         <label for="Tanks">Add Tank:</label>
