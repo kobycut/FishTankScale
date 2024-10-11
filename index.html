@@ -19,15 +19,15 @@
         .custom-paragraph {
 
             font-size: 1.25rem;
-            padding: 10px 20px;
+
             border-radius: 5px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .button-container {
             position: absolute;
-            top: 10px;
-            left: 20px;
+            top: 20px;
+            right: 20px;
         }
     </style>
     <script>
@@ -62,8 +62,8 @@
     <header>
         <!-- <h1>FishTankScale<sup>
             </sup></h1> -->
-        <div id="picture" class="d-flex justify-content-center"><img width="250px" src="FishTankScale.png"
-                alt="random" /></div>
+        <div id="picture" class="d-flex justify-content-center"><img width="250px" src="FishTankScale.png" alt="random"
+                style="margin-top: 20px" /></div>
 
 
     </header>
@@ -75,102 +75,106 @@
 
 
     <hr>
-    <div>
-        <!-- <label for="Tanks">Add Tank:</label> -->
-        <select class="form-select mb-3" name="Tanks" id="Tanks" aria-label="Default select example"
-            onchange="toggleCustomTank()">
-            <option value="" disabled selected>Add Tank</option>
-            <option value="custom">Input Your Own</option>
-            <optgroup label="Small Tanks">
-                <option value="3_gal">3 gal</option>
-                <option value="5_gal">5 gal</option>
-                <option value="10_gal">10 gal</option>
-                <option value="15_gal">15 gal</option>
-            </optgroup>
-            <optgroup label="Medium Tanks">
-                <option value="20_gal">20 gal</option>
-                <option value="25_gal">25 gal</option>
-                <option value="30_gal">30 gal</option>
-                <option value="40_gal">40 gal</option>
-                <option value="50_gal">50 gal</option>
-            </optgroup>
-            <optgroup label="Large Tanks">
-                <option value="55_gal">55 gal</option>
-                <option value="65_gal">65 gal</option>
-                <option value="75_gal">75 gal</option>
-                <option value="100_gal">90 gal</option>
-                <option value="150_gal">150 gal</option>
-                <option value="200_gal">200 gal</option>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
 
-            </optgroup>
+                <select class="form-select mb-2 w-auto" name="Tanks" id="Tanks" aria-label="Default select example"
+                    onchange="toggleCustomTank()">
+                    <option value="" disabled selected>Add Tank</option>
+                    <option value="custom">Input Your Own</option>
+                    <optgroup label="Small Tanks">
+                        <option value="3_gal">3 gal</option>
+                        <option value="5_gal">5 gal</option>
+                        <option value="10_gal">10 gal</option>
+                        <option value="15_gal">15 gal</option>
+                    </optgroup>
+                    <optgroup label="Medium Tanks">
+                        <option value="20_gal">20 gal</option>
+                        <option value="25_gal">25 gal</option>
+                        <option value="30_gal">30 gal</option>
+                        <option value="40_gal">40 gal</option>
+                        <option value="50_gal">50 gal</option>
+                    </optgroup>
+                    <optgroup label="Large Tanks">
+                        <option value="55_gal">55 gal</option>
+                        <option value="65_gal">65 gal</option>
+                        <option value="75_gal">75 gal</option>
+                        <option value="100_gal">90 gal</option>
+                        <option value="150_gal">150 gal</option>
+                        <option value="200_gal">200 gal</option>
 
-
-        </select>
-        <div id="customTankInput" style="display:none;">
-            <label for="customTank">Enter your custom tank size (gallons):</label>
-            <input type="number" id="customTank" name="customTank" min="1" placeholder="Enter size in gallons">
-        </div>
-    </div>
-
-    <div>
-        <label for="FilterGPH">Add Filter Flow Rate (GPH)</label>
-        <select name="FilterGPH" id="FilterGPH" onchange="toggleCustomGPH()">
-            <option value="" disabled selected>Select GPH</option>
-            <option value="custom">Input Your Own</option>
-            <option value="20_GPH">20 GPH</option>
-            <option value="30_GPH">30 GPH</option>
-            <option value="40_GPH">40 GPH</option>
-            <option value="50_GPH">50 GPH</option>
-            <option value="60_GPH">60 GPH</option>
-            <option value="70_GPH">70 GPH</option>
-            <option value="80_GPH">80 GPH</option>
-            <option value="90_GPH">90 GPH</option>
-            <option value="100_GPH">100 GPH</option>
-            <option value="120_GPH">120 GPH</option>
-            <option value="140_GPH">140 GPH</option>
-            <option value="160_GPH">160 GPH</option>
-            <option value="180_GPH">180 GPH</option>
-            <option value="200_GPH">200 GPH</option>
-            <option value="230_GPH">240 GPH</option>
-            <option value="260_GPH">270 GPH</option>
-            <option value="300_GPH">300 GPH</option>
-            <option value="350_GPH">350 GPH</option>
-            <option value="400_GPH">400 GPH</option>
+                    </optgroup>
 
 
-        </select>
-        <textarea id="recommended-GPH" readonly rows="1" cols="30"></textarea>
-        <!--if tank size selected, recommend 4 times the tank size for gph.-->
-        <div id="customGPHInput" style="display:none;">
-            <label for="customGPH">Enter your custom GPH:</label>
-            <input type="number" id="customGPH" name="customGPH" min="1" placeholder="Enter GPH">
-        </div>
+                </select>
+                <div id="customTankInput" style="display:none;">
+                    <label for="customTank">Enter your custom tank size (gallons):</label>
+                    <input type="number" id="customTank" name="customTank" min="1" placeholder="Enter size in gallons">
+                </div>
 
-    </div>
+                <!-- <label for="FilterGPH">Add Filter Flow Rate (GPH)</label> -->
+
+                <select class="form-select mb-3 w-auto" name="FilterGPH" id="FilterGPH"
+                    aria-label="Default select example" onchange="toggleCustomGPH()">
+                    <option value="" disabled selected>Select GPH</option>
+                    <option value="custom">Input Your Own</option>
+                    <option value="20_GPH">20 GPH</option>
+                    <option value="30_GPH">30 GPH</option>
+                    <option value="40_GPH">40 GPH</option>
+                    <option value="50_GPH">50 GPH</option>
+                    <option value="60_GPH">60 GPH</option>
+                    <option value="70_GPH">70 GPH</option>
+                    <option value="80_GPH">80 GPH</option>
+                    <option value="90_GPH">90 GPH</option>
+                    <option value="100_GPH">100 GPH</option>
+                    <option value="120_GPH">120 GPH</option>
+                    <option value="140_GPH">140 GPH</option>
+                    <option value="160_GPH">160 GPH</option>
+                    <option value="180_GPH">180 GPH</option>
+                    <option value="200_GPH">200 GPH</option>
+                    <option value="230_GPH">240 GPH</option>
+                    <option value="260_GPH">270 GPH</option>
+                    <option value="300_GPH">300 GPH</option>
+                    <option value="350_GPH">350 GPH</option>
+                    <option value="400_GPH">400 GPH</option>
 
 
-    <hr>
+                </select>
 
-    <h1>
-        Fish Tank
-    </h1>
-    <div id="container">
-        <!--Scrollable list where fish are added-->
-        <div id="item-list">
-            <!--Fish will be added here-->
-            <!--fish names-->
-            <!--fish increment counter-->
-            <!--fish decrement counter-->
+                <!--if tank size selected, recommend 4 times the tank size for gph.-->
+                <div id="customGPHInput" style="display:none;">
+                    <label for="customGPH">Enter your custom GPH:</label>
+                    <input type="number" id="customGPH" name="customGPH" min="1" placeholder="Enter GPH">
+                </div>
 
-        </div>
-        <input type="text" id="search-bar" placeholder="Search for fish..." onkeyup="filterOptions()">
-        <br>
-        <select id="item-select">
-            <!--Dropdown for selecting fish-->
-            <option value="" disabled selected>Select Fish</option>
+            </div>
 
-            <!-- Angelfish -->
-            <!-- <optgroup label="Angelfish">
+
+
+
+            <div class="col-md-8 d-flex justify-content-center align-items-center">
+                <div class="fish_tank-container text-center">
+                    <h3>Your Fish Tank</h3>
+                    <div class="container bg-secondary border border-dark rounded w- h-" id="container">
+
+                        <!--Scrollable list where fish are added-->
+                        <div id="item-list">
+                            <!--Fish will be added here-->
+                            <!--fish names-->
+                            <!--fish increment counter-->
+                            <!--fish decrement counter-->
+
+                        </div>
+                        <input class="input-group" type="text" id="search-bar" placeholder="Search for fish..."
+                            onkeyup="filterOptions()">
+                        <br>
+                        <select class="form-select w-auto" id="item-select">
+                            <!--Dropdown for selecting fish-->
+                            <option value="" disabled selected>Select Fish</option>
+
+                            <!-- Angelfish -->
+                            <!-- <optgroup label="Angelfish">
                 <option value="Silver_Angelfish">Silver Angelfish</option>
                 <option value="Golden_Angelfish">Golden Angelfish</option>
                 <option value="Black_Angelfish">Black Angelfish</option>
@@ -184,8 +188,8 @@
             </optgroup> -->
 
 
-            <!-- Barbs-->
-            <!-- <optgroup label="Barbs">
+                            <!-- Barbs-->
+                            <!-- <optgroup label="Barbs">
                 <option value="Tiger_Barb">Tiger Barb</option>
                 <option value="Cherry_Barb">Cherry Barb</option>
                 <option value="Clown_Barb">Clown Barb</option>
@@ -200,13 +204,13 @@
                 <option value="Other_Barb">Other Barb</option>
             </optgroup> -->
 
-            <!--Bettas-->
-            <optgroup label="Bettas">
-                <option value="Betta_Female">Female Betta</option>
-                <option value="Betta_Male">Male Betta</option>
-            </optgroup>
-            <!-- Plecos -->
-            <!-- <optgroup label="Plecos">
+                            <!--Bettas-->
+                            <optgroup label="Bettas">
+                                <option value="Betta_Female">Female Betta</option>
+                                <option value="Betta_Male">Male Betta</option>
+                            </optgroup>
+                            <!-- Plecos -->
+                            <!-- <optgroup label="Plecos">
                 <option value="Zebra_Pleco">Zebra Pleco</option>
                 <option value="Leopard_Frog_Pleco">Leopard Frog Pleco</option>
                 <option value="Gold_Nugget_Pleco">Gold Nugget Pleco</option>
@@ -221,8 +225,8 @@
             </optgroup> -->
 
 
-            <!--Corydoras-->
-            <!-- <optgroup label="Corydoras">
+                            <!--Corydoras-->
+                            <!-- <optgroup label="Corydoras">
                 <option value="Bandit_Cory">Bandit Cory</option>
                 <option value="Bronze_Cory">Bronze Cory</option>
                 <option value="Julii_Cory">Julii Cory</option>
@@ -243,8 +247,8 @@
 
 
 
-            <!--Danios-->
-            <!-- <optgroup label="Danios">
+                            <!--Danios-->
+                            <!-- <optgroup label="Danios">
                 <option value="Zebra_Danio">Zebra Danio</option>
                 <option value="Leopard_Danio">Leopard Danio</option>
                 <option value="Glofish_Danio">GloFish Danio</option>
@@ -255,8 +259,8 @@
                 <option value="Other_Danio">Other Danio</option>
             </optgroup> -->
 
-            <!--Discus-->
-            <!-- <optgroup label="Discus">
+                            <!--Discus-->
+                            <!-- <optgroup label="Discus">
                 <option value="Blue_Discus">Blue Discus</option>
                 <option value="Red_Discus">Red Discus</option>
                 <option value="Green_Discus">Green Discus</option>
@@ -270,8 +274,8 @@
             </optgroup> -->
 
 
-            <!--Eels-->
-            <!-- <optgroup label="Eels">
+                            <!--Eels-->
+                            <!-- <optgroup label="Eels">
                 <option value="African_Eel">African Eel</option>
                 <option value="Tire_Track_Eel">Tire Track Eel</option>
                 <option value="Rainbow_Eel">Rainbow Eel</option>
@@ -286,24 +290,24 @@
 
 
 
-            <!-- Goldfish-->
-            <!-- <optgroup label="Goldfish">
+                            <!-- Goldfish-->
+                            <!-- <optgroup label="Goldfish">
                 <option value="Common_Goldfish">Common Goldfish</option>
                 <option value="Fancy_Goldfish">Fancy Goldfish</option>
             </optgroup> -->
-            <!-- Gouramis-->
-            <optgroup label="Gouramis">
-                <option value="Dwarf_Gourami">Dwarf Gourami</option>
-                <!-- <option value="Honey_Gourami">Honey Gourami</option>
+                            <!-- Gouramis-->
+                            <optgroup label="Gouramis">
+                                <option value="Dwarf_Gourami">Dwarf Gourami</option>
+                                <!-- <option value="Honey_Gourami">Honey Gourami</option>
                 <option value="Powder_Blue_Gourami">Powder Blue Gourami</option>
                 <option value="Flame_Gourami">Flame Gourami</option>
                 <option value="Neon_Gourami">Neon Gourami</option>
                 <option value="Super_Dwarf_Gourami">Super Dwarf Gourami</option>
                 <option value="Other_Gourami">Other Gourami</option> -->
-            </optgroup>
+                            </optgroup>
 
-            <!--Gudgeons-->
-            <!-- <optgroup label="Gudgeons">
+                            <!--Gudgeons-->
+                            <!-- <optgroup label="Gudgeons">
                 <option value="Spotted_Gudgeon">Spotted Gudgeon</option>
                 <option value="Murray_Cod_Gudgeon">Murray Cod Gudgeon</option>
                 <option value="Flat_Headed_Gudgeon">Flat-Headed Gudgeon</option>
@@ -313,10 +317,10 @@
                 <option value="Eastern_Gudgeon">Eastern Gudgeon</option>
                 <option value="Other_Gudgeon">Other Gudgeon</option>
             </optgroup> -->
-            <!--Guppys-->
-            <optgroup label="Guppys">
-                <option value="Fancy_Guppy">Fancy Guppy</option>
-                <!-- <option value="Endler_Guppy">Endler Guppy</option>
+                            <!--Guppys-->
+                            <optgroup label="Guppys">
+                                <option value="Fancy_Guppy">Fancy Guppy</option>
+                                <!-- <option value="Endler_Guppy">Endler Guppy</option>
                 <option value="Rainbow_Guppy">Rainbow Guppy</option>
                 <option value="Moscow_Guppy">Moscow Guppy</option>
                 <option value="Snakeskin_Guppy">Snakeskin Guppy</option>
@@ -325,9 +329,9 @@
                 <option value="Yellow_Guppy">Yellow Guppy</option>
                 <option value="Dragon_Guppy">Dragon Guppy</option>
                 <option value="Other_Guppy">Other Guppy</option> -->
-            </optgroup>
-            <!--Killifish-->
-            <!-- <optgroup label="Killifish">
+                            </optgroup>
+                            <!--Killifish-->
+                            <!-- <optgroup label="Killifish">
                 <option value="Lampeye_Killifish">Lampeye Killifish</option>
                 <option value="Golden_Killifish">Golden Killifish</option>
                 <option value="Banded_Killifish">Banded Killifish</option>
@@ -339,8 +343,8 @@
                 <option value="Jungle_Killifish">Jungle Killifish</option>
                 <option value="Other_Killifish">Other Killifish</option>
             </optgroup> -->
-            <!--Loaches-->
-            <!-- <optgroup label="Loaches">
+                            <!--Loaches-->
+                            <!-- <optgroup label="Loaches">
                 <option value="Clown_Loach">Clown Loach</option>
                 <option value="Yo_yo_Loach">Yo-yo Loach</option>
                 <option value="Kuhli_Loach">Kuhli Loach</option>
@@ -353,9 +357,9 @@
                 <option value="Botia_Loach">Botia Loach</option>
                 <option value="Golden_Loach">Golden Loach</option>
                 <option value="Other_Loach">Other Loach</option> -->
-            </optgroup>
-            <!--Mollies-->
-            <!-- <optgroup label="Mollies">
+                            </optgroup>
+                            <!--Mollies-->
+                            <!-- <optgroup label="Mollies">
                 <option value="Black_Molly">Black Molly</option>
                 <option value="Sailfin_Molly">Sailfin Molly</option>
                 <option value="Dalmatian_Molly">Dalmatian Molly</option>
@@ -371,8 +375,8 @@
             </optgroup> -->
 
 
-            <!--Oscars and Large Cichlids-->
-            <!-- <optgroup label="Oscars and Large Cichlids">
+                            <!--Oscars and Large Cichlids-->
+                            <!-- <optgroup label="Oscars and Large Cichlids">
                 <option value="Oscar">Oscar</option>
                 <option value="Tiger_Oscar">Tiger Oscar</option>
                 <option value="Red_Oscar">Red Oscar</option>
@@ -393,12 +397,12 @@
 
 
 
-            <!-- Plants-->
-            <!-- <optgroup label="Plants">
+                            <!-- Plants-->
+                            <!-- <optgroup label="Plants">
                 <option value="Plants">Plant</option>
             </optgroup> -->
-            <!-- Platys-->
-            <!-- <optgroup label="Platys">
+                            <!-- Platys-->
+                            <!-- <optgroup label="Platys">
                 <option value="Sunset_Platy">Sunset Platy</option>
                 <option value="Red_Platy">Red Platy</option>
                 <option value="Blue_Platy">Blue Platy</option>
@@ -414,8 +418,8 @@
                 <option value="Other_Platy">Other Platy</option>
             </optgroup> -->
 
-            <!-- Rainbowfish-->
-            <!-- <optgroup label="Rainbowfish">
+                            <!-- Rainbowfish-->
+                            <!-- <optgroup label="Rainbowfish">
                 <option value="Forktail_Rainbowfish">Forktail Rainbowfish</option>
                 <option value="Red_Neon_Rainbowfish">Red Neon Rainbowfish</option>
                 <option value="Threadfin_Rainbowfish">Threadfin Rainbowfish</option>
@@ -427,10 +431,10 @@
                 <option value="Red_Rainbowfish">Red Rainbowfish</option>
                 <option value="Lake_Tebera_Rainbowfish">Lake Tebera Rainbowfish</option>
                 <option value="Other_Rainbowfish">Other Rainbowfish</option> -->
-            </optgroup> <!-- Rasboras -->
-            <optgroup label="Rasboras">
-                <option value="Harlequin_Rasbora">Harlequin Rasbora</option>
-                <!-- <option value="Lambchop_Rasbora">Lambchop Rasbora</option>
+                            </optgroup> <!-- Rasboras -->
+                            <optgroup label="Rasboras">
+                                <option value="Harlequin_Rasbora">Harlequin Rasbora</option>
+                                <!-- <option value="Lambchop_Rasbora">Lambchop Rasbora</option>
                 <option value="Scissortail_Rasbora">Scissortail Rasbora</option>
                 <option value="Galaxy_Rasbora">Galaxy Rasbora</option>
                 <option value="Rasbora_Espei">Rasbora Espei</option>
@@ -446,9 +450,9 @@
                 <option value="Asian_Rummy-Nose_Rasbora">Asian Rummy-Nose Rasbora</option>
                 <option value="Clown_Rasbora">Clown Rasbora</option>
                 <option value="Other_Rasbora">Other Rasbora</option> -->
-            </optgroup>
-            <!-- Arowanas-->
-            <!-- <optgroup label="Arowanas">
+                            </optgroup>
+                            <!-- Arowanas-->
+                            <!-- <optgroup label="Arowanas">
                 <option value="Asian Arowana">Asian Arowana</option>
                 <option value="Silver Arowana">Silver Arowana</option>
                 <option value="Black Arowana">Black Arowana</option>
@@ -458,8 +462,8 @@
                 <option value="Gold Arowana">Gold Arowana</option>
                 <option value="Other Arowana">Other Arowana</option>
             </optgroup> -->
-            <!-- Sharks -->
-            <!-- <optgroup label="Sharks">
+                            <!-- Sharks -->
+                            <!-- <optgroup label="Sharks">
                 <option value="Rainbow_Shark">Rainbow Shark</option>
                 <option value="Red_Tail_Shark">Red Tail Shark</option>
                 <option value="Harlequin">Harlequin Shark</option>
@@ -473,8 +477,8 @@
             </optgroup> -->
 
 
-            <!-- Silver Dollars -->
-            <!-- <optgroup label="Silver Dollars">
+                            <!-- Silver Dollars -->
+                            <!-- <optgroup label="Silver Dollars">
                 <option value="Silver_Dollar_Metynnis">Silver Dollar</option>
                 <option value="Silver_Dollar_Red_Hook">Red Hook Silver Dollar</option>
                 <option value="Silver_Dollar_Tetra">Tetra Silver Dollar</option>
@@ -483,11 +487,11 @@
                 <option value="Silver_Dollar_Tin_Foil">Tin Foil Silver Dollar</option>
                 <option value="Other_Silver_Dollar">Other Silver Dollar</option>
             </optgroup> -->
-            <!-- Shrimp -->
-            <optgroup label="Shrimp">
-                <option value="Cherry_Shrimp">Cherry Shrimp</option>
-                <option value="Amano_Shrimp">Amano Shrimp</option>
-                <!-- <option value="Ghost_Shrimp">Ghost Shrimp</option>
+                            <!-- Shrimp -->
+                            <optgroup label="Shrimp">
+                                <option value="Cherry_Shrimp">Cherry Shrimp</option>
+                                <option value="Amano_Shrimp">Amano Shrimp</option>
+                                <!-- <option value="Ghost_Shrimp">Ghost Shrimp</option>
                 <option value="Bamboo_Shrimp">Bamboo Shrimp</option>
                 <option value="Blue_Velvet_Shrimp">Blue Velvet Shrimp</option>
                 <option value="Crystal_Red_Shrimp">Crystal Red Shrimp</option>
@@ -496,17 +500,17 @@
                 <option value="Blue_Dream_Shrimp">Blue Dream Shrimp</option>
                 <option value="Snowball_Shrimp">Snowball Shrimp</option>
                 <option value="Other_Shrimp">Other Shrimp</option> -->
-            </optgroup> <!-- Crabs -->
-            <optgroup label="Crabs">
-                <option value="Fiddler_Crab">Fiddler Crab</option>
-                <!-- <option value="Red_Claw_Crab">Red Claw Crab</option>
+                            </optgroup> <!-- Crabs -->
+                            <optgroup label="Crabs">
+                                <option value="Fiddler_Crab">Fiddler Crab</option>
+                                <!-- <option value="Red_Claw_Crab">Red Claw Crab</option>
                 <option value="Thai_Micro_Crab">Thai Micro Crab</option>
                 <option value="Panther_Crab">Panther Crab</option>
                 <option value="Rainbow_Crab">Rainbow Crab</option>
                 <option value="Matano_Crab">Matano Crab</option>
                 <option value="Other_Crab">Other Crab</option> -->
-            </optgroup> <!-- Yabbies -->
-            <!-- <optgroup label="Yabbies">
+                            </optgroup> <!-- Yabbies -->
+                            <!-- <optgroup label="Yabbies">
                 <option value="Common_Yabby">Common Yabby</option>
                 <option value="Blue_Yabby">Blue Yabby</option>
                 <option value="Murray_Crayfish">Murray Crayfish</option>
@@ -515,11 +519,11 @@
                 <option value="Marbled_Crayfish">Marbled Crayfish</option>
                 <option value="Electric_Blue_Crayfish">Electric Blue Crayfish</option>
                 <option value="Other_Crayfish">Other Crayfish</option> -->
-            </optgroup> <!-- Snails -->
-            <optgroup label="Snails">
-                <!-- <option value="Bladder_Snail">Bladder Snail</option> -->
-                <option value="Nerite_Snail">Nerite Snail</option>
-                <!-- <option value="Ramshorn_Snail">Ramshorn Snail</option>
+                            </optgroup> <!-- Snails -->
+                            <optgroup label="Snails">
+                                <!-- <option value="Bladder_Snail">Bladder Snail</option> -->
+                                <option value="Nerite_Snail">Nerite Snail</option>
+                                <!-- <option value="Ramshorn_Snail">Ramshorn Snail</option>
                 <option value="Mystery_Snail">Mystery Snail</option>
                 <option value="Malaysian_Trumpet_Snail">Malaysian Trumpet Snail</option>
                 <option value="Assassin_Snail">Assassin Snail</option>
@@ -529,10 +533,10 @@
                 <option value="Faunus_Snail">Faunus Snail</option>
                 <option value="Broatia_Snail">Broatia Snail</option>
                 <option value="Ivory_Snail">Ivory Snail</option> <!-- Added common freshwater snail -->
-                <!-- <option value="Other_Snail">Other Snail</option> --> -->
-            </optgroup>
-            <!-- Swordtails -->
-            <!-- <optgroup label="Swordtails">
+                                <!-- <option value="Other_Snail">Other Snail</option> --> -->
+                            </optgroup>
+                            <!-- Swordtails -->
+                            <!-- <optgroup label="Swordtails">
                 <option value="Green_Swordtail">Green Swordtail</option>
                 <option value="Red_Swordtail">Red Swordtail</option>
                 <option value="Pineapple_Swordtail">Pineapple Swordtail</option>
@@ -546,11 +550,11 @@
                 <option value="Berlin_Swordtail">Berlin Swordtail</option>
                 <option value="Other_Swordtail">Other Swordtail</option>
             </optgroup> -->
-            <!-- Tetras -->
-            <optgroup label="Tetras">
-                <option value="Neon_Tetra">Neon Tetra</option>
-                <option value="Cardinal_Tetra">Cardinal Tetra</option>
-                <!-- <option value="Black_Skirt_Tetra">Black Skirt Tetra</option>
+                            <!-- Tetras -->
+                            <optgroup label="Tetras">
+                                <option value="Neon_Tetra">Neon Tetra</option>
+                                <option value="Cardinal_Tetra">Cardinal Tetra</option>
+                                <!-- <option value="Black_Skirt_Tetra">Black Skirt Tetra</option>
                 <option value="Ember_Tetra">Ember Tetra</option>
                 <option value="Rummy_Nose_Tetra">Rummy Nose Tetra</option>
                 <option value="Glowlight_Tetra">Glowlight Tetra</option>
@@ -576,69 +580,70 @@
                 <option value="X-Ray_Tetra">X-Ray Tetra</option>
                 <option value="Glowlight_Danio_Tetra">Glowlight Danio Tetra</option>
                 <option value="Other_Tetra">Other Tetra</option> -->
-                <!-- Added as another popular species -->
-            </optgroup>
-            <optgroup label="Misc. Fish">
-                <!-- <option value="Murray_Cod">Murray Cod</option>
+                                <!-- Added as another popular species -->
+                            </optgroup>
+                            <optgroup label="Misc. Fish">
+                                <!-- <option value="Murray_Cod">Murray Cod</option>
                 <option value="Silver_And_Golden_Perch">Silver and Golden Perch </option>
                 <option value="Flying_Fox">Flying Fox</option>
                 <option value="Tandanus_Eel-tailed_Catfish">Tandanus Eel-tailed Catfish</option> -->
-                <option value="African_Dwarf_Frog">African Dwarf Frog</option>
-            </optgroup>
+                                <option value="African_Dwarf_Frog">African Dwarf Frog</option>
+                            </optgroup>
 
-        </select>
-        <button id="add_fishButton">+</button>
-        <!--button to add fish to list-->
-    </div>
-    <div>
-        <button id="save_tank">Save Tank</button>
-    </div>
-    <hr>
-    <div id="recommendations">
-        <h2>
-            Tank Recommendations:
-        </h2>
-        <div>
+                        </select>
+                        <button id="add_fishButton">+</button>
+                        <!--button to add fish to list-->
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button id="save_tank">Save Tank</button>
+            </div>
+            <div id="recommendations">
+                <h2>
+                    Tank Recommendations:
+                </h2>
+                <div>
 
-            <p>Stocking Level: <span id="stocking_level">--%</span></p>
-            <p>Filter Capacity: <span id="filter_capacity">--%</span></p>
-            <p>Water Temperature: <span id="water_temp">--°F</span></p>
-            <p>Water pH: <span id="water_ph">--pH</span></p>
-            <p>Water Hardness: <span id="water_hardness">--gpg</span></p>
+                    <p>Stocking Level: <span id="stocking_level">--%</span></p>
+                    <p>Filter Capacity: <span id="filter_capacity">--%</span></p>
+                    <p>Water Temperature: <span id="water_temp">--°F</span></p>
+                    <p>Water pH: <span id="water_ph">--pH</span></p>
+                    <p>Water Hardness: <span id="water_hardness">--gpg</span></p>
 
 
 
-        </div>
+                </div>
 
-    </div>
-    <hr>
+            </div>
+            <hr>
 
-    <div id="suggestions">
-        <h2>
-            Suggestions:
-        </h2>
-        <textarea id="suggestions-box" readonly rows="5" cols="50">No suggestions yet</textarea>
+            <div id="suggestions">
+                <h2>
+                    Suggestions:
+                </h2>
+                <textarea id="suggestions-box" readonly rows="5" cols="50">No suggestions yet</textarea>
 
-    </div>
-    <hr>
-    <div>
-        <h3>
-            Helpful Articles
-        </h3>
-    </div>
-    <div>
-        <a href="https://www.pharmaquatics.com/post/10-stocking-ideas-for-5-10-and-20-gallon-fish-tanks">Stocking
-            Ideas</a>
-    </div>
-    <div>
-        <a
-            href="https://www.freshwatersystems.com/blogs/blog/how-to-cycle-a-fish-tank?srsltid=AfmBOooX6GqRD6-WK5Pd_VpLudLNNjSe99fVrRrcFFiQLmbzNCaTU0iW">Cycling
-            a fish tank</a>
-    </div>
-    <div>
-        <a href="https://www.thesprucepets.com/before-buying-aquarium-1380710">What to know before owning a fish
-            tank</a>
-    </div>
+            </div>
+            <hr>
+            <div>
+                <h3>
+                    Helpful Articles
+                </h3>
+            </div>
+            <div>
+                <a href="https://www.pharmaquatics.com/post/10-stocking-ideas-for-5-10-and-20-gallon-fish-tanks">Stocking
+                    Ideas</a>
+            </div>
+            <div>
+                <a
+                    href="https://www.freshwatersystems.com/blogs/blog/how-to-cycle-a-fish-tank?srsltid=AfmBOooX6GqRD6-WK5Pd_VpLudLNNjSe99fVrRrcFFiQLmbzNCaTU0iW">Cycling
+                    a fish tank</a>
+            </div>
+            <div>
+                <a href="https://www.thesprucepets.com/before-buying-aquarium-1380710">What to know before owning a fish
+                    tank</a>
+            </div>
 
 
 </body>
