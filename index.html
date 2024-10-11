@@ -62,7 +62,7 @@
     <header>
         <!-- <h1>FishTankScale<sup>
             </sup></h1> -->
-        <div id="picture" class="d-flex justify-content-center"><img width="200px" src="FishTankScale.png"
+        <div id="picture" class="d-flex justify-content-center"><img width="250px" src="FishTankScale.png"
                 alt="random" /></div>
 
 
@@ -76,9 +76,10 @@
 
     <hr>
     <div>
-        <label for="Tanks">Add Tank:</label>
-        <select name="Tanks" id="Tanks" onchange="toggleCustomTank()">
-            <option value="" disabled selected>Select Tank</option>
+        <!-- <label for="Tanks">Add Tank:</label> -->
+        <select class="form-select mb-3" name="Tanks" id="Tanks" aria-label="Default select example"
+            onchange="toggleCustomTank()">
+            <option value="" disabled selected>Add Tank</option>
             <option value="custom">Input Your Own</option>
             <optgroup label="Small Tanks">
                 <option value="3_gal">3 gal</option>
