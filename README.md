@@ -33,3 +33,11 @@ For this deliverable I built out my website using HTML.
 - [x] **Images** - Used images for a favicon as well as for a title on the webpage.
 - [x] **DB/Login** - Each time a specification such as a tank, filter, or fish is added, the database provides suggestions and whether or not the fish tank is compatible. Added a login to remember users tanks. The database will hold the user information and remember their choices.
 - [x] **WebSocket** - As the user puts in various specifications, the suggestions and tank compatibility will update in real time through communicating with the server and the database.
+## CSS Deliverable
+In this deliverable I finalized the style for the website.
+- [x] **Header, footer, and main content body** - The header, footer, and the main content body have been formatted to increase readability and functionality.
+- [x] **Navigation elements** - I updated the css to make the links into nicer looking boxes that can easily be navigated. This was done on the helpful articles section of my website.
+- [x] **Responsive to window resizing** - Using flex the website is able to fit and look nice in any screen format/size.
+- [x] **Application elements** - The components of my website are formatted and spaced out in a way that looks pleasing.
+- [x] **Application text content** - Font of all my text is Roboto, this keeps the text consistent and looking nice.
+- [x] **Application images** - The image has been formatted with flex to adjust size to any screen as well as added some CSS to make it look better. 
