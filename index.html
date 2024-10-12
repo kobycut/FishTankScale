@@ -14,7 +14,9 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
+
         }
+
 
         .custom-paragraph {
 
@@ -40,6 +42,14 @@
         .list-group-item {
             background-color: azure;
             width: 100%;
+        }
+
+        #FilterGPH {
+            background-color: azure;
+        }
+
+        #Tanks {
+            background-color: azure;
         }
     </style>
     <script>
@@ -89,10 +99,10 @@
     <hr>
     <div class="container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2 d-flex flex-column">
 
-                <select class="form-select mb-2 w-auto" name="Tanks" id="Tanks" aria-label="Default select example"
-                    onchange="toggleCustomTank()">
+                <select class="form-select-lg mb-3 w-auto mt-5" name="Tanks" id="Tanks"
+                    aria-label="Default select example" onchange="toggleCustomTank()">
                     <option value="" disabled selected>Add Tank</option>
                     <option value="custom">Input Your Own</option>
                     <optgroup label="Small Tanks">
@@ -127,7 +137,7 @@
 
                 <!-- <label for="FilterGPH">Add Filter Flow Rate (GPH)</label> -->
 
-                <select class="form-select mb-3 w-auto" name="FilterGPH" id="FilterGPH"
+                <select class="form-select-lg mb-5 w-auto " name="FilterGPH" id="FilterGPH"
                     aria-label="Default select example" onchange="toggleCustomGPH()">
                     <option value="" disabled selected>Select GPH</option>
                     <option value="custom">Input Your Own</option>
@@ -159,26 +169,27 @@
                     <label for="customGPH">Enter your custom GPH:</label>
                     <input type="number" id="customGPH" name="customGPH" min="1" placeholder="Enter GPH">
                 </div>
-
+                <button class="btn btn-success mt-2">Save Tank</button>
             </div>
 
 
 
 
-            <div class="outer-container col-md-8 d-flex align-items-start">
-                
+            <div class="outer-container col-md-9 d-flex align-items-start ">
+
 
 
                 <div class="fish_tank-container text-center w-100">
-                    
+
                     <h3 class="mb-3">
                         Your Fish Tank
                     </h3>
                     <div class="dropdown">
-                        <input type="text" id="search-select" class="form-control mt-2 w-auto"
-                            placeholder="Search for a fish" onkeyup="filterSelectOptions()">
+                        <input type="text" id="search-select" class="form-control mt-2 w-auto" name="searchforfish"
+                            style="background-color: azure;" placeholder="Search for a fish"
+                            onkeyup="filterSelectOptions()">
 
-                        <select class="form-control w-auto mt-1" id="item-select">
+                        <select class="form-control w-auto mt-1" id="item-select" style="background-color: azure;">
 
                             <!--Dropdown for selecting fish-->
                             <option value="" disabled selected>Choose a fish to add</option>
@@ -602,7 +613,7 @@
                             </optgroup>
 
                         </select>
-                        
+
 
                     </div>
 
@@ -629,28 +640,30 @@
 
                     </div>
                 </div>
-            </div>
-            
-                
-            
-            <div id="recommendations">
-                <h2>
-                    Tank Recommendations:
-                </h2>
-                <div>
+                <div class="outer-container col-md-2">
+                    <div id="recommendations" class="recommendations-container">
+                        <h2>
+                            Tank Recommendations:
+                        </h2>
+                        <div>
 
-                    <p>Stocking Level: <span id="stocking_level">--%</span></p>
-                    <p>Filter Capacity: <span id="filter_capacity">--%</span></p>
-                    <p>Water Temperature: <span id="water_temp">--°F</span></p>
-                    <p>Water pH: <span id="water_ph">--pH</span></p>
-                    <p>Water Hardness: <span id="water_hardness">--gpg</span></p>
+                            <p>Stocking Level: <span id="stocking_level">--%</span></p>
+                            <p>Filter Capacity: <span id="filter_capacity">--%</span></p>
+                            <p>Water Temperature: <span id="water_temp">--°F</span></p>
+                            <p>Water pH: <span id="water_ph">--pH</span></p>
+                            <p>Water Hardness: <span id="water_hardness">--gpg</span></p>
 
 
+
+                        </div>
+                    </div>
 
                 </div>
-
             </div>
-            <hr>
+
+
+
+
 
             <div id="suggestions">
                 <h2>
