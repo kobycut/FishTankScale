@@ -168,14 +168,21 @@
             <div class="outer-container col-md-8 d-flex align-items-start">
                 
 
+
                 <div class="fish_tank-container text-center w-100">
-                    <h3 class="mb-3">Your Fish Tank</h3>
+                    
+                    <h3 class="mb-3">
+                        Your Fish Tank
+                    </h3>
                     <div class="dropdown">
                         <input type="text" id="search-select" class="form-control mt-2 w-auto"
                             placeholder="Search for a fish" onkeyup="filterSelectOptions()">
+
                         <select class="form-control w-auto mt-1" id="item-select">
+
                             <!--Dropdown for selecting fish-->
                             <option value="" disabled selected>Choose a fish to add</option>
+
 
                             <!-- Angelfish -->
                             <!-- <optgroup label="Angelfish">
@@ -595,10 +602,12 @@
                             </optgroup>
 
                         </select>
+                        
 
                     </div>
 
-                    <br>
+                    <button class="btn btn-success ms-2" id="add-fish-button">+</button>
+                    <button class="btn btn-danger ms-2" id="decrement-fish-button">-</button>
                     <div class="container align-items-start" id="container">
 
 
@@ -606,7 +615,7 @@
 
 
                         <!--Scrollable list where fish are added-->
-                        <ul class="list-group align-items-start" id="item-list">
+                        <ul class="list-group align-items-start mt-3" id="item-list">
                             <li class="list-group-item">African Dwarf Frog</li>
                             <li class="list-group-item">Mickey_Mouse_Platy</li>
                             <li class="list-group-item">Rasbora_Espei</li>
@@ -617,14 +626,13 @@
                             <!--fish decrement counter-->
 
                         </ul>
-                        <button id="add_fishButton">+</button>
-                        <!--button to add fish to list-->
+
                     </div>
                 </div>
             </div>
-            <div>
-                <button id="save_tank">Save Tank</button>
-            </div>
+            
+                
+            
             <div id="recommendations">
                 <h2>
                     Tank Recommendations:
