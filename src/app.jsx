@@ -24,6 +24,18 @@ export default function App() {
 
                 <main>App components go here</main>
 
+                <Routes>
+                    <Route path='/' element={<Login />} exact />
+                    <Route path='/alerts' element={<Alerts />} />
+                    <Route path='/filterSelection' element={<FilterSelection />} />
+                    <Route path='/fishInTank' element={<FishInTank />} />
+                    <Route path='/fishSearch' element={<FishSearch />} />
+                    <Route path='/helpfulArticles' element={<HelpfulArticles />} />
+                    <Route path='/recommendations' element={<Recommendations />} />
+                    <Route path='/tankSelection' element={<TankSelection />} />
+                    <Route path='*' element={<NotFound />} />
+                </Routes>
+
                 <footer class="text-dark py-4">
                     <div class="container text-center">
                         <p class="mb-1">Author: Koby Cutler</p>
@@ -37,3 +49,7 @@ export default function App() {
         </BrowserRouter>
     );
 }
+
+function NotFound() {
+    return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
+  }
