@@ -2,18 +2,18 @@ import React from 'react';
 
 export function Tank() {
   return (
-    <main className='container-fluid bg-secondary text-center'>
+    <main classNameName='container-fluid bg-secondary text-center'>
       <div>tank displayed here</div>
-      <div class="container">
+      <div className="container">
 
-        <div class="row">
-          <div class="col-md-2 d-flex flex-column">
-            <span class="tooltip-wrapper" style="display: inline-block;">
-              <i class="bi bi-info-circle mt-5 w-auto" data-bs-toggle="tooltip" data-bs-placement="top"
+        <div className="row">
+          <div className="col-md-2 d-flex flex-column">
+            <span className="tooltip-wrapper" style="display: inline-block;">
+              <i className="bi bi-info-circle mt-5 w-auto" data-bs-toggle="tooltip" data-bs-placement="top"
                 title="Add the tank size you will be using in gallons"></i>
             </span>
-            <select class="form-select-lg mb-3 w-auto" name="Tanks" id="Tanks" aria-label="Default select example"
-              onchange="toggleCustomTank()">
+            <select className="form-select-lg mb-3 w-auto" name="Tanks" id="Tanks" aria-label="Default select example"
+              onChange="toggleCustomTank()">
               <option value="" disabled selected>Add Tank</option>
               <option value="custom">Input Your Own</option>
               <optgroup label="Small Tanks">
@@ -41,19 +41,19 @@ export function Tank() {
 
 
             </select>
-            <div class="form-group mb-2" id="customTankInput" style="display:none;">
+            <div className="form-group mb-2" id="customTankInput" style="display:none;">
 
-              <input type="number" class="form-control" id="customTank" name="customTank" min="1"
-                placeholder="Enter size in gallons">
+              <input type="number" className="form-control" id="customTank" name="customTank" min="1"
+                placeholder="Enter size in gallons" />
             </div>
 
 
-            <span class="tooltip-wrapper" style="display: inline-block;">
-              <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="left"
+            <span className="tooltip-wrapper" style="display: inline-block;">
+              <i className="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="left"
                 data-bs-title="Enter the GPH (Gallons Per Hour) rating of your filter or filters combined. This is the amount of water the filter can process in an hour."></i>
             </span>
-            <select class="form-select-lg mb-3 w-auto " name="FilterGPH" id="FilterGPH"
-              aria-label="Default select example" onchange="toggleCustomGPH()">
+            <select className="form-select-lg mb-3 w-auto " name="FilterGPH" id="FilterGPH"
+              aria-label="Default select example" onChange="toggleCustomGPH()">
               <option value="" disabled selected>Select GPH</option>
               <option value="custom">Input Your Own</option>
               <option value="20_GPH">20 GPH</option>
@@ -78,98 +78,97 @@ export function Tank() {
 
 
             </select>
-            <div class="form-group mb-2" id="customGPHInput" style="display:none;">
+            <div className="form-group mb-2" id="customGPHInput" style="display:none;">
 
-              <input class="form-control" type="number" id="customGPH" name="customGPH" min="1"
-                placeholder="Enter GPH">
+              <input className="form-control" type="number" id="customGPH" name="customGPH" min="1"
+                placeholder="Enter GPH" />
             </div>
 
           </div>
 
-          <div class="outer-container col-md-9 d-flex align-items-start ">
+          <div className="outer-container col-md-9 d-flex align-items-start ">
 
-            <div class="fish_tank-container text-center w-100">
+            <div className="fish_tank-container text-center w-100">
 
-              <h3 class="mb-3">
+              <h3 className="mb-3">
                 Your Fish Tank
               </h3>
-              <div class="dropdown">
-                <input type="text" id="search-select" class="form-control mt-2 w-auto" name="searchforfish"
+              <div className="dropdown">
+                <input type="text" id="search-select" className="form-control mt-2 w-auto" name="searchforfish"
                   style="background-color: azure;" placeholder="Search for a fish"
-                  onkeyup="filterSelectOptions()">
+                  onkeyup="filterSelectOptions()" />
 
-                  <select class="form-control w-auto mt-1" id="item-select" style="background-color: azure;">
-
-
-                    <option value="" disabled selected>Choose a fish to add</option>
-                    <optgroup label="Bettas">
-                      <option value="Betta_Female">Female Betta</option>
-                      <option value="Betta_Male">Male Betta</option>
-                    </optgroup>
-
-                    <optgroup label="Gouramis">
-                      <option value="Dwarf_Gourami">Dwarf Gourami</option>
-
-                    </optgroup>
+                <select className="form-control w-auto mt-1" id="item-select" style="background-color: azure;">
 
 
-                    <optgroup label="Guppys">
-                      <option value="Fancy_Guppy">Fancy Guppy</option>
+                  <option value="" disabled selected>Choose a fish to add</option>
+                  <optgroup label="Bettas">
+                    <option value="Betta_Female">Female Betta</option>
+                    <option value="Betta_Male">Male Betta</option>
+                  </optgroup>
 
-                    </optgroup>
+                  <optgroup label="Gouramis">
+                    <option value="Dwarf_Gourami">Dwarf Gourami</option>
 
                   </optgroup>
 
 
-                </optgroup>
-                <optgroup label="Rasboras">
-                  <option value="Harlequin_Rasbora">Harlequin Rasbora</option>
+                  <optgroup label="Guppys">
+                    <option value="Fancy_Guppy">Fancy Guppy</option>
 
-                </optgroup>
-                <optgroup label="Shrimp">
-                  <option value="Cherry_Shrimp">Cherry Shrimp</option>
-                  <option value="Amano_Shrimp">Amano Shrimp</option>
+                  </optgroup>
 
-                </optgroup>
-                <optgroup label="Crabs">
-                  <option value="Fiddler_Crab">Fiddler Crab</option>
+                  <optgroup label="Rasboras">
+                    <option value="Harlequin_Rasbora">Harlequin Rasbora</option>
 
-                </optgroup>
+                  </optgroup>
+                  <optgroup label="Shrimp">
+                    <option value="Cherry_Shrimp">Cherry Shrimp</option>
+                    <option value="Amano_Shrimp">Amano Shrimp</option>
 
-              </optgroup>
-              <optgroup label="Snails">
+                  </optgroup>
+                  <optgroup label="Crabs">
+                    <option value="Fiddler_Crab">Fiddler Crab</option>
 
-                <option value="Nerite_Snail">Nerite Snail</option>
-
-              </optgroup>
-
-              <optgroup label="Tetras">
-                <option value="Neon_Tetra">Neon Tetra</option>
-                <option value="Cardinal_Tetra">Cardinal Tetra</option>
-
-              </optgroup>
-              <optgroup label="Misc. Fish">
-                <option value="African_Dwarf_Frog">African Dwarf Frog</option>
-              </optgroup>
-
-            </select>
-          </div>
-
-          <button class="btn btn-success ms-2" id="add-fish-button">+</button>
-          <button class="btn btn-danger ms-2" id="decrement-fish-button">-</button>
-          <div class="container align-items-start" id="container">
-
-            <ul class="list-group align-items-start mt-3" id="item-list">
-              <li class="list-group-item">African Dwarf Frog</li>
-              <li class="list-group-item">Mickey_Mouse_Platy</li>
-              <li class="list-group-item">Rasbora_Espei</li>
-              <li class="list-group-item">Shark</li>
+                  </optgroup>
 
 
-            </ul>
+                  <optgroup label="Snails">
 
+                    <option value="Nerite_Snail">Nerite Snail</option>
+
+                  </optgroup>
+
+                  <optgroup label="Tetras">
+                    <option value="Neon_Tetra">Neon Tetra</option>
+                    <option value="Cardinal_Tetra">Cardinal Tetra</option>
+
+                  </optgroup>
+                  <optgroup label="Misc. Fish">
+                    <option value="African_Dwarf_Frog">African Dwarf Frog</option>
+                  </optgroup>
+
+                </select>
+              </div>
+
+              <button className="btn btn-success ms-2" id="add-fish-button">+</button>
+              <button className="btn btn-danger ms-2" id="decrement-fish-button">-</button>
+              <div className="container align-items-start" id="container">
+
+                <ul className="list-group align-items-start mt-3" id="item-list">
+                  <li className="list-group-item">African Dwarf Frog</li>
+                  <li className="list-group-item">Mickey_Mouse_Platy</li>
+                  <li className="list-group-item">Rasbora_Espei</li>
+                  <li className="list-group-item">Shark</li>
+
+
+                </ul>
+
+              </div>
+            </div>
           </div>
         </div>
+      </div>
     </main>
   );
 }
