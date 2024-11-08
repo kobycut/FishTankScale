@@ -1,0 +1,44 @@
+.body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.custom-paragraph {
+
+    font-size: 1.25rem;
+
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.fish_tank-container {
+    padding: 10px;
+    background-color: rgb(177, 215, 248);
+    border-radius: 1.3rem;
+    /* Adjust as needed for spacing */
+}
+
+.list-group-item {
+    background-color: azure;
+    width: 100%;
+}
+
+#FilterGPH {
+    background-color: azure;
+}
+
+#Tanks {
+    background-color: azure;
+}
+
+
+
+.recommendations-container {
+    flex-grow: 1;
+    margin-bottom: 108px;
+}
