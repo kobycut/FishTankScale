@@ -3,13 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Alerts } from './alerts/alerts';
-import { FilterSelection } from './filterSelection/filterSelection';
-import { FishInTank } from './fishInTank/fishInTank';
-import { FishSearch } from './fishSearch/fishSearch';
-import { HelpfulArticles } from './helpfulArticles/helpfulArticles';
 import { Login } from './login/login';
-import { Recommendations } from './recommendations/recommendations';
-import { TankSelection } from './tankSelection/tankSelection';
+import { Tank } from './tank/tank';
 
 
 export default function App() {
@@ -21,20 +16,40 @@ export default function App() {
                         style="margin-top: 20px" /></div>
 
                 </header>
+                <p class="text-center custom-paragraph">
+                    Welcome to FishTankScale! Input specifications to test out different tank environments and fish varieties.
+                </p>
+
+
+
 
                 <main>App components go here</main>
 
                 <Routes>
                     <Route path='/' element={<Login />} exact />
                     <Route path='/alerts' element={<Alerts />} />
-                    <Route path='/filterSelection' element={<FilterSelection />} />
-                    <Route path='/fishInTank' element={<FishInTank />} />
-                    <Route path='/fishSearch' element={<FishSearch />} />
-                    <Route path='/helpfulArticles' element={<HelpfulArticles />} />
-                    <Route path='/recommendations' element={<Recommendations />} />
-                    <Route path='/tankSelection' element={<TankSelection />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/tank' element={<Tank />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
+
+
+
+
+
+
+                <div class="container my-4">
+                    <h3 class="text-center mb-4">Helpful Articles</h3>
+                    <div class="list-group">
+                        <a href="https://www.pharmaquatics.com/post/10-stocking-ideas-for-5-10-and-20-gallon-fish-tanks"
+                            class="list-group-item list-group-item-action" target="_blank">Stocking Ideas</a>
+                        <a href="https://www.freshwatersystems.com/blogs/blog/how-to-cycle-a-fish-tank?srsltid=AfmBOooX6GqRD6-WK5Pd_VpLudLNNjSe99fVrRrcFFiQLmbzNCaTU0iW"
+                            class="list-group-item list-group-item-action" target="_blank">Cycling a Fish Tank</a>
+                        <a href="https://www.thesprucepets.com/before-buying-aquarium-1380710"
+                            class="list-group-item list-group-item-action" target="_blank">What to Know Before Owning a Fish
+                            Tank</a>
+                    </div>
+                </div>
 
                 <footer class="text-dark py-4">
                     <div class="container text-center">
@@ -52,4 +67,4 @@ export default function App() {
 
 function NotFound() {
     return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
-  }
+}
