@@ -1,5 +1,5 @@
 import React from 'react';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 export function Tank() {
   return (
     <main classNameName='container-fluid bg-secondary text-center'>
