@@ -1,20 +1,59 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import toggleCustomGPH from './fishTank.js';
+// import toggleCustomTank from './fishTank.js';
+
+
+
+
 export function Tank() {
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  
+
+  function toggleCustomTank() {
+    var select = document.getElementById("Tanks");
+    var customTankInput = document.getElementById("customTankInput");
+
+    if (select.value == "custom") {
+      customTankInput.style.display = "block";
+    } else {
+      customTankInput.style.display = "none";
+    }
+  }
+
+
+  function toggleCustomGPH() {
+    var select2 = document.getElementById("FilterGPH");
+    var customGPHInput = document.getElementById("customGPHInput");
+    if (select2.value == "custom") {
+      customGPHInput.style.display = "block";
+    } else {
+      customGPHInput.style.display = "none";
+    }
+  }
+
+
   return (
-    <main classNameName='container-fluid bg-secondary text-center'>
-      <div>tank displayed here</div>
+    <main className='container-fluid text-center'>
+
+
+      
       <div className="container">
 
         <div className="row">
           <div className="col-md-2 d-flex flex-column">
-            <span className="tooltip-wrapper" style="display: inline-block;">
+            <span className="tooltip-wrapper" style={{ display: 'inline-block' }}>
               <i className="bi bi-info-circle mt-5 w-auto" data-bs-toggle="tooltip" data-bs-placement="top"
                 title="Add the tank size you will be using in gallons"></i>
             </span>
-            <select className="form-select-lg mb-3 w-auto" name="Tanks" id="Tanks" aria-label="Default select example"
-              onChange="toggleCustomTank()">
-              <option value="" disabled selected>Add Tank</option>
+            <select defaultValue="" className="form-select-lg mb-3 w-auto" name="Tanks" id="Tanks" aria-label="Default select example"
+              onChange={toggleCustomTank}>
+              <option value="" disabled>Add Tank</option>
               <option value="custom">Input Your Own</option>
               <optgroup label="Small Tanks">
                 <option value="3_gal">3 gal</option>
@@ -41,20 +80,20 @@ export function Tank() {
 
 
             </select>
-            <div className="form-group mb-2" id="customTankInput" style="display:none;">
+            <div className="form-group mb-2" id="customTankInput" style={{ display: 'none' }}>
 
               <input type="number" className="form-control" id="customTank" name="customTank" min="1"
                 placeholder="Enter size in gallons" />
             </div>
 
 
-            <span className="tooltip-wrapper" style="display: inline-block;">
+            <span className="tooltip-wrapper" style={{ display: 'inline-block' }}>
               <i className="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="left"
                 data-bs-title="Enter the GPH (Gallons Per Hour) rating of your filter or filters combined. This is the amount of water the filter can process in an hour."></i>
             </span>
-            <select className="form-select-lg mb-3 w-auto " name="FilterGPH" id="FilterGPH"
-              aria-label="Default select example" onChange="toggleCustomGPH()">
-              <option value="" disabled selected>Select GPH</option>
+            <select defaultValue="" className="form-select-lg mb-3 w-auto " name="FilterGPH" id="FilterGPH"
+              aria-label="Default select example" onChange={toggleCustomGPH}>
+              <option value="" disabled>Select GPH</option>
               <option value="custom">Input Your Own</option>
               <option value="20_GPH">20 GPH</option>
               <option value="30_GPH">30 GPH</option>
@@ -78,7 +117,7 @@ export function Tank() {
 
 
             </select>
-            <div className="form-group mb-2" id="customGPHInput" style="display:none;">
+            <div className="form-group mb-2" id="customGPHInput" style={{ display: 'none' }}>
 
               <input className="form-control" type="number" id="customGPH" name="customGPH" min="1"
                 placeholder="Enter GPH" />
@@ -90,18 +129,20 @@ export function Tank() {
 
             <div className="fish_tank-container text-center w-100">
 
-              <h3 className="mb-3">
-                Your Fish Tank
+              <h3 className="mb-3 d-flex flex-grow justify-content-between align-items-center w-100 text-center">
+                <div className="flex-grow-1 text-center">Your Fish Tank</div>
+                <button className="btn btn-success ms-1 position-absolute">Save Tank</button>
               </h3>
+
               <div className="dropdown">
                 <input type="text" id="search-select" className="form-control mt-2 w-auto" name="searchforfish"
-                  style="background-color: azure;" placeholder="Search for a fish"
-                  onkeyup="filterSelectOptions()" />
+                  style={{ backgroundColor: 'azure' }} placeholder="Search for a fish"
+                />
 
-                <select className="form-control w-auto mt-1" id="item-select" style="background-color: azure;">
+                <select defaultValue="" className="form-control w-auto mt-1" id="item-select" style={{ backgroundColor: 'azure' }}>
 
 
-                  <option value="" disabled selected>Choose a fish to add</option>
+                  <option value="" disabled>Choose a fish to add</option>
                   <optgroup label="Bettas">
                     <option value="Betta_Female">Female Betta</option>
                     <option value="Betta_Male">Male Betta</option>
@@ -111,7 +152,6 @@ export function Tank() {
                     <option value="Dwarf_Gourami">Dwarf Gourami</option>
 
                   </optgroup>
-
 
                   <optgroup label="Guppys">
                     <option value="Fancy_Guppy">Fancy Guppy</option>
@@ -160,14 +200,32 @@ export function Tank() {
                   <li className="list-group-item">Mickey_Mouse_Platy</li>
                   <li className="list-group-item">Rasbora_Espei</li>
                   <li className="list-group-item">Shark</li>
-
-
                 </ul>
 
               </div>
             </div>
+            <div className="outer-container col-md-2 flex-column d-flex justify-content-center">
+              <span className="tooltip-wrapper" style={{ display: 'inline-block' }}>
+                <i className="bi bi-info-circle  w-auto ms-4" data-bs-toggle="tooltip" data-bs-placement="left"
+                  title="These are the recommended levels for your tank."></i>
+              </span>
+              <div id="recommendations" className="recommendations-container">
+
+
+                <div className="text-end">
+
+
+                  <p>Stocking Level: <span id="stocking_level">--%</span></p>
+                  <p>Filter Capacity: <span id="filter_capacity">--%</span></p>
+                  <p>Water Temp:‎ ‎ ‎ ‎ <span id="water_temp">--°F</span></p>
+                  <p>Water pH: ‎ ‎ ‎ ‎ ‎ ‎ <span id="water_ph">--pH</span></p>
+
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
     </main>
   );

@@ -1,7 +1,8 @@
 import React from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
 import { Alerts } from './alerts/alerts';
 import { Login } from './login/login';
 import { Tank } from './tank/tank';
@@ -17,21 +18,25 @@ export default function App() {
                         <img width="250px" src="/FishTankScale.png"
                         /></div>
 
+                    <main className='container-fluid bg-secondary text-center'>
+                        <div className="button-container">
+                            <NavLink to="/login" className="btn btn-primary" >Login</NavLink>
+                        </div>
+                    </main>
+
                 </header>
                 <p className="text-center custom-paragraph">
                     Welcome to FishTankScale! Input specifications to test out different tank environments and fish varieties.
                 </p>
-
-
-
-
-                <main>App components go here</main>
-
+                <hr />
                 <Routes>
-                    <Route path='/' element={<Login />} exact />
-                    <Route path='/login' element={<Login />} />
-                    <Route path='/tank' element={<Tank />} />
-                    <Route path='/alerts' element={<Alerts />} />
+                    <Route path='/' element={[<Tank />, <Alerts />]} exact />
+                    {/* <Route path='/login' element={<Login />} /> */}
+
+                    <Route path='/tank' element={[<Tank />, <Alerts />]} />
+                    <Route path='/login' element={<Login/>} />
+
+
                     <Route path='*' element={<NotFound />} />
                 </Routes>
 
