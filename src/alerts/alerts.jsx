@@ -1,9 +1,36 @@
-import React, { useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Fish} from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
+export function Alerts({ tankFish, tankSize, gph }) {
 
-export function Alerts() {
-  
+  const showAlertList = () => {
+    return tankFish.map((alert, index) => (
+      <li key={index} className="list-group-item d-flex justify-content-between">{alert}
+      </li>
+    ));
+  };
+
+  function checkTankSize() {
+    console.log('HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE');
+    console.log(tankFish, tankSize, gph);
+    
+  };
+
+  function checkFilterGPH() {
+
+  }
+
+  function checkWaterTemp() {
+
+  }
+  function checkFishCompatibility() {
+      // if 
+  }
+  function checkfishSize() {
+      // if fish too big for tank, return alert that says "fish too big for tank"
+  }
+
   return (
     <main className='container-fluid d-flex justify-content-center'>
 
@@ -14,7 +41,10 @@ export function Alerts() {
         </span>
         <h2>Alerts</h2>
         <ul className="list-group" id="alert-list">
-          <div className="alert alert-danger" role="alert">
+          {checkTankSize()}
+          {showAlertList()}
+          
+          {/* <div className="alert alert-danger" role="alert">
             UH-OH! A shark is too big for this tank!
           </div>
           <div className="alert alert-warning" role="alert">
@@ -22,7 +52,7 @@ export function Alerts() {
           </div>
           <div className="alert alert-success" role="alert">
             Woohoo! Tank looks great!
-          </div>
+          </div> */}
         </ul>
 
         <hr />

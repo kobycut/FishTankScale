@@ -1,27 +1,57 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
 import { Alerts } from './alerts/alerts';
 import { Login } from './login/login';
 import { Tank } from './tank/tank';
-
+import { AuthState } from './login/authState';
 
 export default function App() {
+    const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+    const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+    const [authState, setAuthState] = React.useState(currentAuthState);
+    const [tankFish, setTankFish] = useState([
+    ]);
+    const [tankSize, setTankSize] = useState('');
+    const [gph, setGph] = useState('');
+
+    function logout() {
+        console.log("WORKINGGGGGGGGGGGGGGGGGGGG");
+        localStorage.removeItem('userName');
+        setAuthState(AuthState.Unauthenticated);
+    }
+    function passPropsTankSize(TankSize) {
+        setTankSize(TankSize)
+    }
+    function passPropsGph(Gph) {
+        setGph(Gph)
+    }
+    function passPropsTankFish(TankFish) {
+        setTankFish(TankFish)
+    }
+
     return (
         <BrowserRouter>
             <div className='body bg-light text-dark'>
                 <header>
+                    <NavLink to="/tank">
+                        <div id="picture" className="d-flex justify-content-center">
+                            <img width="250px" src="/FishTankScale.png"
+                            /></div>
+                    </NavLink>
 
-                    <div id="picture" className="d-flex justify-content-center">
-                        <img width="250px" src="/FishTankScale.png"
-                        /></div>
 
                     <main className='container-fluid bg-secondary text-center'>
-                        <div className="button-container">
-                            <NavLink to="/login" className="btn btn-primary" >Login</NavLink>
-                        </div>
+                        {authState === AuthState.Unauthenticated && (
+                            <Button className="button-container">
+                                <NavLink to="/login" className="btn btn-primary" >Login</NavLink>
+                            </Button>)}
+                        {authState === AuthState.Authenticated && (
+                            <div className="button-container">
+                                <Button className="btn btn-secondary" onClick={() => logout()}>Logout</Button>
+                            </div>)}
                     </main>
 
                 </header>
@@ -33,8 +63,23 @@ export default function App() {
                     <Route path='/' element={[<Tank />, <Alerts />]} exact />
                     {/* <Route path='/login' element={<Login />} /> */}
 
-                    <Route path='/tank' element={[<Tank />, <Alerts />]} />
-                    <Route path='/login' element={<Login/>} />
+                    <Route path='/tank' element={<>
+                        
+                        <Tank authState={authState} onAuthChange={(userName, authState) => { setAuthState(authState); setUserName(userName); }}
+                            passPropsTankFish={passPropsTankFish}
+                            passPropsGph={passPropsGph}
+                            passPropsTankSize={passPropsTankSize} />
+
+                        <Alerts tankFish={tankFish} tankSize={tankSize} gph={gph} />
+                    </>
+                    }
+                    />
+
+                    <Route path='/login' element={<Login userName={userName}
+                        authState={authState} onAuthChange={(userName, authState) => {
+                            setAuthState(authState);
+                            setUserState(userName);
+                        }} />} />
 
 
                     <Route path='*' element={<NotFound />} />
