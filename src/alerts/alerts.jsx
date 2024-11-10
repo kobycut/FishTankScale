@@ -51,7 +51,8 @@ export function Alerts({ tankFish, tankSize, gph }) {
   useEffect(() => {
     test();
     const newAlerts = [];
-    if (tankFish.length > 0 && tankSize > 1) {
+    // tankFish.length > 0 && 
+    if (tankSize > 1) {
       const tankSizeAlert = checkTankSize();
       newAlerts.push(tankSizeAlert);
     }
@@ -60,14 +61,14 @@ export function Alerts({ tankFish, tankSize, gph }) {
       newAlerts.push(filterAlert);
     }
 
-    if (tankFish.length > 0) {
+    // if (tankFish.length > 0) {
       const fishCompatibilityAlert = checkFishCompatibility();
       newAlerts.push(fishCompatibilityAlert);
-    }
-    if (tankFish.length > 0) {
+    // }
+    // if (tankFish.length > 0) {
       const tempAlert = checkWaterTemp();
       newAlerts.push(tempAlert);
-    }
+    // }
 
 
     setAlerts(newAlerts);
