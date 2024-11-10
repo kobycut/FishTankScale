@@ -30,16 +30,16 @@ export function Tank({ userName, authState, onAuthChange, passPropsTankFish, pas
     // }
   }
 
-  function passFishTank(fishTank) {
-    passPropsTankFish(fishTank)
-  }
+  
   function passTankSize(tankSize) {
     passPropsTankSize(tankSize)
   }
   function passGph(gph) {
     passPropsGph(gph)
   }
-
+function passFishTank(fishTank) {
+    passPropsTankFish(fishTank)
+  }
 
   const [selectedFish, setSelectedFish] = useState('');
   const [tankFish, setTankFish] = useState([]);
@@ -175,9 +175,9 @@ return (
             </h3>
 
             <div className="dropdown">
-              <input type="text" id="search-select" className="form-control mt-2 w-auto" name="searchforfish"
+              {/* <input type="text" id="search-select" className="form-control mt-2 w-auto" name="searchforfish"
                 style={{ backgroundColor: 'azure' }} placeholder="Search for a fish"
-              />
+              /> */}
               <select value={selectedFish} onChange={(e) => setSelectedFish(e.target.value)} className="form-control w-auto mt-1" id="item-select" style={{ backgroundColor: 'azure' }}>
                 <option value="" disabled>Choose a fish to add</option>
                 <optgroup label="Bettas">

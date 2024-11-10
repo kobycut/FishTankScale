@@ -1,35 +1,78 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Fish} from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
+import { Fish } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 export function Alerts({ tankFish, tankSize, gph }) {
+  const [alerts, setAlerts] = useState([]);
+  if (typeof tankSize === 'string') {
+    tankSize = parseInt(tankSize);
+  }
+  if (typeof gph === 'string') {
+    gph = parseInt(gph);
+  }
 
-  const showAlertList = () => {
-    return tankFish.map((alert, index) => (
-      <li key={index} className="list-group-item d-flex justify-content-between">{alert}
-      </li>
-    ));
-  };
 
-  function checkTankSize() {
+
+  // const showAlertList = () => {
+  //   return tankFish.map((alert, index) => (
+  //     <li key={index} className="list-group-item d-flex justify-content-between">{alert}
+  //     </li>
+  //   ));
+  // };
+  function test() {
     console.log('HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE');
     console.log(tankFish, tankSize, gph);
-    
+  }
+  function checkTankSize() {
+
+    return "Tank can hold all these fish."
+
   };
 
   function checkFilterGPH() {
+    const gph_min_req = tankSize * 4;
+    if (gph_min_req >= gph) {
+      return "Filter is not strong enough for this tank size."
 
+    } else {
+      return "Filter can accomodate this tank size well."
+    }
   }
 
   function checkWaterTemp() {
+    return "Water temperature is in the safe range."
 
   }
   function checkFishCompatibility() {
-      // if 
+    return "Fish compatibility is good."
+    // if 
   }
-  function checkfishSize() {
-      // if fish too big for tank, return alert that says "fish too big for tank"
-  }
+
+  useEffect(() => {
+    test();
+    const newAlerts = [];
+    if (tankFish.length > 0 && tankSize > 1) {
+      const tankSizeAlert = checkTankSize();
+      newAlerts.push(tankSizeAlert);
+    }
+    if (gph > 1 && tankSize > 1) {
+      const filterAlert = checkFilterGPH();
+      newAlerts.push(filterAlert);
+    }
+
+    if (tankFish.length > 0) {
+      const fishCompatibilityAlert = checkFishCompatibility();
+      newAlerts.push(fishCompatibilityAlert);
+    }
+    if (tankFish.length > 0) {
+      const tempAlert = checkWaterTemp();
+      newAlerts.push(tempAlert);
+    }
+
+
+    setAlerts(newAlerts);
+  }, [tankFish, tankSize, gph]);
+
 
   return (
     <main className='container-fluid d-flex justify-content-center'>
@@ -41,9 +84,16 @@ export function Alerts({ tankFish, tankSize, gph }) {
         </span>
         <h2>Alerts</h2>
         <ul className="list-group" id="alert-list">
-          {checkTankSize()}
-          {showAlertList()}
-          
+
+          {/* Map over the alerts array and display each one */}
+          {alerts.map((alert, index) => (
+            <li key={index} className="list-group-item d-flex justify-content-between">
+              {alert}
+            </li>
+          ))}
+          {/* {checkFilterGPH} */}
+          {/* {showAlertList()} */}
+
           {/* <div className="alert alert-danger" role="alert">
             UH-OH! A shark is too big for this tank!
           </div>

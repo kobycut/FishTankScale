@@ -64,8 +64,10 @@ export default function App() {
                     {/* <Route path='/login' element={<Login />} /> */}
 
                     <Route path='/tank' element={<>
-                        
-                        <Tank authState={authState} onAuthChange={(userName, authState) => { setAuthState(authState); setUserName(userName); }}
+
+                        <Tank authState={authState} onAuthChange={(userName, authState) => {
+                            setAuthState(authState); setUserName(userName);
+                        }}
                             passPropsTankFish={passPropsTankFish}
                             passPropsGph={passPropsGph}
                             passPropsTankSize={passPropsTankSize} />
