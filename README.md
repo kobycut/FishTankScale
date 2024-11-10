@@ -41,3 +41,18 @@ In this deliverable I finalized the style for the website.
 - [x] **Application elements** - The components of my website are formatted and spaced out in a way that looks pleasing.
 - [x] **Application text content** - Font of all my text is Roboto, this keeps the text consistent and looking nice.
 - [x] **Application images** - The image has been formatted with flex to adjust size to any screen as well as added some CSS to make it look better. 
+
+## React deliverable
+
+➡️ The following is an example of the required information for the `Startup React` deliverable
+
+For this deliverable I used JavaScript and React so that the application completely works for a single user. I also added placeholders for future technology.
+
+- [x] **Bundled and transpiled** - done!
+- [x] **Components** - Login, tank, and alerts all have basic functionality to improve on and mock for full websocket functionality.
+  - [x] **login** - Option to login which takes you to the login page and if logged in you can save your tank for future use.
+  - [x] **database** - Logging in uses local storage, will switch to database in the future.
+  - [x] **WebSocket** - Setting the alerts I did manually, in the future this will be done by the websocket.
+  - [x] **application logic** - The fish in the tank change based on which ones you put in. Also can increment and decrement how many of each fish. Also the alerts change based on the tank conditions. Not all alert functionality is complete.
+- [x] **Router** - Routing between login and tank is done.
+- [x] **Hooks** - Used to update logic and allow react to change the visuals based on different things.
