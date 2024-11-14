@@ -13,7 +13,14 @@ export default function App() {
     const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
     
+    const [fish, setFish] = useState([]);
+    const [tankSize, setTankSize] = useState();
+    const [filter, setFilter] = useState();
     
+    function setFishList(newFishList) {
+        setFish(newFishList)
+    }
+
 
     function logout() {
         console.log("WORKINGGGGGGGGGGGGGGGGGGGG");
@@ -54,9 +61,9 @@ export default function App() {
 
                     <Route path='/tank' element={<>
 
-                        <Tank authState={authState} />
+                        <Tank setFish={setFishList} authState={authState} />
 
-                        <Alerts />
+                        <Alerts fish = {fish} tankSize = {tankSize} filter={filter} />
                     </>
                     }
                     />

@@ -3,21 +3,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Fish } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 
-export function Alerts() {
+export function Alerts(fish, tankSize, filter) {
 
-  const [fish, setFish] = useState([]);
-  const [tankSize, setTankSize] = useState();
-  const [filter, setFilter] = useState();
+
+
   const [alerts, setAlerts] = useState([]);
 
   const tankSizeInt = parseInt(tankSize);
   const filterInt = parseInt(filter);
 
-  
-  function addFish(species, water_temp, compatible_with, size, min_tank_size) {
-    const newFish = new Fish(species, water_temp, compatible_with, size, min_tank_size)
-    setFish((previousFish) => [...previousFish, newFish])
-  }
+
+  // function addFish(species, water_temp, compatible_with, size, min_tank_size) {
+  //   const newFish = new Fish(species, water_temp, compatible_with, size, min_tank_size)
+  //   setFish((previousFish) => [...previousFish, newFish])
+  // }
 
 
   useEffect(() => {

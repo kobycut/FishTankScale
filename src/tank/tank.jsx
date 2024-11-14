@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthState } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/login/authState.js';
 import { Alerts } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/alerts/alerts.jsx';
+import { Fish } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 
 
-export function Tank({ authState}) {
+export function Tank({setFish, authState}) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
@@ -31,6 +32,10 @@ export function Tank({ authState}) {
     // }
   }
 
+  function addFish(species, water_temp, compatible_with, size, min_tank_size) {
+    const newFish = new Fish(species, water_temp, compatible_with, size, min_tank_size)
+    setFish((previousFish) => [...previousFish, newFish])
+  }
 
 
   const [selectedFish, setSelectedFish] = useState('');
@@ -41,6 +46,8 @@ export function Tank({ authState}) {
   const addFishToTank = () => {
     if (selectedFish) {   
 
+      addFish("shrimp", 10, null, 20, 30);
+      
       const existingFish = tankFish.find(fish => fish.name === selectedFish);
       Alerts
       if (existingFish) {
