@@ -6,7 +6,7 @@ import { Fish } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 
 
-export function Tank({ setFish, authState }) {
+export function Tank({ setFish, setTankSize, setFilter, authState }) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
@@ -31,10 +31,16 @@ export function Tank({ setFish, authState }) {
     //   customGPHInput.style.display = "none";
     // }
   }
+  function changeTankSize(newTankSize) {
+    setTankSize(newTankSize);
+  }
+  function changeFilter(newFilter) {
+    setFilter(newFilter);
+  }
 
   function addFish(species, water_temp, compatible_with, size, min_tank_size) {
-    const newFish = new Fish(species, water_temp, compatible_with, size, min_tank_size)
-    setFish((previousFish) => [...previousFish, newFish])
+    const newFish = new Fish(species, water_temp, compatible_with, size, min_tank_size);
+    setFish((previousFish) => [...previousFish, newFish]);
   }
   function removeFish(species) {
     setFish((previousFish) => {
@@ -49,7 +55,7 @@ export function Tank({ setFish, authState }) {
 
   const [selectedFish, setSelectedFish] = useState('');
   const [tankFish, setTankFish] = useState([]);
-  const [tankSize, setTankSize] = useState(['']);
+  // const [tankSize, setTankSize] = useState(['']);
   const [gph, setGph] = useState(['']);
 
   const addFishToTank = () => {
@@ -106,7 +112,7 @@ export function Tank({ setFish, authState }) {
                 title="Add the tank size you will be using in gallons"></i>
             </span>
             <select defaultValue="" className="form-select-lg mb-3 w-auto" name="Tanks" id="Tanks" aria-label="Default select example"
-              onChange={(e) => passTankSize(e.target.value)}>
+              onChange={(e) => changeTankSize(e.target.value)}>
               <option value="" disabled>Add Tank</option>
               {/* <option value="custom">Input Your Own</option> */}
               <optgroup label="Small Tanks">
@@ -144,7 +150,7 @@ export function Tank({ setFish, authState }) {
                 data-bs-title="Enter the GPH (Gallons Per Hour) rating of your filter or filters combined. This is the amount of water the filter can process in an hour."></i>
             </span>
             <select defaultValue="" className="form-select-lg mb-3 w-auto " name="FilterGPH" id="FilterGPH"
-              aria-label="Default select example" onChange={(e) => passGph(e.target.value)}>
+              aria-label="Default select example" onChange={(e) => changeFilter(e.target.value)}>
               {/* toggleCustomGPH */}
               <option value="" disabled>Select GPH</option>
               {/* <option value="custom">Input Your Own</option> */}

@@ -20,7 +20,7 @@ export function Alerts(fish, tankSize, filter) {
 
 
   useEffect(() => {
-    console.log(fish, tankSizeInt, filterInt)
+    console.log(fish, tankSize, filter);
     const newAlerts = [];
     if (fish.size > 0) {
       const totalFishInches = fish.reduce((acc, fish) => acc + fish.size);

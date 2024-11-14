@@ -12,13 +12,19 @@ export default function App() {
     const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
     const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
-    
+
     const [fish, setFish] = useState([]);
     const [tankSize, setTankSize] = useState();
     const [filter, setFilter] = useState();
-    
+
     function setFishList(newFishList) {
         setFish(newFishList)
+    }
+    function setNewTankSize(newTankSize) {
+        setTankSize(newTankSize)
+    }
+    function setNewFilter(newFilter) {
+        setFilter(newFilter)
     }
 
 
@@ -61,9 +67,9 @@ export default function App() {
 
                     <Route path='/tank' element={<>
 
-                        <Tank setFish={setFishList} authState={authState} />
+                        <Tank setFish={setFishList} setTankSize={setNewTankSize} setFilter={setNewFilter} authState={authState} />
 
-                        <Alerts fish = {fish} tankSize = {tankSize} filter={filter} />
+                        <Alerts fish={fish} tankSize={tankSize} filter={filter} />
                     </>
                     }
                     />
