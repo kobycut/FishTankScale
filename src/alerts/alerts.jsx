@@ -4,121 +4,40 @@ import { Fish } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 
 export function Alerts() {
-  
+
   const [fish, setFish] = useState([]);
   const [tankSize, setTankSize] = useState();
   const [filter, setFilter] = useState();
+  const [alerts, setAlerts] = useState([]);
 
-  tankSize = parseInt(tankSize);
-
-  function addFish(species, water_temp, compatible_with, size, min_tank_size) {
-      const newFish = new Fish(species, water_temp, compatible_with, size, min_tank_size)
-      setFish((previousFish) => [...previousFish, newFish] )
-  }
-
-  useEffect(() => {
-    const newAlerts = [];
-    const totalFish = fish.reduce((acc, fish) => acc + fish.size);
-    const maxCapacity = tankSize * 4;
-    
-
-
-    if (totalFish > maxCapacity){
-      newAlerts.push("too many fish in tank");
-      
-      //send the alert here
-    }
-  }, [fish, tankFish, filter]);
-
-
-
-
-
-  // const [alerts, setAlerts] = useState([]);
-  // if (typeof tankSize === 'string') {
-  //   tankSize = parseInt(tankSize);
-  // }
-  // if (typeof gph === 'string') {
-  //   gph = parseInt(gph);
-  // }
-
-
-
-  // const showAlertList = () => {
-  //   return tankFish.map((alert, index) => (
-  //     <li key={index} className="list-group-item d-flex justify-content-between">{alert}
-  //     </li>
-  //   ));
-  // };
-  function test() {
-    console.log('HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE');
-    console.log(tankFish, tankSize, gph);
-  }
-
-  function testCheckAll() {
-    if (gph > 10 && tankSize > 10 && tankFish.length > 2) {
-      return "all conditions met"
-    }
-    else {
-      return "not all conditions met"
-    }
-  }
-
-
-  function checkTankSize() {
-
-    return "Tank can hold all these fish."
-
-  };
-
-  function checkFilterGPH() {
-    const gph_min_req = tankSize * 4;
-    if (gph_min_req >= gph) {
-      return "Filter is not strong enough for this tank size."
-
-    } else {
-      return "Filter can accomodate this tank size well."
-    }
-  }
-
-  function checkWaterTemp() {
-    return "Water temperature is in the safe range."
-
-  }
-  function checkFishCompatibility() {
-    return "Fish compatibility is good."
-    // if 
-  }
-
-  useEffect(() => {
-    test();
-    const newAlerts = [];
-    // tankFish.length > 0 && 
-    if (tankSize > 1) {
-      const tankSizeAlert = checkTankSize();
-      newAlerts.push(tankSizeAlert);
-    }
-    if (gph > 1 && tankSize > 1) {
-      const filterAlert = checkFilterGPH();
-      newAlerts.push(filterAlert);
-    }
-
-
-    // if (tankFish.length > 0) {
-      const fishCompatibilityAlert = checkFishCompatibility();
-      newAlerts.push(fishCompatibilityAlert);
-    // }
-    // if (tankFish.length > 0) {
-      const tempAlert = checkWaterTemp();
-      newAlerts.push(tempAlert);
-    // }
-
-
-    setAlerts(newAlerts);
-  }, [tankFish, tankSize, gph]);
+  const tankSizeInt = parseInt(tankSize);
+  const filterInt = parseInt(filter);
 
   
+  function addFish(species, water_temp, compatible_with, size, min_tank_size) {
+    const newFish = new Fish(species, water_temp, compatible_with, size, min_tank_size)
+    setFish((previousFish) => [...previousFish, newFish])
+  }
 
+
+  useEffect(() => {
+    console.log(fish, tankSizeInt, filterInt)
+    const newAlerts = [];
+    if (fish.size > 0) {
+      const totalFishInches = fish.reduce((acc, fish) => acc + fish.size);
+    }
+    const maxCapacityFishInches = tankSizeInt;
+
+
+    if (fish.size > 0) {
+      if (totalFishInches > maxCapacity) {
+        newAlerts.push("too many fish in tank");
+
+        //send the alert here
+      }
+    }
+    setAlerts(newAlerts);
+  }, [fish, tankSize, filter]);
 
   return (
     <main className='container-fluid d-flex justify-content-center'>
@@ -130,25 +49,12 @@ export function Alerts() {
         </span>
         <h2>Alerts</h2>
         <ul className="list-group" id="alert-list">
-
-          {/* Map over the alerts array and display each one */}
           {alerts.map((alert, index) => (
             <li key={index} className="list-group-item d-flex justify-content-between">
               {alert}
             </li>
           ))}
-          {/* {checkFilterGPH} */}
-          {/* {showAlertList()} */}
 
-          {/* <div className="alert alert-danger" role="alert">
-            UH-OH! A shark is too big for this tank!
-          </div>
-          <div className="alert alert-warning" role="alert">
-            Careful! African Dwarf Frog's might eat Rasboras.
-          </div>
-          <div className="alert alert-success" role="alert">
-            Woohoo! Tank looks great!
-          </div> */}
         </ul>
 
         <hr />

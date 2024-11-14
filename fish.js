@@ -8,6 +8,4 @@ export class Fish {
         this.size = size
         this.min_tank_size = min_tank_size
     }
-    
-    
 }

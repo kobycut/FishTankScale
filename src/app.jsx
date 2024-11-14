@@ -12,24 +12,13 @@ export default function App() {
     const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
     const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
-    const [tankFish, setTankFish] = useState([
-    ]);
-    const [tankSize, setTankSize] = useState('');
-    const [gph, setGph] = useState('');
+    
+    
 
     function logout() {
         console.log("WORKINGGGGGGGGGGGGGGGGGGGG");
         localStorage.removeItem('userName');
         setAuthState(AuthState.Unauthenticated);
-    }
-    function passPropsTankSize(TankSize) {
-        setTankSize(TankSize)
-    }
-    function passPropsGph(Gph) {
-        setGph(Gph)
-    }
-    function passPropsTankFish(TankFish) {
-        setTankFish(TankFish)
     }
 
     return (
@@ -65,14 +54,9 @@ export default function App() {
 
                     <Route path='/tank' element={<>
 
-                        <Tank authState={authState} onAuthChange={(userName, authState) => {
-                            setAuthState(authState); setUserName(userName);
-                        }}
-                            passPropsTankFish={passPropsTankFish}
-                            passPropsGph={passPropsGph}
-                            passPropsTankSize={passPropsTankSize} />
+                        <Tank authState={authState} />
 
-                        <Alerts tankFish={tankFish} tankSize={tankSize} gph={gph} />
+                        <Alerts />
                     </>
                     }
                     />

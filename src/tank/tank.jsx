@@ -5,11 +5,11 @@ import { Alerts } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/alerts
 
 
 
-export function Tank({ userName, authState, onAuthChange, passPropsTankFish, passPropsGph, passPropsTankSize }) {
+export function Tank({ authState}) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-
+  
   function toggleCustomTank() {
     var select = document.getElementById("Tanks");
     var customTankInput = document.getElementById("customTankInput");
@@ -33,24 +33,14 @@ export function Tank({ userName, authState, onAuthChange, passPropsTankFish, pas
 
 
 
-
-  function passTankSize(tankSize) {
-    passPropsTankSize(tankSize)
-  }
-  function passGph(gph) {
-    passPropsGph(gph)
-  }
-  function passFishTank(fishTank) {
-    passPropsTankFish(fishTank)
-  }
-
-  // const [selectedFish, setSelectedFish] = useState('');
-  // const [tankFish, setTankFish] = useState([]);
-  // const [tankSize, setTankSize] = useState(['']);
-  // const [gph, setGph] = useState(['']);
+  const [selectedFish, setSelectedFish] = useState('');
+  const [tankFish, setTankFish] = useState([]);
+  const [tankSize, setTankSize] = useState(['']);
+  const [gph, setGph] = useState(['']);
 
   const addFishToTank = () => {
     if (selectedFish) {   
+
       const existingFish = tankFish.find(fish => fish.name === selectedFish);
       Alerts
       if (existingFish) {
