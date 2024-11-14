@@ -2,14 +2,45 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Fish } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
-export function Alerts({ tankFish, tankSize, gph }) {
-  const [alerts, setAlerts] = useState([]);
-  if (typeof tankSize === 'string') {
-    tankSize = parseInt(tankSize);
+
+export function Alerts() {
+  
+  const [fish, setFish] = useState([]);
+  const [tankSize, setTankSize] = useState();
+  const [filter, setFilter] = useState();
+
+  tankSize = parseInt(tankSize);
+
+  function addFish(species, water_temp, compatible_with, size, min_tank_size) {
+      const newFish = new Fish(species, water_temp, compatible_with, size, min_tank_size)
+      setFish((previousFish) => [...previousFish, newFish] )
   }
-  if (typeof gph === 'string') {
-    gph = parseInt(gph);
-  }
+
+  useEffect(() => {
+    const newAlerts = [];
+    const totalFish = fish.reduce((acc, fish) => acc + fish.size);
+    const maxCapacity = tankSize * 4;
+    
+
+
+    if (totalFish > maxCapacity){
+      newAlerts.push("too many fish in tank");
+      
+      //send the alert here
+    }
+  }, [fish, tankFish, filter]);
+
+
+
+
+
+  // const [alerts, setAlerts] = useState([]);
+  // if (typeof tankSize === 'string') {
+  //   tankSize = parseInt(tankSize);
+  // }
+  // if (typeof gph === 'string') {
+  //   gph = parseInt(gph);
+  // }
 
 
 
@@ -23,6 +54,17 @@ export function Alerts({ tankFish, tankSize, gph }) {
     console.log('HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE');
     console.log(tankFish, tankSize, gph);
   }
+
+  function testCheckAll() {
+    if (gph > 10 && tankSize > 10 && tankFish.length > 2) {
+      return "all conditions met"
+    }
+    else {
+      return "not all conditions met"
+    }
+  }
+
+
   function checkTankSize() {
 
     return "Tank can hold all these fish."
@@ -61,6 +103,7 @@ export function Alerts({ tankFish, tankSize, gph }) {
       newAlerts.push(filterAlert);
     }
 
+
     // if (tankFish.length > 0) {
       const fishCompatibilityAlert = checkFishCompatibility();
       newAlerts.push(fishCompatibilityAlert);
@@ -73,6 +116,8 @@ export function Alerts({ tankFish, tankSize, gph }) {
 
     setAlerts(newAlerts);
   }, [tankFish, tankSize, gph]);
+
+  
 
 
   return (

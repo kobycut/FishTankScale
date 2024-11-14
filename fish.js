@@ -9,4 +9,5 @@ export class Fish {
         this.min_tank_size = min_tank_size
     }
     
+    
 }
