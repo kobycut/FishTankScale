@@ -6,11 +6,11 @@ import { Fish } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 
 
-export function Tank({setFish, authState}) {
+export function Tank({ setFish, authState }) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  
+
   function toggleCustomTank() {
     var select = document.getElementById("Tanks");
     var customTankInput = document.getElementById("customTankInput");
@@ -36,6 +36,15 @@ export function Tank({setFish, authState}) {
     const newFish = new Fish(species, water_temp, compatible_with, size, min_tank_size)
     setFish((previousFish) => [...previousFish, newFish])
   }
+  function removeFish(species) {
+    setFish((previousFish) => {
+      const index = previousFish.findIndex((fish) => fish.species === species);
+      if (index === -1) return previousFish; // If no fish of that species is found, return the list as-is
+
+      // Remove the fish at the found index
+      return [...previousFish.slice(0, index), ...previousFish.slice(index + 1)];
+    });
+  }
 
 
   const [selectedFish, setSelectedFish] = useState('');
@@ -44,10 +53,10 @@ export function Tank({setFish, authState}) {
   const [gph, setGph] = useState(['']);
 
   const addFishToTank = () => {
-    if (selectedFish) {   
+    if (selectedFish) {
 
-      addFish("shrimp", 10, null, 20, 30);
-      
+      addFish(selectedFish, 10, null, 20, 30);
+
       const existingFish = tankFish.find(fish => fish.name === selectedFish);
       Alerts
       if (existingFish) {
@@ -61,12 +70,14 @@ export function Tank({setFish, authState}) {
   };
 
   const incrementFishCount = (fishName) => {
+    addFish(fishName, 10, null, 20, 30);
     setTankFish(tankFish.map(fish =>
       fish.name === fishName ? { ...fish, count: fish.count + 1 } : fish
     ));
   };
 
   const decrementFishCount = (fishName) => {
+    removeFish(fishName, 10, null, 20, 30);
     setTankFish(tankFish.map(fish =>
       fish.name === fishName ? fish.count > 1 ? { ...fish, count: fish.count - 1 }
         : null : fish).filter(fish => fish !== null)
