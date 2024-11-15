@@ -56,3 +56,15 @@ For this deliverable I used JavaScript and React so that the application complet
   - [x] **application logic** - The fish in the tank change based on which ones you put in. Also can increment and decrement how many of each fish. Also the alerts change based on the tank conditions. Not all alert functionality is complete.
 - [x] **Router** - Routing between login and tank is done.
 - [x] **Hooks** - Used to update logic and allow react to change the visuals based on different things.
+
+## Service deliverable
+
+➡️ The following is an example of the required information for the `Startup Service` deliverable
+
+For this deliverable I added backend endpoints that receives votes and returns the voting totals.
+
+- [x] **Node.js/Express HTTP service** - done!
+- [x] **Static middleware for frontend** - done!
+- [x] **Calls to third party endpoints** - Calls a daily fact generator in the login page to display a random daily fact.
+- [x] **Backend service endpoints** - Placeholders for login that stores the current user on the server. Endpoints for login.
+- [x] **Frontend calls service endpoints** - I did this using the fetch function.
