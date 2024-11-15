@@ -133,8 +133,8 @@ export function Tank({ setFish, setTankSize, setFilter, authState }) {
                 <option value="65_gal">65 gal</option>
                 <option value="75_gal">75 gal</option>
                 <option value="100_gal">90 gal</option>
-                <option value="150_gal">150 gal</option>
-                <option value="200_gal">200 gal</option>
+                {/* <option value="150_gal">150 gal</option>
+                <option value="200_gal">200 gal</option> */}
               </optgroup>
 
             </select>

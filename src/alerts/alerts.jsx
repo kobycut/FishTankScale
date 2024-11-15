@@ -58,12 +58,13 @@ export function Alerts(fish, tankSize, filter) {
       }
     }
 
+    if (fishList != null) {
+      if (fishList.length > 0 && tankSizeInt > 0) {
+        const alert = checkFishSizeToTank(fishList, tankSizeInt);
 
-    if (fishList.length > 0 && tankSizeInt > 0) {
-      const alert = checkFishSizeToTank(fishList, tankSizeInt);
-
-      if (alert != null) {
-        newAlerts.push(alert);
+        if (alert != null) {
+          newAlerts.push(alert);
+        }
       }
     }
 
