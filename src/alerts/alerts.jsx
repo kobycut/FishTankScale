@@ -5,37 +5,67 @@ import { Fish } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 export function Alerts(fish, tankSize, filter) {
 
-
-
   const [alerts, setAlerts] = useState([]);
 
-  const tankSizeInt = parseInt(tankSize);
-  const filterInt = parseInt(filter);
 
 
-  // function addFish(species, water_temp, compatible_with, size, min_tank_size) {
-  //   const newFish = new Fish(species, water_temp, compatible_with, size, min_tank_size)
-  //   setFish((previousFish) => [...previousFish, newFish])
-  // }
+
+
+  // all check functions that useEffect gets alerts from
+
+  function checkFishSizeToTank(fishList, tankSize) {
+    let totalFishInches = 0;
+    if (fishList.length > 0) {
+      totalFishInches = fishList.reduce((acc, fish) => acc + (fish.size || 0), 0);
+    }
+
+    if (fishList.length > 0) {
+      if (totalFishInches > tankSize) {
+        return "These fish do not fit in this tank";
+      }
+      else {
+        return null;
+
+      }
+    }
+  }
 
 
   useEffect(() => {
-    console.log(fish, tankSize, filter);
+    const tankSizeInt = parseInt(fish.tankSize) || 0;
+    const filterInt = parseInt(fish.filter) || 0;
+    const fishList = fish.fish;
     const newAlerts = [];
-    if (fish.size > 0) {
-      const totalFishInches = fish.reduce((acc, fish) => acc + fish.size);
-    }
-    const maxCapacityFishInches = tankSizeInt;
 
+    console.log(fishList);
 
-    if (fish.size > 0) {
-      if (totalFishInches > maxCapacity) {
-        newAlerts.push("too many fish in tank");
+    // this is where the check functions are called
+    if (fishList.length > 0 && tankSizeInt > 0) {
+      const alert = checkFishSizeToTank(fishList, tankSizeInt);
 
-        //send the alert here
+      if (alert != null) {
+        newAlerts.push(alert);
       }
     }
+
+
+
+
+
+
+
+
+
+
+    if (newAlerts.length < 1) {
+      newAlerts.push("Tank looks good!");
+
+    }
+
+
     setAlerts(newAlerts);
+
+
   }, [fish, tankSize, filter]);
 
   return (
@@ -49,8 +79,11 @@ export function Alerts(fish, tankSize, filter) {
         <h2>Alerts</h2>
         <ul className="list-group" id="alert-list">
           {alerts.map((alert, index) => (
-            <li key={index} className="list-group-item d-flex justify-content-between">
-              {alert}
+            <li key={index} className="list-group-item d-flex justify-content-between"
+              style={alert === "Tank looks good!" ? { color: 'green' } : {color: 'red'}}
+              
+              >
+                {alert}
             </li>
           ))}
 

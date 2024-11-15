@@ -71,7 +71,7 @@ export function Tank({ setFish, setTankSize, setFilter, authState }) {
       } else {
         setTankFish([...tankFish, { name: selectedFish, count: 1 }]);
       }
-      passFishTank(tankFish)
+      
     }
   };
 
