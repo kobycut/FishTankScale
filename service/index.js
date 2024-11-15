@@ -3,7 +3,7 @@ const uuid = require('uuid');
 const app = express();
 
 
-const port = process.argv.length > 2 ? process.argv[2] : 8080;
+const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 let users = {};
 
@@ -27,6 +27,7 @@ apiRouter.post('/auth/create', async (req, res) => {
 });
 
 apiRouter.post('/auth/login', async (req, res) => {
+    console.log("got to the endpoint");
     const user = users[req.body.email];
     if (user) {
         if (req.body.password === user.password) {

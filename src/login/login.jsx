@@ -5,7 +5,23 @@ import { Unauthenticated } from './unauthenticated';
 
 
 
-export function Login({userName, authState, onAuthChange}) {
+export function Login({ userName, authState, onAuthChange, }) {
+
+  const [fact, setFact] = useState("");
+
+  React.useEffect(() => {
+
+    fetch(`https://uselessfacts.jsph.pl/api/v2/facts/today`)
+      .then((response) => {
+        return response.json();
+      })
+
+      .then((data) => {
+        setFact(data.text);
+      })
+      .catch();
+  }, []);
+
 
   return (
     <main>
@@ -22,6 +38,11 @@ export function Login({userName, authState, onAuthChange}) {
             }}
           />
         )}
+        <div className="d-flex flex-column justify-content-center align-items-center">
+
+          <h2>Random Fact of the Day</h2>
+          <p>{fact}</p>
+        </div>
       </div>
     </main>
   );
