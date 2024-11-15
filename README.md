@@ -44,8 +44,6 @@ In this deliverable I finalized the style for the website.
 
 ## React deliverable
 
-➡️ The following is an example of the required information for the `Startup React` deliverable
-
 For this deliverable I used JavaScript and React so that the application completely works for a single user. I also added placeholders for future technology.
 
 - [x] **Bundled and transpiled** - done!
@@ -59,9 +57,9 @@ For this deliverable I used JavaScript and React so that the application complet
 
 ## Service deliverable
 
-➡️ The following is an example of the required information for the `Startup Service` deliverable
 
-For this deliverable I added backend endpoints that receives votes and returns the voting totals.
+
+For this deliverable I added backend endpoints that receives login information.
 
 - [x] **Node.js/Express HTTP service** - done!
 - [x] **Static middleware for frontend** - done!
