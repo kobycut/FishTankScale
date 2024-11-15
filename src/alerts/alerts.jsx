@@ -30,6 +30,15 @@ export function Alerts(fish, tankSize, filter) {
     }
   }
 
+  function checkTankSizeToFilter(tankSize, filter) {
+    if (tankSize * 4 > filter) {
+      return "filter is not strong enough for this tank size";
+    }
+    else {
+      return null;
+    }
+  }
+
 
   useEffect(() => {
     const tankSizeInt = parseInt(fish.tankSize) || 0;
@@ -40,6 +49,16 @@ export function Alerts(fish, tankSize, filter) {
     console.log(fishList);
 
     // this is where the check functions are called
+    if (tankSizeInt > 0 && filterInt > 0) {
+      const alert = checkTankSizeToFilter(tankSizeInt, filterInt);
+
+      if (alert != null) {
+        newAlerts.push(alert);
+
+      }
+    }
+
+
     if (fishList.length > 0 && tankSizeInt > 0) {
       const alert = checkFishSizeToTank(fishList, tankSizeInt);
 
@@ -80,10 +99,10 @@ export function Alerts(fish, tankSize, filter) {
         <ul className="list-group" id="alert-list">
           {alerts.map((alert, index) => (
             <li key={index} className="list-group-item d-flex justify-content-between"
-              style={alert === "Tank looks good!" ? { color: 'green' } : {color: 'red'}}
-              
-              >
-                {alert}
+              style={alert === "Tank looks good!" ? { color: 'green' } : { color: 'red' }}
+
+            >
+              {alert}
             </li>
           ))}
 
