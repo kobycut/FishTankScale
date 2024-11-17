@@ -7,9 +7,34 @@ import { Fish } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 
 export function Tank({ setFish, setTankSize, setFilter, authState }) {
+
+  const water_temp_avg = 0;
+  const water_ph_avg = 0;
+  const stocking_lvl = 0;
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+
+
+
+  function getStockingAvg(fishTank) {
+
+    
+
+    const stocking_lvl = '58%';
+    // if stocking lvl > 100 text red, if not text green
+    document.getElementById("stocking_level").textContent = stocking_lvl;
+  }
+
+  function getWaterPhAvg() {
+
+  }
+  function getWaterTempAvg() {
+
+  }
 
   function toggleCustomTank() {
     var select = document.getElementById("Tanks");
@@ -40,6 +65,11 @@ export function Tank({ setFish, setTankSize, setFilter, authState }) {
 
   function addFish(species, water_temp, compatible_with, size, min_tank_size) {
     const newFish = new Fish(species, water_temp, compatible_with, size, min_tank_size);
+
+    getStockingAvg();
+    // getWaterPhAvg();
+    // getWaterTempAvg();
+
     setFish((previousFish) => [...previousFish, newFish]);
   }
   function removeFish(species) {
@@ -71,7 +101,7 @@ export function Tank({ setFish, setTankSize, setFilter, authState }) {
       } else {
         setTankFish([...tankFish, { name: selectedFish, count: 1 }]);
       }
-      
+
     }
   };
 
@@ -257,10 +287,9 @@ export function Tank({ setFish, setTankSize, setFilter, authState }) {
                 <div className="text-end">
 
 
-                  {/* <p>Stocking Level: <span id="stocking_level">--%</span></p>
-                <p>Filter Capacity: <span id="filter_capacity">--%</span></p> */}
+                  <p>Stocking Level: <span id="stocking_level">--%</span></p>
                   <p>Water Temp:‎ ‎ ‎ ‎ <span id="water_temp">--°F</span></p>
-                  {/* <p>Water pH: ‎ ‎ ‎ ‎ ‎ ‎ <span id="water_ph">--pH</span></p> */}
+                  <p>Water pH: ‎ ‎ ‎ ‎ ‎ ‎ <span id="water_ph">--pH</span></p>
 
                 </div>
               </div>
