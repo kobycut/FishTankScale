@@ -39,6 +39,33 @@ export function Alerts(fish, tankSize, filter) {
     }
   }
 
+  function checkWaterPh(fishList) {
+    let total_water_ph = 0;
+    for (let i = 0; i < fishList.length; i++) {
+      const fish = fishList[i];
+      total_water_ph += fish.ph_min;
+      total_water_ph += fish.ph_max;
+
+    }
+    let ph_lvl = total_water_ph / (fishList.length * 2);
+    for (let i = 0; i < fishList.length; i++) {
+      const fish = fishList[i];
+      console.log(fish.ph_min);
+      console.log(fish.ph_min > ph_lvl);
+      console.log(fish.ph)
+      
+      if (fish.ph_min > ph_lvl) {
+        return `Tank pH level needs to be higher than ${(fish.ph_min)} for ${fish.species}`;
+      }
+      if (fish.ph_max < ph_lvl) {
+        return `Tank pH level needs to be lower than ${fish.ph_max} for ${fish.species}`;
+      }
+
+    }
+    return null;
+
+  }
+
 
   useEffect(() => {
     const tankSizeInt = parseInt(fish.tankSize) || 0;
@@ -62,6 +89,12 @@ export function Alerts(fish, tankSize, filter) {
       if (fishList.length > 0 && tankSizeInt > 0) {
         const alert = checkFishSizeToTank(fishList, tankSizeInt);
 
+        if (alert != null) {
+          newAlerts.push(alert);
+        }
+      }
+      if (fishList.length > 0) {
+        const alert = checkWaterPh(fishList);
         if (alert != null) {
           newAlerts.push(alert);
         }

@@ -33,7 +33,7 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
     const stockingElement = document.getElementById("stocking_level");
 
     if (fishTank.length === 0) {
-      stockingElement.textContent = "--";
+      stockingElement.textContent = "0";
       stockingElement.style.color = "black"; // Default color for empty tanks
     } else {
       stockingElement.textContent = Math.round(stocking_lvl) + "%";
