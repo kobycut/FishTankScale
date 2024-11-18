@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthState } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/login/authState.js';
 import { Alerts } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/alerts/alerts.jsx';
-import { Fish } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
+import { Betta_Female, Betta_Male, Cherry_Shrimp, Dwarf_Gourami, Fish } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 
 
-export function Tank({ setFish, setTankSize, setFilter, authState }) {
+export function Tank({ setFish, setTankSize, setFilter, authState, tankSize }) {
 
   const water_temp_avg = 0;
   const water_ph_avg = 0;
@@ -22,10 +22,16 @@ export function Tank({ setFish, setTankSize, setFilter, authState }) {
 
   function getStockingAvg(fishTank) {
 
-    
+    let total_size = 0;
+    for (let i = 0; i < fishTank.length; i++) {
+      const fish = fishTank[i];
+      total_size += fish.size;
+    }
+    let stocking_lvl = total_size / parseInt(tankSize);
 
-    const stocking_lvl = '58%';
+
     // if stocking lvl > 100 text red, if not text green
+    // if tank empty, set to "--"
     document.getElementById("stocking_level").textContent = stocking_lvl;
   }
 
@@ -63,14 +69,31 @@ export function Tank({ setFish, setTankSize, setFilter, authState }) {
     setFilter(newFilter);
   }
 
-  function addFish(species, water_temp, compatible_with, size, min_tank_size) {
-    const newFish = new Fish(species, water_temp, compatible_with, size, min_tank_size);
+  function addFish(species) {
+    let newFish = " ";
+    switch (species) {
+      case 'Dwarf_Gourami':
+        newFish = new Dwarf_Gourami();
+        break;
+      case 'Betta_Female':
+        newFish = new Betta_Female();
+        break;
+      case 'Betta_Male':
+        newFish = new Betta_Male();
+        break;
+      case 'Cherry_Shrimp':
+        newFish = new Cherry_Shrimp();
+        break;
+    }
 
-    getStockingAvg();
-    // getWaterPhAvg();
-    // getWaterTempAvg();
+    setFish((previousFish) => {
 
-    setFish((previousFish) => [...previousFish, newFish]);
+      const updatedFish = [...previousFish, newFish]
+      getStockingAvg(updatedFish);
+      // getWaterPhAvg();
+      // getWaterTempAvg();
+      return updatedFish
+    });
   }
   function removeFish(species) {
     setFish((previousFish) => {
@@ -91,7 +114,7 @@ export function Tank({ setFish, setTankSize, setFilter, authState }) {
   const addFishToTank = () => {
     if (selectedFish) {
 
-      addFish(selectedFish, 10, null, 20, 30);
+      addFish(selectedFish);
 
       const existingFish = tankFish.find(fish => fish.name === selectedFish);
       Alerts

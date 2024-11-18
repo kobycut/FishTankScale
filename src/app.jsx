@@ -67,7 +67,7 @@ export default function App() {
 
                     <Route path='/tank' element={<>
 
-                        <Tank setFish={setFishList} setTankSize={setNewTankSize} setFilter={setNewFilter} authState={authState} />
+                        <Tank setFish={setFishList} setTankSize={setNewTankSize} setFilter={setNewFilter} authState={authState} tankSize={tankSize} />
 
                         <Alerts fish={fish} tankSize={tankSize} filter={filter} />
                     </>
