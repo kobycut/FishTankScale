@@ -76,4 +76,4 @@ For this deliverable I login and register the user using the database and it sto
 - [x] **User registration** - Creates a new account in the database.
 - [x] **existing user** - Allows for existing users to login and use their account
 - [x] **Use MongoDB to store credentials** - Stores the user and their login
-- [ ] **Restricts functionality** - You can only perform the save tank function if logged in.
+- [x] **Restricts functionality** - You can only perform the save tank function if logged in.
