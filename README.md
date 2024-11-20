@@ -66,3 +66,14 @@ For this deliverable I added backend endpoints that receives login information.
 - [x] **Calls to third party endpoints** - Calls a daily fact generator in the login page to display a random daily fact.
 - [x] **Backend service endpoints** - Placeholders for login that stores the current user on the server. Endpoints for login.
 - [x] **Frontend calls service endpoints** - I did this using the fetch function.
+
+## DB/Login deliverable
+
+For this deliverable I login and register the user using the database and it stores the info there.
+
+- [x] **MongoDB Atlas database created** - done!
+- [x] **Stores data in MongoDB** - done!
+- [x] **User registration** - Creates a new account in the database.
+- [x] **existing user** - Allows for existing users to login and use their account
+- [x] **Use MongoDB to store credentials** - Stores the user and their login
+- [ ] **Restricts functionality** - You can only perform the save tank function if logged in.
