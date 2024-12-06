@@ -38,22 +38,56 @@ export function Alerts(fish, tankSize, filter) {
       return null;
     }
   }
+  function checkWaterTemp(fishList) {
+    let total_water_temp = 0;
+    for (let i = 0; i < fishList.length; i++) {
+      total_water_temp += fish.water_temp_min;
+      total_water_temp += fish.water_temp_max;
+    }
+    let temp_lvl = total_water_temp / (fishList.length * 2);
+    for (let i = 0; i < fishList.length; i++) {
+      const fish = fishList[i];
+
+      if (fish.water_temp_min > temp_lvl) {
+        return `Tank temperature needs to be higher than ${(fish.water_temp_min)} for ${fish.species}`;
+      }
+      if (fish.water_temp_max < temp_lvl) {
+        return `Tank temperature needs to be lower than ${fish.water_temp_max} for ${fish.species}`;
+      }
+
+    }
+    return null;
+
+
+  }
 
   function checkWaterPh(fishList) {
     let total_water_ph = 0;
+    // let min_tank_ph = 0;
+    // let max_tank_ph = 1000;
+
     for (let i = 0; i < fishList.length; i++) {
-      const fish = fishList[i];
+      //   const fish = fishList[i];
+      //   if (fish.ph_min > min_tank_ph) {
+      //     min_tank_ph = fish.ph_min;
+      //   }
+      //   if (fish.ph_max < max_tank_ph) {
+      //     min_tank_ph = fish.ph_min;
       total_water_ph += fish.ph_min;
       total_water_ph += fish.ph_max;
-
     }
+
+
+
+
+    // }
     let ph_lvl = total_water_ph / (fishList.length * 2);
     for (let i = 0; i < fishList.length; i++) {
       const fish = fishList[i];
       console.log(fish.ph_min);
       console.log(fish.ph_min > ph_lvl);
       console.log(fish.ph)
-      
+
       if (fish.ph_min > ph_lvl) {
         return `Tank pH level needs to be higher than ${(fish.ph_min)} for ${fish.species}`;
       }
@@ -99,6 +133,10 @@ export function Alerts(fish, tankSize, filter) {
           newAlerts.push(alert);
         }
       }
+        const alert2 = checkWaterTemp(fishList);
+        if (alert2 != null) {
+          newAlerts.push(alert2);
+        }
     }
 
 

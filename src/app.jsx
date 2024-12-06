@@ -8,6 +8,8 @@ import { Login } from './login/login';
 import { Tank } from './tank/tank';
 import { AuthState } from './login/authState';
 
+import { GameEvent, GameNotifier } from './gameNotifier';
+
 export default function App() {
     const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
     const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
@@ -26,10 +28,65 @@ export default function App() {
     function setNewFilter(newFilter) {
         setFilter(newFilter)
     }
+    
+
+
+    function Users() {
+        const [events, setEvent] = React.useState([]);
+      
+        React.useEffect(() => {
+          GameNotifier.addHandler(handleGameEvent);
+      
+          return () => {
+            GameNotifier.removeHandler(handleGameEvent);
+          };
+        });
+      
+        function handleGameEvent(event) {
+          setEvent([...events, event]);
+        }
+      
+        function createMessageArray() {
+          const messageArray = [];
+          for (const [i, event] of events.entries()) {
+            let message = 'unknown';
+            if (event.type === GameEvent.Login) {
+              message = `started building their fish tank`;
+            } else if (event.type === GameEvent.Logout) {
+              message = `finished their tank`;
+            } else if (event.type === GameEvent.System) {
+              message = event.value.msg;
+            }
+      
+            messageArray.push(
+              <div key={i} className='event'>
+                <span className={'player-event'}>{event.from.split('@')[0]}</span>
+                {message}
+              </div>
+            );
+          }
+          return messageArray;
+        }
+      
+        return (
+          <div className='players'>
+            User
+            <span className='player-name'>{userName}</span>
+            <div id='player-messages'>{createMessageArray()}</div>
+          </div>
+        );
+      }
+      
+
+
+
+
+
+
+
 
 
     function logout() {
-        console.log("WORKINGGGGGGGGGGGGGGGGGGGG");
         localStorage.removeItem('userName');
         setAuthState(AuthState.Unauthenticated);
     }
@@ -54,6 +111,13 @@ export default function App() {
                             <div className="button-container">
                                 <Button className="btn btn-secondary" onClick={() => logout()}>Logout</Button>
                             </div>)}
+                        {authState === AuthState.Authenticated && (
+                        <div className="notification-container">
+                            
+                        </div>
+                        )}  
+
+                        
                     </main>
 
                 </header>

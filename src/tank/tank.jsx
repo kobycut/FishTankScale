@@ -286,8 +286,8 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
                 <h3 className="mb-3 d-flex flex-grow justify-content-between align-items-center w-100 text-center">
                   <div className="flex-grow-1 text-center">Your Fish Tank</div>
 
-                  {authState === AuthState.Authenticated && (
-                    <button className="btn btn-success ms-1 position-absolute">Save Tank</button>)}
+                  {/* {authState === AuthState.Authenticated && (
+                    <button className="btn btn-success ms-1 position-absolute">Save Tank</button>)} */}
                 </h3>
 
                 <div className="dropdown">

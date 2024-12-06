@@ -15,7 +15,11 @@
     top: 20px;
     right: 20px;
 }
-
+.notification-container {
+    position: absolute;
+    top: 60px;
+    right: 200px;
+}
 .fish_tank-container {
     padding: 10px;
     background-color: rgb(177, 215, 248);
