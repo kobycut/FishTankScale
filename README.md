@@ -77,3 +77,12 @@ For this deliverable I login and register the user using the database and it sto
 - [x] **existing user** - Allows for existing users to login and use their account
 - [x] **Use MongoDB to store credentials** - Stores the user and their login
 - [x] **Restricts functionality** - You can only perform the save tank function if logged in.
+
+## WebSocket deliverable
+
+For this deliverable I used webSocket to show who is using the application in real time.
+
+- [x] **Backend listens for WebSocket connection** - done!
+- [x] **Frontend makes WebSocket connection** - done!
+- [x] **Data sent over WebSocket connection** - done!
+- [x] **WebSocket data displayed** - Displays once you are logged in in the top right corner. Stays a certain size in order to limit the space it takes. Updates in realtime to all other users when someone creates a new account, logs in, or logs out with different messages representing each scenario. My startup is complete!! I'm going to celebrate by going skateboarding :))) Have a great christmas break!!!
