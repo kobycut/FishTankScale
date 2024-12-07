@@ -5,10 +5,10 @@ const Event = {
 };
 
 class EventMessage {
-  constructor(from, type, value) {
+  constructor(from, type) {
     this.from = from;
     this.type = type;
-    this.value = value;
+
   }
 }
 
@@ -19,24 +19,32 @@ class GameEventNotifier {
   constructor() {
     let port = window.location.port;
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    console.log("HERE", window.location.hostname)
     this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
     this.socket.onopen = (event) => {
-      this.receiveEvent(new EventMessage('FishTankScale', GameEvent.System, { msg: 'connected' }));
+      this.receiveEvent(new EventMessage('FishTankScale', Event.System, { msg: 'connected' }));
     };
     this.socket.onclose = (event) => {
-      this.receiveEvent(new EventMessage('FishTankScale', GameEvent.System, { msg: 'disconnected' }));
+      this.receiveEvent(new EventMessage('FishTankScale', Event.System, { msg: 'disconnected' }));
     };
     this.socket.onmessage = async (msg) => {
       try {
         const event = JSON.parse(await msg.data.text());
         this.receiveEvent(event);
-      } catch {}
+      } catch { }
     };
   }
 
-  broadcastEvent(from, type, value) {
-    const event = new EventMessage(from, type, value);
+  broadcastEvent(from, type) {
+    const event = new EventMessage(from, type);
+    // if (this.socket.readyState === WebSocket.OPEN) {
+    console.log("socket open and sent!");
     this.socket.send(JSON.stringify(event));
+    // }
+    // else {
+    console.log("socket not open :(");
+    // }
+
   }
 
   addHandler(handler) {

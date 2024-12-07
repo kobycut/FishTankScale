@@ -8,7 +8,7 @@ import { Login } from './login/login';
 import { Tank } from './tank/tank';
 import { AuthState } from './login/authState';
 
-import { GameEvent, GameNotifier } from './gameNotifier';
+import { Event, GameNotifier } from './gameNotifier';
 
 export default function App() {
     const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
@@ -50,11 +50,11 @@ export default function App() {
           const messageArray = [];
           for (const [i, event] of events.entries()) {
             let message = 'unknown';
-            if (event.type === GameEvent.Login) {
+            if (event.type === Event.Login) {
               message = `started building their fish tank`;
-            } else if (event.type === GameEvent.Logout) {
+            } else if (event.type === Event.Logout) {
               message = `finished their tank`;
-            } else if (event.type === GameEvent.System) {
+            } else if (event.type === Event.System) {
               message = event.value.msg;
             }
       
@@ -70,8 +70,8 @@ export default function App() {
       
         return (
           <div className='players'>
-            User
-            <span className='player-name'>{userName}</span>
+            User{' '}
+            <span className='player-name'>{ userName}</span>
             <div id='player-messages'>{createMessageArray()}</div>
           </div>
         );
@@ -87,6 +87,8 @@ export default function App() {
 
 
     function logout() {
+        GameNotifier.broadcastEvent(userName, Event.Logout);
+
         localStorage.removeItem('userName');
         setAuthState(AuthState.Unauthenticated);
     }
@@ -113,7 +115,7 @@ export default function App() {
                             </div>)}
                         {authState === AuthState.Authenticated && (
                         <div className="notification-container">
-                            
+                            <Users />
                         </div>
                         )}  
 
@@ -142,6 +144,8 @@ export default function App() {
                         authState={authState} onAuthChange={(userName, authState) => {
                             setAuthState(authState);
                             setUserState(userName);
+
+                            GameNotifier.broadcastEvent(userName, Event.Login);
                         }} />} />
 
 
