@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
@@ -16,8 +16,8 @@ export default function App() {
     const [authState, setAuthState] = React.useState(currentAuthState);
 
     const [fish, setFish] = useState([]);
-    const [tankSize, setTankSize] = useState();
-    const [filter, setFilter] = useState();
+    const [tankSize, setTankSize] = useState(null);
+    const [filter, setFilter] = useState(null);
 
     function setFishList(newFishList) {
         setFish(newFishList)
@@ -28,7 +28,12 @@ export default function App() {
     function setNewFilter(newFilter) {
         setFilter(newFilter)
     }
-
+    useEffect(() => {
+        if (authState === AuthState.Authenticated) {
+            // This will redirect to /tank when the component is loaded and user is authenticated
+            <Navigate to="/tank" />;
+        }
+    }, [authState]);
 
 
     function Users() {
@@ -48,9 +53,7 @@ export default function App() {
 
         function createMessageArray() {
             const messageArray = [];
-            //   if (messageArray.length > 4) {
-            //     messageArray.shift();
-            //   }
+            
             for (const [i, event] of events.entries()) {
                 let message = 'unknown';
                 if (event.type === Event.Create) {
@@ -71,12 +74,15 @@ export default function App() {
                     </div>
                 );
             }
+            while (messageArray.length > 5) {
+                messageArray.shift();
+            }
             return messageArray;
         }
 
         return (
             <div className='players'>
-                User{' '}
+                <b>User:{' '}</b>
                 <span className='player-name'>{userName}</span>
                 <div id='player-messages'>{createMessageArray()}</div>
             </div>
