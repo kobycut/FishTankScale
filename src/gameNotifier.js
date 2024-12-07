@@ -2,6 +2,7 @@ const Event = {
   System: 'system',
   Login: 'login',
   Logout: 'logout',
+  Create: 'create',
 };
 
 class EventMessage {
@@ -38,11 +39,11 @@ class GameEventNotifier {
   broadcastEvent(from, type) {
     const event = new EventMessage(from, type);
     // if (this.socket.readyState === WebSocket.OPEN) {
-    console.log("socket open and sent!");
+    // console.log("socket open and sent!");
     this.socket.send(JSON.stringify(event));
     // }
     // else {
-    console.log("socket not open :(");
+    // console.log("socket not open :(");
     // }
 
   }

@@ -28,55 +28,61 @@ export default function App() {
     function setNewFilter(newFilter) {
         setFilter(newFilter)
     }
-    
+
 
 
     function Users() {
         const [events, setEvent] = React.useState([]);
-      
+
         React.useEffect(() => {
-          GameNotifier.addHandler(handleGameEvent);
-      
-          return () => {
-            GameNotifier.removeHandler(handleGameEvent);
-          };
+            GameNotifier.addHandler(handleGameEvent);
+
+            return () => {
+                GameNotifier.removeHandler(handleGameEvent);
+            };
         });
-      
+
         function handleGameEvent(event) {
-          setEvent([...events, event]);
+            setEvent([...events, event]);
         }
-      
+
         function createMessageArray() {
-          const messageArray = [];
-          for (const [i, event] of events.entries()) {
-            let message = 'unknown';
-            if (event.type === Event.Login) {
-              message = `started building their fish tank`;
-            } else if (event.type === Event.Logout) {
-              message = `finished their tank`;
-            } else if (event.type === Event.System) {
-              message = event.value.msg;
+            const messageArray = [];
+            //   if (messageArray.length > 4) {
+            //     messageArray.shift();
+            //   }
+            for (const [i, event] of events.entries()) {
+                let message = 'unknown';
+                if (event.type === Event.Create) {
+                    message = ' is building their first tank!'
+                }
+                if (event.type === Event.Login) {
+                    message = ` started building their fish tank`;
+                } else if (event.type === Event.Logout) {
+                    message = ` finished their tank`;
+                } else if (event.type === Event.System) {
+                    continue;
+                }
+
+                messageArray.push(
+                    <div key={i} className='event'>
+                        <span className={'player-event'}>{event.from.split('@')[0]}</span>
+                        {message}
+                    </div>
+                );
             }
-      
-            messageArray.push(
-              <div key={i} className='event'>
-                <span className={'player-event'}>{event.from.split('@')[0]}</span>
-                {message}
-              </div>
-            );
-          }
-          return messageArray;
+            return messageArray;
         }
-      
+
         return (
-          <div className='players'>
-            User{' '}
-            <span className='player-name'>{ userName}</span>
-            <div id='player-messages'>{createMessageArray()}</div>
-          </div>
+            <div className='players'>
+                User{' '}
+                <span className='player-name'>{userName}</span>
+                <div id='player-messages'>{createMessageArray()}</div>
+            </div>
         );
-      }
-      
+    }
+
 
 
 
@@ -114,12 +120,12 @@ export default function App() {
                                 <Button className="btn btn-secondary" onClick={() => logout()}>Logout</Button>
                             </div>)}
                         {authState === AuthState.Authenticated && (
-                        <div className="notification-container">
-                            <Users />
-                        </div>
-                        )}  
+                            <div className="notification-container">
+                                <Users />
+                            </div>
+                        )}
 
-                        
+
                     </main>
 
                 </header>
@@ -143,9 +149,7 @@ export default function App() {
                     <Route path='/login' element={<Login userName={userName}
                         authState={authState} onAuthChange={(userName, authState) => {
                             setAuthState(authState);
-                            setUserState(userName);
-
-                            GameNotifier.broadcastEvent(userName, Event.Login);
+                            setUserName(userName);
                         }} />} />
 
 
@@ -172,7 +176,7 @@ export default function App() {
 
 
 
-                
+
 
                 <footer className="text-dark py-4">
                     <div className="container text-center">

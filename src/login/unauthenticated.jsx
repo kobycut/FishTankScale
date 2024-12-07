@@ -3,6 +3,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { MessageDialog } from './messageDialog';
 import { NavLink, redirect, useNavigate } from 'react-router-dom';
+import { Event, GameNotifier } from '../gameNotifier';
 
 export function Unauthenticated(props) {
   const [userName, setUserName] = React.useState(props.userName);
@@ -12,10 +13,12 @@ export function Unauthenticated(props) {
 
   async function loginUser() {
     loginOrCreate('/api/auth/login');
+    GameNotifier.broadcastEvent(userName, Event.Login);
   }
 
   async function createUser() {
     loginOrCreate('/api/auth/create');
+    GameNotifier.broadcastEvent(userName, Event.Create);
   }
 
   async function loginOrCreate(endpoint) {
