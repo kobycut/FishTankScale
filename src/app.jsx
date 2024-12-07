@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
-import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, NavLink, Navigate} from 'react-router-dom';
 import { Alerts } from './alerts/alerts';
 import { Login } from './login/login';
 import { Tank } from './tank/tank';
