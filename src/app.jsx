@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
-import { BrowserRouter, Route, Routes, NavLink, Navigate} from 'react-router-dom';
+import { BrowserRouter, Route, Routes, NavLink, Navigate } from 'react-router-dom';
 import { Alerts } from './alerts/alerts';
 import { Login } from './login/login';
 import { Tank } from './tank/tank';
@@ -29,10 +29,7 @@ export default function App() {
         setFilter(newFilter)
     }
     useEffect(() => {
-        if (authState === AuthState.Authenticated) {
-            // This will redirect to /tank when the component is loaded and user is authenticated
-            <Navigate to="/tank" />;
-        }
+        <Navigate to="/tank" />;
     }, [authState]);
 
 
@@ -53,7 +50,7 @@ export default function App() {
 
         function createMessageArray() {
             const messageArray = [];
-            
+
             for (const [i, event] of events.entries()) {
                 let message = 'unknown';
                 if (event.type === Event.Create) {
@@ -140,8 +137,8 @@ export default function App() {
                 </p>
                 <hr />
                 <Routes>
-                    <Route path='/' element={[<Tank />, <Alerts />]} exact />
-                    {/* <Route path='/login' element={<Login />} /> */}
+                    <Route path='/' element={<Navigate to="/tank" replace />}/>
+                    
 
                     <Route path='/tank' element={<>
 
