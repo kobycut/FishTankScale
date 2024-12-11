@@ -21,12 +21,12 @@ export class Dwarf_Gourami {
         this.water_temp_max = 82
         this.ph_min = 6
         this.ph_max = 8
-        this.incompatible_with = ['betta_male']
+        this.incompatible_with = ['Betta Male', 'Cherry Shrimp', ]
         this.size = 2.5
         this.min_tank_size = 10
         this.schooling = false
+        this.special_message = "CAUTION, Dwarf Gouramis should not be with other Dwarf Gouramis"
     }
-
 }
 
 export class Betta_Male {
@@ -36,12 +36,12 @@ export class Betta_Male {
         this.water_temp_max = 85
         this.ph_min = 6.8
         this.ph_max = 7.5
-        this.incompatible_with = []
+        this.incompatible_with = ['Dwarf Gourami', 'Cherry Shrimp']
         this.size = 2.5
         this.min_tank_size = 5
         this.schooling = false
+        this.special_message = 'CAUTION, Male Bettas should not be with other Betta Males'
     }
-
 }
 
 export class Betta_Female {
@@ -51,12 +51,12 @@ export class Betta_Female {
         this.water_temp_max = 85
         this.ph_min = 6.8
         this.ph_max = 7.5
-        this.incompatible_with = []
+        this.incompatible_with = ['Dwarf Gourami', 'Cherry Shrimp']
         this.size = 2.5
         this.min_tank_size = 5
         this.schooling = false
+        this.special_message = null
     }
-
 }
 
 export class Cherry_Shrimp {
@@ -70,8 +70,8 @@ export class Cherry_Shrimp {
         this.size = 0.2
         this.min_tank_size = 1
         this.schooling = false
+        this.special_message = null
     }
-
 }
 
 export class Neon_Tetra {
@@ -85,8 +85,8 @@ export class Neon_Tetra {
         this.size = 1.5
         this.min_tank_size = 10
         this.schooling = true
+        this.special_message = null
     }
-
 }
 export class Cardinal_Tetra {
     constructor() {
@@ -99,8 +99,8 @@ export class Cardinal_Tetra {
         this.size = 1.25
         this.min_tank_size = 20
         this.schooling = true
+        this.special_message = null
     }
-
 }
 export class African_Dwarf_Frog {
     constructor() {
@@ -113,8 +113,8 @@ export class African_Dwarf_Frog {
         this.size = 3
         this.min_tank_size = 15
         this.schooling = true
+        this.special_message = "CAUTION, African Dwarf Frogs need a tank with water depth of less than 18 inches because they go up for air"
     }
-
 }
 
 export class Fancy_Guppy {
@@ -128,8 +128,8 @@ export class Fancy_Guppy {
         this.size = 2.4
         this.min_tank_size = 10
         this.schooling = true
+        this.special_message = null
     }
-
 }
 
 export class Harlequin_Rasbora {
@@ -143,8 +143,8 @@ export class Harlequin_Rasbora {
         this.size = 2
         this.min_tank_size = 10
         this.schooling = true
+        this.special_message = null
     }
-
 }
 
 export class Amano_Shrimp {
@@ -158,8 +158,8 @@ export class Amano_Shrimp {
         this.size = 1.5
         this.min_tank_size = 1
         this.schooling = false
+        this.special_message = null
     }
-
 }
 
 
