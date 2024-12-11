@@ -105,6 +105,12 @@ export function Alerts(fish, tankSize, filter) {
     return specialMessageList;
   }
 
+  // checkSchooling(fishList) {
+  //   for (let i = 0; i < fishList.length; i++) {
+
+  //   }
+  // }
+
 
   function checkWaterPh(fishList) {
     let total_water_ph = 0;
