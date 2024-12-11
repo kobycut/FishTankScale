@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthState } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/login/authState.js';
 import { Alerts } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/alerts/alerts.jsx';
-import { African_Dwarf_Frog, Betta_Female, Betta_Male, Cardinal_Tetra, Cherry_Shrimp, Dwarf_Gourami, Neon_Tetra } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
+import { African_Dwarf_Frog, Amano_Shrimp, Betta_Female, Betta_Male, Cardinal_Tetra, Cherry_Shrimp, Dwarf_Gourami, Fancy_Guppy, Harlequin_Rasbora, Neon_Tetra } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 
 
@@ -114,28 +114,36 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
   function addFish(species) {
     let newFish = " ";
     switch (species) {
-      case 'Dwarf_Gourami':
+      case 'Dwarf Gourami':
         newFish = new Dwarf_Gourami();
         break;
-      case 'Betta_Female':
+      case 'Betta Female':
         newFish = new Betta_Female();
         break;
-      case 'Betta_Male':
+      case 'Betta Male':
         newFish = new Betta_Male();
         break;
-      case 'Cherry_Shrimp':
+      case 'Cherry Shrimp':
         newFish = new Cherry_Shrimp();
         break;
-      case 'Neon_Tetra':
+      case 'Neon Tetra':
         newFish = new Neon_Tetra();
         break;
-      case 'Cardinal_Tetra':
+      case 'Cardinal Tetra':
         newFish = new Cardinal_Tetra();
         break;
-      case 'African_Dwarf_Frog':
+      case 'African Dwarf Frog':
         newFish = new African_Dwarf_Frog();
         break;
-
+      case 'Fancy Guppy':
+        newFish = new Fancy_Guppy();
+        break;
+      case 'Harlequin Rasbora':
+        newFish = new Harlequin_Rasbora();
+        break;
+      case 'Amano Shrimp':
+        newFish = new Amano_Shrimp();
+        break;
 
     }
 
@@ -309,21 +317,21 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
                 <select value={selectedFish} onChange={(e) => setSelectedFish(e.target.value)} className="form-control w-auto mt-1" id="item-select" style={{ backgroundColor: 'azure' }}>
                   <option value="" disabled>Choose a fish to add</option>
                   <optgroup label="Bettas">
-                    <option value="Betta_Female">Female Betta</option>
-                    <option value="Betta_Male">Male Betta</option>
+                    <option value="Betta Female">Female Betta</option>
+                    <option value="Betta Male">Male Betta</option>
                   </optgroup>
                   <optgroup label="Gouramis">
-                    <option value="Dwarf_Gourami">Dwarf Gourami</option>
+                    <option value="Dwarf Gourami">Dwarf Gourami</option>
                   </optgroup>
-                  {/* <optgroup label="Guppys">
-                  <option value="Fancy_Guppy">Fancy Guppy</option>
-                </optgroup> */}
-                  {/* <optgroup label="Rasboras">
-                  <option value="Harlequin_Rasbora">Harlequin Rasbora</option>
-                </optgroup> */}
+                  /* <optgroup label="Guppys">
+                    <option value="Fancy Guppy">Fancy Guppy</option>
+                  </optgroup> */
+                  /* <optgroup label="Rasboras">
+                    <option value="Harlequin Rasbora">Harlequin Rasbora</option>
+                  </optgroup> */
                   <optgroup label="Shrimp">
-                    <option value="Cherry_Shrimp">Cherry Shrimp</option>
-                    {/* <option value="Amano_Shrimp">Amano Shrimp</option> */}
+                    <option value="Cherry Shrimp">Cherry Shrimp</option>
+                    /* <option value="Amano Shrimp">Amano Shrimp</option> */
                   </optgroup>
                   {/* <optgroup label="Crabs">
                   <option value="Fiddler_Crab">Fiddler Crab</option>
@@ -332,11 +340,11 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
                   <option value="Nerite_Snail">Nerite Snail</option>
                 </optgroup> */}
                     /* <optgroup label="Tetras">
-                    <option value="Neon_Tetra">Neon Tetra</option>
-                    <option value="Cardinal_Tetra">Cardinal Tetra</option>
+                    <option value="Neon Tetra">Neon Tetra</option>
+                    <option value="Cardinal Tetra">Cardinal Tetra</option>
                   </optgroup> */
                   /* <optgroup label="Misc. Fish">
-                    <option value="African_Dwarf_Frog">African Dwarf Frog</option>
+                    <option value="African Dwarf Frog">African Dwarf Frog</option>
                   </optgroup> */
                 </select>
                 <button className="btn btn-success ms-2" onClick={addFishToTank}>Add Fish</button>

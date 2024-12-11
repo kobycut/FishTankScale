@@ -16,7 +16,7 @@ export class Fish {
 
 export class Dwarf_Gourami {
     constructor() {
-        this.species = 'Dwarf_Gourami'
+        this.species = 'Dwarf Gourami'
         this.water_temp_min = 72
         this.water_temp_max = 82
         this.ph_min = 6
@@ -31,7 +31,7 @@ export class Dwarf_Gourami {
 
 export class Betta_Male {
     constructor() {
-        this.species = 'Betta_Male'
+        this.species = 'Betta Male'
         this.water_temp_min = 76
         this.water_temp_max = 85
         this.ph_min = 6.8
@@ -46,7 +46,7 @@ export class Betta_Male {
 
 export class Betta_Female {
     constructor() {
-        this.species = 'Betta_Female'
+        this.species = 'Betta Female'
         this.water_temp_min = 76
         this.water_temp_max = 85
         this.ph_min = 6.8
@@ -61,7 +61,7 @@ export class Betta_Female {
 
 export class Cherry_Shrimp {
     constructor() {
-        this.species = 'Cherry_Shrimp'
+        this.species = 'Cherry Shrimp'
         this.water_temp_min = 81
         this.water_temp_max = 82
         this.ph_min = 6.7
@@ -76,7 +76,7 @@ export class Cherry_Shrimp {
 
 export class Neon_Tetra {
     constructor() {
-        this.species = 'Neon_Tetra'
+        this.species = 'Neon Tetra'
         this.water_temp_min = 72
         this.water_temp_max = 76
         this.ph_min = 6
@@ -90,7 +90,7 @@ export class Neon_Tetra {
 }
 export class Cardinal_Tetra {
     constructor() {
-        this.species = 'Cardinal_Tetra'
+        this.species = 'Cardinal Tetra'
         this.water_temp_min = 73
         this.water_temp_max = 84
         this.ph_min = 4
@@ -104,7 +104,7 @@ export class Cardinal_Tetra {
 }
 export class African_Dwarf_Frog {
     constructor() {
-        this.species = 'African_Dwarf_Frog'
+        this.species = 'African Dwarf Frog'
         this.water_temp_min = 68
         this.water_temp_max = 78
         this.ph_min = 6.5
@@ -116,6 +116,52 @@ export class African_Dwarf_Frog {
     }
 
 }
+
+export class Fancy_Guppy {
+    constructor() {
+        this.species = 'Fancy Guppy'
+        this.water_temp_min = 72
+        this.water_temp_max = 82
+        this.ph_min = 6.5
+        this.ph_max = 8.5
+        this.incompatible_with = []
+        this.size = 2.4
+        this.min_tank_size = 10
+        this.schooling = true
+    }
+
+}
+
+export class Harlequin_Rasbora {
+    constructor() {
+        this.species = 'Harlequin Rasbora'
+        this.water_temp_min = 72
+        this.water_temp_max = 82
+        this.ph_min = 6
+        this.ph_max = 7.5
+        this.incompatible_with = []
+        this.size = 2
+        this.min_tank_size = 10
+        this.schooling = true
+    }
+
+}
+
+export class Amano_Shrimp {
+    constructor() {
+        this.species = 'Amano Shrimp'
+        this.water_temp_min = 65
+        this.water_temp_max = 84
+        this.ph_min = 6.5
+        this.ph_max = 8
+        this.incompatible_with = []
+        this.size = 1.5
+        this.min_tank_size = 1
+        this.schooling = false
+    }
+
+}
+
 
 
 
