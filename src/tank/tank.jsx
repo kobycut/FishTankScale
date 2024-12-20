@@ -306,14 +306,11 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
               <h3 className="mb-3 d-flex flex-grow justify-content-between align-items-center w-100 text-center">
                 <div className="flex-grow-1 text-center">Your Fish Tank</div>
 
-                 {/* {authState === AuthState.Authenticated && ( */}
-                    {/* <button className="btn btn-success ms-1 position-absolute">Save Tank</button>)}  */}
+                 
               </h3>
 
               <div className="dropdown">
-                {/* <input type="text" id="search-select" className="form-control mt-2 w-auto" name="searchforfish"
-                style={{ backgroundColor: 'azure' }} placeholder="Search for a fish"
-              /> */}
+                
                 <select value={selectedFish} onChange={(e) => setSelectedFish(e.target.value)} className="form-control w-auto mt-1" id="item-select" style={{ backgroundColor: 'azure' }}>
                   <option value="" disabled>Choose a fish to add</option>
                   <optgroup label="Bettas">
@@ -376,8 +373,11 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
 
 
                   <p>Stocking Level: <span id="stocking_level">--%</span></p>
-                  <p>Water Temp:‎ ‎ ‎ ‎ <span id="water_temp">--°F</span></p>
-                  <p>Water pH: ‎ ‎ ‎ ‎ ‎ ‎ <span id="water_ph">--pH</span></p>
+                  <p>Temp:‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎
+                  ‎   <span id="water_temp">--°F</span></p>
+                  <p>pH: ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ 
+                  ‎‎ <span id="water_ph">--pH</span></p>
+                  <p>Hardness:  ‎ ‎ ‎ ‎  <span id="water_hardness">--°GH</span></p>
 
                 </div>
               </div>

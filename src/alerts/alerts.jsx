@@ -114,16 +114,10 @@ export function Alerts(fish, tankSize, filter) {
 
   function checkWaterPh(fishList) {
     let total_water_ph = 0;
-    // let min_tank_ph = 0;
-    // let max_tank_ph = 1000;
+    
 
     for (let i = 0; i < fishList.length; i++) {
-      //   const fish = fishList[i];
-      //   if (fish.ph_min > min_tank_ph) {
-      //     min_tank_ph = fish.ph_min;
-      //   }
-      //   if (fish.ph_max < max_tank_ph) {
-      //     min_tank_ph = fish.ph_min;
+      
       total_water_ph += fish.ph_min;
       total_water_ph += fish.ph_max;
     }
