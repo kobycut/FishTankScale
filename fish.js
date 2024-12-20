@@ -1,7 +1,8 @@
 
 
 export class Fish {
-    constructor(species, water_temp_min, water_temp_max, ph_min, ph_max, incompatible_with, size, min_tank_size, schooling) {
+    constructor(species, water_temp_min, water_temp_max, ph_min, ph_max, incompatible_with, size, min_tank_size, schooling,
+         tank_position, special_message, water_hardness_min, water_hardness_max) {
         this.species = species
         this.water_temp_min = water_temp_min
         this.water_temp_max = water_temp_max
@@ -11,6 +12,10 @@ export class Fish {
         this.size = size
         this.min_tank_size = min_tank_size
         this.schooling = schooling
+        this.special_message = special_message
+        this.tank_position = tank_position
+        this.water_hardness_min = water_hardness_min
+        this.water_hardness_max = water_hardness_max
     }
 }
 
@@ -26,6 +31,9 @@ export class Dwarf_Gourami {
         this.min_tank_size = 10
         this.schooling = false
         this.special_message = "CAUTION, Dwarf Gouramis should not be with other Dwarf Gouramis"
+        this.tank_position = "Top Dweller"
+        this.water_hardness_min = 
+        this.water_hardness_max = 
     }
 }
 
@@ -41,6 +49,9 @@ export class Betta_Male {
         this.min_tank_size = 5
         this.schooling = false
         this.special_message = 'CAUTION, Male Bettas should not be with other Betta Males'
+        this.tank_position = "Top Dweller"
+        this.water_hardness_min = 
+        this.water_hardness_max = 
     }
 }
 
@@ -56,6 +67,9 @@ export class Betta_Female {
         this.min_tank_size = 5
         this.schooling = false
         this.special_message = null
+        this.tank_position = "Top Dweller"
+        this.water_hardness_min = 
+        this.water_hardness_max = 
     }
 }
 
@@ -71,6 +85,9 @@ export class Cherry_Shrimp {
         this.min_tank_size = 1
         this.schooling = false
         this.special_message = null
+        this.tank_position = "Bottom Dweller"
+        this.water_hardness_min = 
+        this.water_hardness_max = 
     }
 }
 
@@ -86,6 +103,9 @@ export class Neon_Tetra {
         this.min_tank_size = 10
         this.schooling = true
         this.special_message = null
+        this.tank_position = "Mid-Level Dweller"
+        this.water_hardness_min = 
+        this.water_hardness_max = 
     }
 }
 export class Cardinal_Tetra {
@@ -100,6 +120,9 @@ export class Cardinal_Tetra {
         this.min_tank_size = 20
         this.schooling = true
         this.special_message = null
+        this.tank_position = "Mid-Level Dweller"
+        this.water_hardness_min = 
+        this.water_hardness_max = 
     }
 }
 export class African_Dwarf_Frog {
@@ -114,6 +137,9 @@ export class African_Dwarf_Frog {
         this.min_tank_size = 15
         this.schooling = true
         this.special_message = "CAUTION, African Dwarf Frogs need a tank with water depth of less than 18 inches because they go up for air"
+        this.tank_position = "Bottom Dweller"
+        this.water_hardness_min = 
+        this.water_hardness_max = 
     }
 }
 
@@ -129,6 +155,9 @@ export class Fancy_Guppy {
         this.min_tank_size = 10
         this.schooling = true
         this.special_message = null
+        this.tank_position = "Mid-Level Dweller"
+        this.water_hardness_min = 
+        this.water_hardness_max = 
     }
 }
 
@@ -144,6 +173,9 @@ export class Harlequin_Rasbora {
         this.min_tank_size = 10
         this.schooling = true
         this.special_message = null
+        this.tank_position = "Mid-Level Dweller"
+        this.water_hardness_min = 
+        this.water_hardness_max = 
     }
 }
 
@@ -159,6 +191,9 @@ export class Amano_Shrimp {
         this.min_tank_size = 1
         this.schooling = false
         this.special_message = null
+        this.tank_position = "Bottom Dweller"
+        this.water_hardness_min = 
+        this.water_hardness_max = 
     }
 }
 
