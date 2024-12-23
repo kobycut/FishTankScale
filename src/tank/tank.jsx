@@ -299,7 +299,7 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
             <select defaultValue="" className="form-select-lg mb-3 w-auto " name="FilterGPH" id="FilterGPH"
               aria-label="Default select example" onChange={(e) => changeFilter(e.target.value)}>
               {/* toggleCustomGPH */}
-              <option value="" disabled>Select GPH</option>
+              <option value="" disabled>Select Filter GPH</option>
               {/* <option value="custom">Input Your Own</option> */}
               <option value="20_GPH">20 GPH</option>
               <option value="30_GPH">30 GPH</option>

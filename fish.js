@@ -96,8 +96,8 @@ export class Neon_Tetra {
         this.species = 'Neon Tetra'
         this.water_temp_min = 72
         this.water_temp_max = 76
-        this.ph_min = 6
-        this.ph_max = 7
+        this.ph_min = 4
+        this.ph_max = 7.5
         this.incompatible_with = []
         this.size = 1.5
         this.min_tank_size = 10
