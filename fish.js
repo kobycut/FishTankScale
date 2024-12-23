@@ -44,7 +44,7 @@ export class Betta_Male {
         this.water_temp_max = 85
         this.ph_min = 6.8
         this.ph_max = 7.5
-        this.incompatible_with = ['Dwarf Gourami', 'Cherry Shrimp']
+        this.incompatible_with = ['Cherry Shrimp']
         this.size = 2.5
         this.min_tank_size = 5
         this.schooling = false

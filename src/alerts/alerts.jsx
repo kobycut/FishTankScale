@@ -32,7 +32,7 @@ export function Alerts(fish, tankSize, filter) {
 
   function checkTankSizeToFilter(tankSize, filter) {
     if (tankSize * 4 > filter) {
-      return "DANGER, filter is not strong enough for this tank size";
+      return "DANGER, filter is not strong enough for this tank size, recommended filter for this tank size: " + tankSize * 4 + " GPH  or greater";
     }
     else {
       return null;
@@ -113,27 +113,24 @@ export function Alerts(fish, tankSize, filter) {
 
 
   function checkWaterPh(fishList) {
-    let total_water_ph = 0;
-    
-
-    for (let i = 0; i < fishList.length; i++) {
-      
-      total_water_ph += fish.ph_min;
-      total_water_ph += fish.ph_max;
-    }
-
-    let ph_lvl = total_water_ph / (fishList.length * 2);
+    let min_ph = 0;
+    let max_ph = 10000;
     for (let i = 0; i < fishList.length; i++) {
       const fish = fishList[i];
-      console.log(fish.ph_min);
-      console.log(fish.ph_min > ph_lvl);
-      console.log(fish.ph)
-
-      if (fish.ph_min > ph_lvl) {
-        return `DANGER, Tank pH level needs to be higher than ${(fish.ph_min)} for ${fish.species}`;
+      if (fish.ph_min > min_ph) {
+        min_ph = fish.ph_min;
       }
-      if (fish.ph_max < ph_lvl) {
-        return `DANGER, Tank pH level needs to be lower than ${fish.ph_max} for ${fish.species}`;
+      if (fish.ph_max < max_ph) {
+        max_ph = fish.ph_max;
+      }
+    }
+    for (let i = 0; i < fishList.length; i++) {
+      const fish = fishList[i];
+      if (fish.ph_min > max_ph) {
+        return `DANGER, pH levels not suitable for all fish`;
+      }
+      if (fish.ph_max < min_ph) {
+        return `DANGER, pH levels not suitable for all fish`;
       }
 
     }
@@ -184,7 +181,7 @@ export function Alerts(fish, tankSize, filter) {
         if (alert2 != null) {
           newAlerts.push(alert2);
         }
-        
+
         const alert4 = checkSpecialMessage(fishList);
         if (alert4 != null) {
           for (let i = 0; i < alert4.length; i++) {
@@ -226,8 +223,8 @@ export function Alerts(fish, tankSize, filter) {
         <ul className="list-group" id="alert-list">
           {alerts.map((alert, index) => (
             <li key={index} className="list-group-item d-flex justify-content-between"
-              
-              style={alert === "SUCCESS, Tank looks good!" ? { color: 'green' } : alert.startsWith("CAUTION") ? {color: '#2B3BFF' } : { color: '#D2042D' }}
+
+              style={alert === "SUCCESS, Tank looks good!" ? { color: 'green' } : alert.startsWith("CAUTION") ? { color: '#2B3BFF' } : { color: '#D2042D' }}
 
             >
               {alert}
