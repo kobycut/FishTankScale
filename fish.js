@@ -76,8 +76,8 @@ export class Betta_Female {
 export class Cherry_Shrimp {
     constructor() {
         this.species = 'Cherry Shrimp'
-        this.water_temp_min = 81
-        this.water_temp_max = 82
+        this.water_temp_min = 65
+        this.water_temp_max = 85
         this.ph_min = 6.7
         this.ph_max = 8.5
         this.incompatible_with = []

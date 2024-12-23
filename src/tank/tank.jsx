@@ -48,38 +48,66 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
   }
 
 
-  function getWaterPhAvg(fishTank) {
+  function getWaterPhRange(fishTank) {
+    if (fishTank.length == 0) {
+      document.getElementById("water_ph").textContent = "--pH"
+    }
     if (fishTank.length > 0) {
-      let total_ph = 0;
+      let min_ph = 0;
+      let max_ph = 10000;
       for (let i = 0; i < fishTank.length; i++) {
         const fish = fishTank[i];
-        total_ph += fish.ph_min;
-        total_ph += fish.ph_max;
+        if (fish.ph_min > min_ph) {
+          min_ph = fish.ph_min;
+        }
+        if (fish.ph_max < max_ph) {
+          max_ph = fish.ph_max;
+        }
       }
-      let ph_lvl = total_ph / (fishTank.length * 2);
-
-
-      // if stocking lvl > 100 text red, if not text green
-      // if tank empty, set to "--"
-      document.getElementById("water_ph").textContent = (Math.round(ph_lvl * 10) / 10) + " pH";
+      document.getElementById("water_ph").textContent = min_ph + " - " + max_ph + " pH";
     }
 
 
   }
-  function getWaterTempAvg(fishTank) {
+  function getWaterTempRange(fishTank) {
+    if (fishTank.length == 0) {
+      document.getElementById("water_temp").textContent = "--°F"
+    }
     if (fishTank.length > 0) {
-      let total_temp = 0;
+      let min_temp = 0;
+      let max_temp = 10000;
       for (let i = 0; i < fishTank.length; i++) {
         const fish = fishTank[i];
-        total_temp += fish.water_temp_min;
-        total_temp += fish.water_temp_max;
+        if (fish.water_temp_min > min_temp) {
+          min_temp = fish.water_temp_min;
+        }
+        if (fish.water_temp_max < max_temp) {
+          max_temp = fish.water_temp_max;
+        }
       }
-      let water_temp_lvl = total_temp / (fishTank.length * 2);
 
+      document.getElementById("water_temp").textContent = min_temp + " - " + max_temp + " °F";
+    }
+  }
 
-      // if stocking lvl > 100 text red, if not text green
-      // if tank empty, set to "--"
-      document.getElementById("water_temp").textContent = Math.round(water_temp_lvl) + " °F";
+  function getWaterGhRange(fishTank) {
+    if (fishTank.length == 0) {
+      document.getElementById("water_hardness").textContent = "--°gH"
+    }
+    if (fishTank.length > 0) {
+      let min_gH = 0;
+      let max_gH = 10000;
+      for (let i = 0; i < fishTank.length; i++) {
+        const fish = fishTank[i];
+        if (fish.water_hardness_min > min_gH) {
+          min_gH = fish.water_hardness_min;
+        }
+        if (fish.water_hardness_max < max_gH) {
+          max_gH = fish.water_hardness_max;
+        }
+      }
+
+      document.getElementById("water_hardness").textContent = min_gH + " - " + max_gH + " °gH";
     }
   }
 
@@ -105,7 +133,6 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
   }
   function changeTankSize(newTankSize) {
     setTankSize(newTankSize);
-    // getStockingAvg(tank);
   }
   function changeFilter(newFilter) {
     setFilter(newFilter);
@@ -151,8 +178,9 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
 
       const updatedFish = [...previousFish, newFish]
       getStockingAvg(updatedFish);
-      getWaterPhAvg(updatedFish);
-      getWaterTempAvg(updatedFish);
+      getWaterPhRange(updatedFish);
+      getWaterTempRange(updatedFish);
+      getWaterGhRange(updatedFish);
       return updatedFish
     });
   }
@@ -163,8 +191,9 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
 
       const updatedFish = [...previousFish.slice(0, index), ...previousFish.slice(index + 1)];
       getStockingAvg(updatedFish);
-      getWaterPhAvg(updatedFish);
-      getWaterTempAvg(updatedFish);
+      getWaterPhRange(updatedFish);
+      getWaterTempRange(updatedFish);
+      getWaterGhRange(updatedFish);
 
       return updatedFish;
     });
@@ -306,11 +335,11 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
               <h3 className="mb-3 d-flex flex-grow justify-content-between align-items-center w-100 text-center">
                 <div className="flex-grow-1 text-center">Your Fish Tank</div>
 
-                 
+
               </h3>
 
               <div className="dropdown">
-                
+
                 <select value={selectedFish} onChange={(e) => setSelectedFish(e.target.value)} className="form-control w-auto mt-1" id="item-select" style={{ backgroundColor: 'azure' }}>
                   <option value="" disabled>Choose a fish to add</option>
                   <optgroup label="Bettas">
@@ -373,11 +402,12 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
 
 
                   <p>Stocking Level: <span id="stocking_level">--%</span></p>
-                  <p>Temp:‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎
-                  ‎   <span id="water_temp">--°F</span></p>
-                  <p>pH: ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ 
-                  ‎‎ <span id="water_ph">--pH</span></p>
-                  <p>Hardness:  ‎ ‎ ‎ ‎  <span id="water_hardness">--°GH</span></p>
+                  <p>Hardness: ‎ ‎  <span id="water_hardness">--°gH</span></p>
+                  <p>Temp:‎ ‎ ‎
+                    ‎   <span id="water_temp">--°F</span></p>
+                  <p>pH: ‎ ‎
+                    ‎‎ <span id="water_ph">--pH</span></p>
+                  
 
                 </div>
               </div>
