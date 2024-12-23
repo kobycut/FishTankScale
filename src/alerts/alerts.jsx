@@ -111,6 +111,31 @@ export function Alerts(fish, tankSize, filter) {
   //   }
   // }
 
+  function checkWaterHardness(fishList) {
+    let min_gH = 0;
+    let max_gH = 10000;
+    for (let i = 0; i < fishList.length; i++) {
+      const fish = fishList[i];
+      if (fish.water_hardness_min > min_gH) {
+        min_gH = fish.water_hardness_min;
+      }
+      if (fish.water_hardness_max < max_gH) {
+        max_gH = fish.water_hardness_max;
+      }
+    }
+    for (let i = 0; i < fishList.length; i++) {
+      const fish = fishList[i];
+      if (fish.water_hardness_min > max_gH) {
+        return `DANGER, water hardness not suitable for ${fish.species}`;
+      }
+      if (fish.water_hardness_max < min_gH) {
+        return `DANGER, water hardness not suitable for ${fish.species}`;
+      }
+
+    }
+    return null;
+  }
+
   function checkWaterTemp(fishList) {
     let min_temp = 0;
     let max_temp = 10000;
@@ -200,6 +225,10 @@ export function Alerts(fish, tankSize, filter) {
         const tempAlert = checkWaterTemp(fishList);
         if (tempAlert != null) {
           newAlerts.push(tempAlert);
+        }
+        const hardAlert = checkWaterHardness(fishList);
+        if (hardAlert != null) {
+          newAlerts.push(hardAlert);
         }
 
 

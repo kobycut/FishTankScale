@@ -138,7 +138,7 @@ export class African_Dwarf_Frog {
         this.schooling = true
         this.special_message = "CAUTION, African Dwarf Frogs need a tank with water depth of less than 18 inches because they go up for air"
         this.tank_position = "Bottom Dweller"
-        this.water_hardness_min = 5
+        this.water_hardness_min = 12
         this.water_hardness_max = 15
     }
 }
