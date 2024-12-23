@@ -111,6 +111,32 @@ export function Alerts(fish, tankSize, filter) {
   //   }
   // }
 
+  function checkWaterTemp(fishList) {
+    let min_temp = 0;
+    let max_temp = 10000;
+    for (let i = 0; i < fishList.length; i++) {
+      const fish = fishList[i];
+      if (fish.water_temp_min > min_temp) {
+        min_temp = fish.water_temp_min;
+      }
+      if (fish.water_temp_max < max_temp) {
+        max_temp = fish.water_temp_max;
+      }
+    }
+    for (let i = 0; i < fishList.length; i++) {
+      const fish = fishList[i];
+      if (fish.water_temp_min > max_temp) {
+        return `DANGER, water temperature not suitable for ${fish.species}`;
+      }
+      if (fish.water_temp_max < min_temp) {
+        return `DANGER, water temperature not suitable for ${fish.species}`;
+      }
+
+    }
+    return null;
+
+  }
+
 
   function checkWaterPh(fishList) {
     let min_ph = 0;
@@ -127,10 +153,10 @@ export function Alerts(fish, tankSize, filter) {
     for (let i = 0; i < fishList.length; i++) {
       const fish = fishList[i];
       if (fish.ph_min > max_ph) {
-        return `DANGER, pH levels not suitable for all fish`;
+        return `DANGER, pH levels not suitable for ${fish.species}`;
       }
       if (fish.ph_max < min_ph) {
-        return `DANGER, pH levels not suitable for all fish`;
+        return `DANGER, pH levels not suitable for ${fish.species}`;
       }
 
     }
@@ -171,6 +197,11 @@ export function Alerts(fish, tankSize, filter) {
         if (alert != null) {
           newAlerts.push(alert);
         }
+        const tempAlert = checkWaterTemp(fishList);
+        if (tempAlert != null) {
+          newAlerts.push(tempAlert);
+        }
+
 
         const alert3 = checkCompatibility(fishList);
         if (alert3 != null) {

@@ -129,7 +129,7 @@ export class African_Dwarf_Frog {
     constructor() {
         this.species = 'African Dwarf Frog'
         this.water_temp_min = 68
-        this.water_temp_max = 78
+        this.water_temp_max = 82
         this.ph_min = 6.5
         this.ph_max = 7.8
         this.incompatible_with = []
