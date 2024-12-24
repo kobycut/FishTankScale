@@ -187,7 +187,54 @@ export function Alerts(fish, tankSize, filter) {
     }
     return null;
 
-  }
+  };
+
+  function checkSchooling(fishList) {
+    const fishTally = {};
+    const validSchoolingAmount = {};
+    for (let i = 0; i < fishList.length; i++) {
+      const firstFish = fishList[i];
+
+      if (firstFish.schooling) {
+
+        fishTally[firstFish.species] = 1;
+        validSchoolingAmount[firstFish.species] = 0;
+
+      }
+
+      for (let j = 0; j < fishList.length; j++) {
+
+        if (j == i) {
+          continue;
+        }
+
+        const secondFish = fishList[j];
+
+        if (firstFish.species == secondFish.species && firstFish.schooling == true) {
+
+          fishTally[firstFish.species] += 1
+          console.log(fishTally[firstFish.species]);
+          if (fishTally[firstFish.species] >= firstFish.schooling_min) {
+            validSchoolingAmount[firstFish.species] = 1;
+          }
+          else {
+            validSchoolingAmount[firstFish.species] = 0;
+          }
+        }
+      }
+    }
+    const alerts = []
+    for (const [species, validity] of Object.entries(validSchoolingAmount)) {
+      if (validity == 0) {
+        alerts.push(species);
+      }
+
+    }
+    if (alerts.length == 0) {
+      return null;
+    }
+    return `DANGER, the following fish are schooling fish and need more of their own species: ${alerts} `;
+  };
 
 
   useEffect(() => {
@@ -229,6 +276,10 @@ export function Alerts(fish, tankSize, filter) {
         const hardAlert = checkWaterHardness(fishList);
         if (hardAlert != null) {
           newAlerts.push(hardAlert);
+        }
+        const schoolingAlert = checkSchooling(fishList);
+        if (schoolingAlert != null) {
+          newAlerts.push(schoolingAlert);
         }
 
 
