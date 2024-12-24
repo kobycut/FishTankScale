@@ -402,7 +402,7 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
 
 
                   <p>Stocking Level: <span id="stocking_level">--%</span></p>
-                  <p>Hardness: ‎ ‎  <span id="water_hardness">--°gH</span></p>
+                  <p>Hardness: <span id="water_hardness">--°gH</span></p>
                   <p>Temp:‎ ‎ ‎
                     ‎   <span id="water_temp">--°F</span></p>
                   <p>pH: ‎ ‎
