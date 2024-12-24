@@ -184,10 +184,10 @@ export default function App() {
                 <footer className="text-dark py-4">
                     <div className="container text-center">
                         <p className="mb-1">Author: Koby Cutler</p>
-                        <div>
-                            <a href="https://github.com/kobycut/startup" className="text-dark text-decoration-none"
-                                target="_blank">GitHub</a>
-                        </div>
+                        {/* <div> */}
+                            {/* <a href="https://github.com/kobycut/startup" className="text-dark text-decoration-none"
+                                target="_blank">GitHub</a> */}
+                        {/* </div> */}
                     </div>
                 </footer>
             </div>

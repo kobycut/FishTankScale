@@ -105,12 +105,6 @@ export function Alerts(fish, tankSize, filter) {
     return specialMessageList;
   }
 
-  // checkSchooling(fishList) {
-  //   for (let i = 0; i < fishList.length; i++) {
-
-  //   }
-  // }
-
   function checkWaterHardness(fishList) {
     let min_gH = 0;
     let max_gH = 10000;
