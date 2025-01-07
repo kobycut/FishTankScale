@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthState } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/login/authState.js';
 import { Alerts } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/alerts/alerts.jsx';
-import { African_Dwarf_Frog, Amano_Shrimp, Betta_Female, Betta_Male, Black_Neon_Tetra, Cardinal_Tetra, Cherry_Shrimp, Congo_Tetra, Dwarf_Gourami, Ember_Tetra, Fancy_Guppy, Harlequin_Rasbora, Neon_Tetra, Nerite_Snail } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
+import { African_Dwarf_Frog, Amano_Shrimp, Betta_Female, Betta_Male, Black_Neon_Tetra,
+  Cardinal_Tetra, Cherry_Shrimp, Congo_Tetra, Dwarf_Gourami, Ember_Tetra, Fancy_Guppy, Harlequin_Rasbora, Neon_Tetra, Nerite_Snail
+ } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 
 
