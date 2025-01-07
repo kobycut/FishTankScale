@@ -381,9 +381,9 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
                     /* <optgroup label="Tetras">
                     <option value="Neon Tetra">Neon Tetra</option>
                     <option value="Cardinal Tetra">Cardinal Tetra</option>
-                    <option value="Ember Tetra">Neon Tetra</option>
-                    <option value="Black Neon Tetra">Neon Tetra</option>
-                    <option value="Congo Tetra">Neon Tetra</option>
+                    <option value="Ember Tetra">Ember Tetra</option>
+                    <option value="Black Neon Tetra">Black Neon Tetra</option>
+                    <option value="Congo Tetra">Congo Tetra</option>
                   </optgroup> */
                   /* <optgroup label="Misc. Fish">
                     <option value="African Dwarf Frog">African Dwarf Frog</option>
