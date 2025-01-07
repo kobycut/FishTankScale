@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthState } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/login/authState.js';
 import { Alerts } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/alerts/alerts.jsx';
-import { African_Dwarf_Frog, Amano_Shrimp, Betta_Female, Betta_Male, Cardinal_Tetra, Cherry_Shrimp, Dwarf_Gourami, Fancy_Guppy, Harlequin_Rasbora, Neon_Tetra } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
+import { African_Dwarf_Frog, Amano_Shrimp, Betta_Female, Betta_Male, Black_Neon_Tetra, Cardinal_Tetra, Cherry_Shrimp, Congo_Tetra, Dwarf_Gourami, Ember_Tetra, Fancy_Guppy, Harlequin_Rasbora, Neon_Tetra, Nerite_Snail } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 
 
@@ -171,7 +171,18 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
       case 'Amano Shrimp':
         newFish = new Amano_Shrimp();
         break;
-
+      case 'Nerite Snail':
+        newFish = new Nerite_Snail();
+        break;
+      case 'Black Neon Tetra':
+        newFish = new Black_Neon_Tetra();
+        break;
+      case 'Congo Tetra':
+        newFish = new Congo_Tetra();
+        break;
+      case 'Ember Tetra':
+        newFish = new Ember_Tetra();
+        break;
     }
 
     setFish((previousFish) => {
@@ -362,12 +373,15 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
                   {/* <optgroup label="Crabs">
                   <option value="Fiddler_Crab">Fiddler Crab</option>
                 </optgroup> */}
-                  {/* <optgroup label="Snails">
-                  <option value="Nerite_Snail">Nerite Snail</option>
-                </optgroup> */}
+                  <optgroup label="Snails">
+                  <option value="Nerite Snail">Nerite Snail</option>
+                </optgroup>
                     /* <optgroup label="Tetras">
                     <option value="Neon Tetra">Neon Tetra</option>
                     <option value="Cardinal Tetra">Cardinal Tetra</option>
+                    <option value="Ember Tetra">Neon Tetra</option>
+                    <option value="Black Neon Tetra">Neon Tetra</option>
+                    <option value="Congo Tetra">Neon Tetra</option>
                   </optgroup> */
                   /* <optgroup label="Misc. Fish">
                     <option value="African Dwarf Frog">African Dwarf Frog</option>
@@ -382,7 +396,7 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
 
                 <ul className="list-group align-items-start mt-3" id="item-list">
                   {showTankFish()}
-                  {/* <li className="list-group-item">African Dwarf Frog</li>
+                  {/*
                   <li className="list-group-item">Mickey_Mouse_Platy</li>
                   <li className="list-group-item">Rasbora_Espei</li>
                   <li className="list-group-item">Shark</li> */}

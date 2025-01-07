@@ -1,3 +1,4 @@
+import { transformWithEsbuild } from "vite"
 
 
 export class Fish {
@@ -205,6 +206,82 @@ export class Amano_Shrimp {
         this.tank_position = "Bottom Dweller"
         this.water_hardness_min = 4
         this.water_hardness_max = 15
+    }
+}
+
+export class Nerite_Snail {
+    constructor() {
+        this.species = 'Nerite Snail'
+        this.water_temp_min = 65
+        this.water_temp_max = 85
+        this.ph_min = 6.5
+        this.ph_max = 8.5
+        this.incompatible_with = []
+        this.size = 0.1
+        this.min_tank_size = 1
+        this.schooling = false
+        this.schooling_min = 0
+        this.special_message = null
+        this.tank_position = null
+        this.water_hardness_min = 6
+        this.water_hardness_max = 10
+    }
+}
+
+export class Black_Neon_Tetra {
+    constructor() {
+        this.species = 'Black Neon Tetra'
+        this.water_temp_min = 68
+        this.water_temp_max = 82
+        this.ph_min = 5.5
+        this.ph_max = 7
+        this.incompatible_with = []
+        this.size = 1
+        this.min_tank_size = 10
+        this.schooling = true
+        this.schooling_min = 6
+        this.special_message = null
+        this.tank_position = "Mid-Level Dweller"
+        this.water_hardness_min = 4
+        this.water_hardness_max = 8
+    }
+}
+
+export class Congo_Tetra {
+    constructor() {
+        this.species = 'Congo Tetra'
+        this.water_temp_min = 72
+        this.water_temp_max = 82
+        this.ph_min = 6
+        this.ph_max = 7.5
+        this.incompatible_with = []
+        this.size = 2.5
+        this.min_tank_size = 30
+        this.schooling = true
+        this.schooling_min = 6
+        this.special_message = null
+        this.tank_position = 'Mid-Level Dweller'
+        this.water_hardness_min = 4
+        this.water_hardness_max = 12
+    }
+}
+
+export class Ember_Tetra {
+    constructor() {
+        this.species = 'Ember Tetra'
+        this.water_temp_min = 73
+        this.water_temp_max = 84
+        this.ph_min = 5
+        this.ph_max = 8
+        this.incompatible_with = []
+        this.size = 0.6
+        this.min_tank_size = 10
+        this.schooling = true
+        this.schooling_min = 6
+        this.special_message = null
+        this.tank_position = 'Mid-Level Dweller'
+        this.water_hardness_min = 5
+        this.water_hardness_max = 17
     }
 }
 
