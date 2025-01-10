@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthState } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/login/authState.js';
 import { Alerts } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/alerts/alerts.jsx';
-import { African_Dwarf_Frog, Amano_Shrimp, Betta_Female, Betta_Male, Black_Neon_Tetra,
-  Cardinal_Tetra, Cherry_Shrimp, Congo_Tetra, Dwarf_Gourami, Ember_Tetra, Fancy_Guppy, Harlequin_Rasbora, Neon_Tetra, Nerite_Snail
- } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
+import {
+  African_Dwarf_Frog, Amano_Shrimp, Bamboo_Shrimp, Betta_Female, Betta_Male, Black_Neon_Tetra,
+  Blue_Velvet_Shrimp,
+  Cardinal_Tetra, Cherry_Shrimp, Congo_Tetra, Dwarf_Gourami, Ember_Tetra, Fancy_Guppy, Ghost_Shrimp, Harlequin_Rasbora, Neon_Tetra, Nerite_Snail
+} from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 
 
@@ -184,6 +186,15 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
         break;
       case 'Ember Tetra':
         newFish = new Ember_Tetra();
+        break;
+      case 'Ghost Shrimp':
+        newFish = new Ghost_Shrimp();
+        break;
+      case 'Bamboo Shrimp':
+        newFish = new Bamboo_Shrimp();
+        break;
+      case 'Blue Velvet Shrimp':
+        newFish = new Blue_Velvet_Shrimp();
         break;
     }
 
@@ -370,14 +381,18 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
                   </optgroup> */
                   <optgroup label="Shrimp">
                     <option value="Cherry Shrimp">Cherry Shrimp</option>
+                    <option value="Ghost Shrimp">Ghost Shrimp</option>
+                    <option value="Bamboo Shrimp">Bamboo Shrimp</option>
+                    <option value="Blue Velvet Shrimp">Blue Velvet Shrimp</option>
                     /* <option value="Amano Shrimp">Amano Shrimp</option> */
+
                   </optgroup>
                   {/* <optgroup label="Crabs">
                   <option value="Fiddler_Crab">Fiddler Crab</option>
                 </optgroup> */}
                   <optgroup label="Snails">
-                  <option value="Nerite Snail">Nerite Snail</option>
-                </optgroup>
+                    <option value="Nerite Snail">Nerite Snail</option>
+                  </optgroup>
                     /* <optgroup label="Tetras">
                     <option value="Neon Tetra">Neon Tetra</option>
                     <option value="Cardinal Tetra">Cardinal Tetra</option>
@@ -423,7 +438,7 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
                     ‎   <span id="water_temp">--°F</span></p>
                   <p>pH: ‎ ‎
                     ‎‎ <span id="water_ph">--pH</span></p>
-                  
+
 
                 </div>
               </div>
