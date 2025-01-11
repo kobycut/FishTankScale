@@ -5,7 +5,9 @@ import { Alerts } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/alerts
 import {
   African_Dwarf_Frog, Amano_Shrimp, Bamboo_Shrimp, Betta_Female, Betta_Male, Black_Neon_Tetra,
   Blue_Velvet_Shrimp,
-  Cardinal_Tetra, Cherry_Shrimp, Congo_Tetra, Dwarf_Gourami, Ember_Tetra, Fancy_Guppy, Ghost_Shrimp, Harlequin_Rasbora, Neon_Tetra, Nerite_Snail
+  Cardinal_Tetra, Cherry_Shrimp, Congo_Tetra, Crystal_Red_Shrimp, Dwarf_Gourami, Ember_Tetra, Fancy_Guppy, Ghost_Shrimp, Harlequin_Rasbora, Neon_Tetra, Nerite_Snail,
+  Red_Rili_Shrimp,
+  Tiger_Shrimp
 } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
 
 
@@ -196,6 +198,16 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
       case 'Blue Velvet Shrimp':
         newFish = new Blue_Velvet_Shrimp();
         break;
+      case 'Crystal Red Shrimp':
+        newFish = new Crystal_Red_Shrimp();
+        break;
+      case 'Red Rili Shrimp':
+        newFish = new Red_Rili_Shrimp();
+        break;
+      case 'Tiger Shrimp':
+        newFish = new Tiger_Shrimp();
+        break;
+
     }
 
     setFish((previousFish) => {
@@ -381,10 +393,14 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
                   </optgroup> */
                   <optgroup label="Shrimp">
                     <option value="Cherry Shrimp">Cherry Shrimp</option>
+                    <option value="Amano Shrimp">Amano Shrimp</option>
                     <option value="Ghost Shrimp">Ghost Shrimp</option>
                     <option value="Bamboo Shrimp">Bamboo Shrimp</option>
                     <option value="Blue Velvet Shrimp">Blue Velvet Shrimp</option>
-                    /* <option value="Amano Shrimp">Amano Shrimp</option> */
+                    <option value="Crystal Red Shrimp">Crystal Red Shrimp</option>
+                    <option value="Red Rili Shrimp">Red Rili Shrimp</option>
+                    /*<option value="Tiger Shrimp">Tiger Shrimp</option>
+                    */
 
                   </optgroup>
                   {/* <optgroup label="Crabs">

@@ -293,7 +293,7 @@ export class Bamboo_Shrimp {
         this.ph_min = 6.3
         this.ph_max = 7.7
         this.incompatible_with = []
-        this.size = 0.2
+        this.size = 0.6
         this.min_tank_size = 4
         this.schooling = false
         this.schooling_min = 0
@@ -312,7 +312,7 @@ export class Ghost_Shrimp {
         this.ph_min = 7
         this.ph_max = 8
         this.incompatible_with = []
-        this.size = 0.2
+        this.size = 0.6
         this.min_tank_size = 4
         this.schooling = false
         this.schooling_min = 0
@@ -331,7 +331,7 @@ export class Blue_Velvet_Shrimp {
         this.ph_min = 6.5
         this.ph_max = 7.8
         this.incompatible_with = []
-        this.size = 0.2
+        this.size = 0.6
         this.min_tank_size = 4
         this.schooling = false
         this.schooling_min = 0
@@ -339,6 +339,60 @@ export class Blue_Velvet_Shrimp {
         this.tank_position = 'Bottom-Level Dweller'
         this.water_hardness_min = 2
         this.water_hardness_max = 16
+    }
+}
+export class Crystal_Red_Shrimp {
+    constructor() {
+        this.species = 'Crystal Red Shrimp'
+        this.water_temp_min = 66
+        this.water_temp_max = 80
+        this.ph_min = 6
+        this.ph_max = 7.4
+        this.incompatible_with = []
+        this.size = 0.6
+        this.min_tank_size = 4
+        this.schooling = false
+        this.schooling_min = 0
+        this.special_message = null
+        this.tank_position = 'Bottom-Level Dweller'
+        this.water_hardness_min = 3
+        this.water_hardness_max = 7
+    }
+}
+export class Red_Rili_Shrimp {
+    constructor() {
+        this.species = 'Red Rili Shrimp'
+        this.water_temp_min = 70
+        this.water_temp_max = 81
+        this.ph_min = 6.3
+        this.ph_max = 7.7
+        this.incompatible_with = []
+        this.size = 0.2
+        this.min_tank_size = 4
+        this.schooling = true
+        this.schooling_min = 3
+        this.special_message = null
+        this.tank_position = 'Bottom-Level Dweller'
+        this.water_hardness_min = 3
+        this.water_hardness_max = 9
+    }
+}
+export class Tiger_Shrimp {
+    constructor() {
+        this.species = 'Tiger Shrimp'
+        this.water_temp_min = 66
+        this.water_temp_max = 80
+        this.ph_min = 6.3
+        this.ph_max = 8
+        this.incompatible_with = []
+        this.size = 0.2
+        this.min_tank_size = 4
+        this.schooling = false
+        this.schooling_min = 0
+        this.special_message = null
+        this.tank_position = 'Bottom-Level Dweller'
+        this.water_hardness_min = 4
+        this.water_hardness_max = 7
     }
 }
 
