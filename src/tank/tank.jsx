@@ -397,7 +397,9 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
                   <option value="" disabled>
                     Choose a fish to add
                   </option>
-                  {Object.entries(fishData).map(([key, fish]) => (
+                  {Object.entries(fishData)
+                  .sort(([, fishA], [, fishB]) => fishA.species.localeCompare(fishB.species))
+                  .map(([key, fish]) => (
                     <option value={key} key={key}>
                       {fish.species}
                     </option>

@@ -20,8 +20,8 @@ export function Alerts(fish, tankSize, filter) {
     }
 
     if (fishList.length > 0) {
-      if (totalFishInches > tankSize) {
-        return "DANGER, These fish do not fit in this tank";
+      if ((totalFishInches / 1)  > tankSize) {
+        return "Danger, These fish probably do not fit in this tank";
       }
       else {
         return null;
@@ -32,7 +32,7 @@ export function Alerts(fish, tankSize, filter) {
 
   function checkTankSizeToFilter(tankSize, filter) {
     if (tankSize * 4 > filter) {
-      return "DANGER, filter is not strong enough for this tank size, recommended filter for this tank size: " + tankSize * 4 + " GPH  or greater";
+      return "Danger, this filter seems to not be strong enough for this tank size, recommended filter for this tank size: " + tankSize * 4 + " GPH  or greater";
     }
     else {
       return null;
@@ -49,10 +49,10 @@ export function Alerts(fish, tankSize, filter) {
       const fish = fishList[i];
 
       if (fish.water_temp_min > temp_lvl) {
-        return `DANGER, Tank temperature needs to be higher than ${(fish.water_temp_min)} for ${fish.species}`;
+        return `Danger, Tank temperature might need to be higher than ${(fish.water_temp_min)} for ${fish.species}`;
       }
       if (fish.water_temp_max < temp_lvl) {
-        return `DANGER, Tank temperature needs to be lower than ${fish.water_temp_max} for ${fish.species}`;
+        return `Danger, Tank temperature might need to be lower than ${fish.water_temp_max} for ${fish.species}`;
       }
 
     }
@@ -90,7 +90,7 @@ export function Alerts(fish, tankSize, filter) {
     if (incompatibilities.length == 0) {
       return null;
     }
-    return incompatibilities.map(pair => `DANGER, ${pair.fish1} is incompatible with ${pair.fish2}.`).join("\n");
+    return incompatibilities.map(pair => `Danger, ${pair.fish1} seems to be incompatible with ${pair.fish2}.`).join("\n");
   }
   function checkSpecialMessage(fishList) {
     const specialMessageList = []
@@ -120,10 +120,10 @@ export function Alerts(fish, tankSize, filter) {
     for (let i = 0; i < fishList.length; i++) {
       const fish = fishList[i];
       if (fish.water_hardness_min > max_gH) {
-        return `DANGER, water hardness not suitable for ${fish.species}`;
+        return `Danger, water hardness seems to not be suitable for ${fish.species}`;
       }
       if (fish.water_hardness_max < min_gH) {
-        return `DANGER, water hardness not suitable for ${fish.species}`;
+        return `Danger, water hardness seems to not be suitable for ${fish.species}`;
       }
 
     }
@@ -145,10 +145,10 @@ export function Alerts(fish, tankSize, filter) {
     for (let i = 0; i < fishList.length; i++) {
       const fish = fishList[i];
       if (fish.water_temp_min > max_temp) {
-        return `DANGER, water temperature not suitable for ${fish.species}`;
+        return `Danger, water temperature seems to not be suitable for ${fish.species}`;
       }
       if (fish.water_temp_max < min_temp) {
-        return `DANGER, water temperature not suitable for ${fish.species}`;
+        return `Danger, water temperature seems to not be suitable for ${fish.species}`;
       }
 
     }
@@ -172,16 +172,28 @@ export function Alerts(fish, tankSize, filter) {
     for (let i = 0; i < fishList.length; i++) {
       const fish = fishList[i];
       if (fish.ph_min > max_ph) {
-        return `DANGER, pH levels not suitable for ${fish.species}`;
+        return `Danger, pH levels seem to not be suitable for ${fish.species}`;
       }
       if (fish.ph_max < min_ph) {
-        return `DANGER, pH levels not suitable for ${fish.species}`;
+        return `Danger, pH levels seem to not be suitable for ${fish.species}`;
       }
 
     }
     return null;
 
   };
+  function checkMinTankSizePerfish(fishList, tankSize) {
+    console.log('we made it');
+    for (let i = 0; i < fishList.length; i++) {
+      const fish = fishList[i];
+      console.log(fish.min_tank_size);
+      console.log(tankSize);
+      if (fish.min_tank_size > tankSize) {
+        return `Danger, this tank size seems to be too small for ${fish.species}`;
+      }
+    }
+    return null;
+  }
 
   function checkSchooling(fishList) {
     const fishTally = {};
@@ -227,7 +239,7 @@ export function Alerts(fish, tankSize, filter) {
     if (alerts.length == 0) {
       return null;
     }
-    return `DANGER, the following fish are schooling fish and need more of their own species: ${alerts} `;
+    return `Danger, the following fish are schooling fish and seem to need more of their own species: ${alerts} `;
   };
 
 
@@ -275,7 +287,10 @@ export function Alerts(fish, tankSize, filter) {
         if (schoolingAlert != null) {
           newAlerts.push(schoolingAlert);
         }
-
+        const minTankSizeAlert = checkMinTankSizePerfish(fishList, tankSizeInt);
+        if (minTankSizeAlert != null) {
+          newAlerts.push(minTankSizeAlert);
+        }
 
         const alert3 = checkCompatibility(fishList);
         if (alert3 != null) {
@@ -306,7 +321,7 @@ export function Alerts(fish, tankSize, filter) {
 
 
     if (newAlerts.length < 1) {
-      newAlerts.push("SUCCESS, Tank looks good!");
+      newAlerts.push("Success, Tank looks good!");
 
     }
 
@@ -329,7 +344,7 @@ export function Alerts(fish, tankSize, filter) {
           {alerts.map((alert, index) => (
             <li key={index} className="list-group-item d-flex justify-content-between"
 
-              style={alert === "SUCCESS, Tank looks good!" ? { color: 'green' } : alert.startsWith("CAUTION") ? { color: '#2B3BFF' } : { color: '#D2042D' }}
+              style={alert === "Success, Tank looks good!" ? { color: 'green' } : alert.startsWith("Caution") ? { color: '#2B3BFF' } : { color: '#D2042D' }}
 
             >
               {alert}
