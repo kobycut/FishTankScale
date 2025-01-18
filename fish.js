@@ -1,8 +1,6 @@
 
-
-
 export class Fish {
-    constructor(species, water_temp_min, water_temp_max, ph_min, ph_max, incompatible_with, size, min_tank_size, schooling, shcooling_min,
+    constructor(species, water_temp_min, water_temp_max, ph_min, ph_max, incompatible_with, size, min_tank_size, schooling, schooling_min,
         tank_position, special_message, water_hardness_min, water_hardness_max) {
         this.species = species
         this.water_temp_min = water_temp_min
@@ -399,3 +397,22 @@ export class Tiger_Shrimp {
 
 
 
+export const fishData = {
+    'Dwarf Gourami': {
+        species: 'Dwarf Gourami',
+        water_temp_min: 72,
+        water_temp_max:  82,
+        ph_min: 6,
+        ph_max :  8,
+        incompatible_with : ['Betta Male', 'Cherry Shrimp',],
+        size : 2.5,
+        min_tank_size : 10,
+        schooling: false,
+        schooling_min : 0,
+        special_message : "CAUTION, Dwarf Gouramis should not be with other Dwarf Gouramis",
+        tank_position :  "Top Dweller",
+        water_hardness_min : 5,
+        water_hardness_max :  20,
+    }
+
+}

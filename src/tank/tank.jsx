@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { AuthState } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/login/authState.js';
-import { Alerts } from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/src/alerts/alerts.jsx';
+import { AuthState } from 'C:/Users/kobyc/OneDrive/Desktop/PastClasses/CS260/startup/src/login/authState.js';
+import { Alerts } from 'C:/Users/kobyc/OneDrive/Desktop/PastClasses/CS260/startup/src/alerts/alerts.jsx';
 import {
   African_Dwarf_Frog, Amano_Shrimp, Bamboo_Shrimp, Betta_Female, Betta_Male, Black_Neon_Tetra,
   Blue_Velvet_Shrimp,
   Cardinal_Tetra, Cherry_Shrimp, Congo_Tetra, Crystal_Red_Shrimp, Dwarf_Gourami, Ember_Tetra, Fancy_Guppy, Ghost_Shrimp, Harlequin_Rasbora, Neon_Tetra, Nerite_Snail,
   Red_Rili_Shrimp,
-  Tiger_Shrimp
-} from 'C:/Users/kobyc/OneDrive/Desktop/CS260/startup/fish.js'
+  Tiger_Shrimp, fishData, Fish
+} from 'C:/Users/kobyc/OneDrive/Desktop/PastClasses/CS260/startup/fish.js'
 
 
 
@@ -144,71 +144,93 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
     setFilter(newFilter);
   }
 
-  function addFish(species) {
-    let newFish = " ";
-    switch (species) {
-      case 'Dwarf Gourami':
-        newFish = new Dwarf_Gourami();
-        break;
-      case 'Betta Female':
-        newFish = new Betta_Female();
-        break;
-      case 'Betta Male':
-        newFish = new Betta_Male();
-        break;
-      case 'Cherry Shrimp':
-        newFish = new Cherry_Shrimp();
-        break;
-      case 'Neon Tetra':
-        newFish = new Neon_Tetra();
-        break;
-      case 'Cardinal Tetra':
-        newFish = new Cardinal_Tetra();
-        break;
-      case 'African Dwarf Frog':
-        newFish = new African_Dwarf_Frog();
-        break;
-      case 'Fancy Guppy':
-        newFish = new Fancy_Guppy();
-        break;
-      case 'Harlequin Rasbora':
-        newFish = new Harlequin_Rasbora();
-        break;
-      case 'Amano Shrimp':
-        newFish = new Amano_Shrimp();
-        break;
-      case 'Nerite Snail':
-        newFish = new Nerite_Snail();
-        break;
-      case 'Black Neon Tetra':
-        newFish = new Black_Neon_Tetra();
-        break;
-      case 'Congo Tetra':
-        newFish = new Congo_Tetra();
-        break;
-      case 'Ember Tetra':
-        newFish = new Ember_Tetra();
-        break;
-      case 'Ghost Shrimp':
-        newFish = new Ghost_Shrimp();
-        break;
-      case 'Bamboo Shrimp':
-        newFish = new Bamboo_Shrimp();
-        break;
-      case 'Blue Velvet Shrimp':
-        newFish = new Blue_Velvet_Shrimp();
-        break;
-      case 'Crystal Red Shrimp':
-        newFish = new Crystal_Red_Shrimp();
-        break;
-      case 'Red Rili Shrimp':
-        newFish = new Red_Rili_Shrimp();
-        break;
-      case 'Tiger Shrimp':
-        newFish = new Tiger_Shrimp();
-        break;
+  function addFish(speciesFish) {
+    let newFish = '';
+    const fishInfo = fishData[speciesFish];
+    const {
+      species,
+      water_temp_min,
+      water_temp_max,
+      ph_min,
+      ph_max,
+      incompatible_with,
+      size,
+      min_tank_size,
+      schooling,
+      schooling_min,
+      special_message,
+      tank_position,
+      water_hardness_min,
+      water_hardness_max,
+    } = fishInfo;
+    newFish = new Fish(species, water_temp_min, water_temp_max, ph_min, ph_max,
+      incompatible_with, size, min_tank_size, schooling, schooling_min,
+      tank_position, special_message, water_hardness_min, water_hardness_max)
 
-    }
+
+    // switch (species) {
+    //   case 'Dwarf Gourami':
+    //     newFish = new Dwarf_Gourami();
+    //     break;
+    //   case 'Betta Female':
+    //     newFish = new Betta_Female();
+    //     break;
+    //   case 'Betta Male':
+    //     newFish = new Betta_Male();
+    //     break;
+    //   case 'Cherry Shrimp':
+    //     newFish = new Cherry_Shrimp();
+    //     break;
+    //   case 'Neon Tetra':
+    //     newFish = new Neon_Tetra();
+    //     break;
+    //   case 'Cardinal Tetra':
+    //     newFish = new Cardinal_Tetra();
+    //     break;
+    //   case 'African Dwarf Frog':
+    //     newFish = new African_Dwarf_Frog();
+    //     break;
+    //   case 'Fancy Guppy':
+    //     newFish = new Fancy_Guppy();
+    //     break;
+    //   case 'Harlequin Rasbora':
+    //     newFish = new Harlequin_Rasbora();
+    //     break;
+    //   case 'Amano Shrimp':
+    //     newFish = new Amano_Shrimp();
+    //     break;
+    //   case 'Nerite Snail':
+    //     newFish = new Nerite_Snail();
+    //     break;
+    //   case 'Black Neon Tetra':
+    //     newFish = new Black_Neon_Tetra();
+    //     break;
+    //   case 'Congo Tetra':
+    //     newFish = new Congo_Tetra();
+    //     break;
+    //   case 'Ember Tetra':
+    //     newFish = new Ember_Tetra();
+    //     break;
+    //   case 'Ghost Shrimp':
+    //     newFish = new Ghost_Shrimp();
+    //     break;
+    //   case 'Bamboo Shrimp':
+    //     newFish = new Bamboo_Shrimp();
+    //     break;
+    //   case 'Blue Velvet Shrimp':
+    //     newFish = new Blue_Velvet_Shrimp();
+    //     break;
+    //   case 'Crystal Red Shrimp':
+    //     newFish = new Crystal_Red_Shrimp();
+    //     break;
+    //   case 'Red Rili Shrimp':
+    //     newFish = new Red_Rili_Shrimp();
+    //     break;
+    //   case 'Tiger Shrimp':
+    //     newFish = new Tiger_Shrimp();
+    //     break;
+
+
 
     setFish((previousFish) => {
 
@@ -375,7 +397,22 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
               </h3>
 
               <div className="dropdown">
-
+                <select value={selectedFish} onChange={(e) => setSelectedFish(e.target.value)}
+                  className='form-control w-auto mt-1' id='item-select' style={{ backgroundColor: 'azure' }} >
+                  <option value="" disabled>
+                    Choose a fish to add
+                  </option>
+                  {Object.entries(fishData).map(([key, fish]) => (
+                    <option value={key} key={key}>
+                      {fish.species}
+                    </option>
+                  ))}
+                </select>
+                <button className='btn btn-success ms-2' onClick={addFishToTank}>
+                  Add Fish
+                </button>
+              </div>
+              {/* 
                 <select value={selectedFish} onChange={(e) => setSelectedFish(e.target.value)} className="form-control w-auto mt-1" id="item-select" style={{ backgroundColor: 'azure' }}>
                   <option value="" disabled>Choose a fish to add</option>
                   <optgroup label="Bettas">
@@ -385,12 +422,12 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
                   <optgroup label="Gouramis">
                     <option value="Dwarf Gourami">Dwarf Gourami</option>
                   </optgroup>
-                  /* <optgroup label="Guppys">
+                   <optgroup label="Guppys">
                     <option value="Fancy Guppy">Fancy Guppy</option>
-                  </optgroup> */
-                  /* <optgroup label="Rasboras">
+                  </optgroup> 
+                   <optgroup label="Rasboras">
                     <option value="Harlequin Rasbora">Harlequin Rasbora</option>
-                  </optgroup> */
+                  </optgroup> 
                   <optgroup label="Shrimp">
                     <option value="Cherry Shrimp">Cherry Shrimp</option>
                     <option value="Amano Shrimp">Amano Shrimp</option>
@@ -399,29 +436,29 @@ export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tan
                     <option value="Blue Velvet Shrimp">Blue Velvet Shrimp</option>
                     <option value="Crystal Red Shrimp">Crystal Red Shrimp</option>
                     <option value="Red Rili Shrimp">Red Rili Shrimp</option>
-                    /*<option value="Tiger Shrimp">Tiger Shrimp</option>
-                    */
+                    <option value="Tiger Shrimp">Tiger Shrimp</option>
+                    
 
-                  </optgroup>
-                  {/* <optgroup label="Crabs">
+                  </optgroup> */}
+              {/* <optgroup label="Crabs">
                   <option value="Fiddler_Crab">Fiddler Crab</option>
                 </optgroup> */}
-                  <optgroup label="Snails">
+              {/* <optgroup label="Snails">
                     <option value="Nerite Snail">Nerite Snail</option>
                   </optgroup>
-                    /* <optgroup label="Tetras">
+                     <optgroup label="Tetras">
                     <option value="Neon Tetra">Neon Tetra</option>
                     <option value="Cardinal Tetra">Cardinal Tetra</option>
                     <option value="Ember Tetra">Ember Tetra</option>
                     <option value="Black Neon Tetra">Black Neon Tetra</option>
                     <option value="Congo Tetra">Congo Tetra</option>
-                  </optgroup> */
-                  /* <optgroup label="Misc. Fish">
+                  </optgroup> 
+                   <optgroup label="Misc. Fish">
                     <option value="African Dwarf Frog">African Dwarf Frog</option>
-                  </optgroup> */
+                  </optgroup> 
                 </select>
                 <button className="btn btn-success ms-2" onClick={addFishToTank}>Add Fish</button>
-              </div>
+              </div> */}
 
               {/* <button className="btn btn-success ms-2" id="add-fish-button" onClick={addFishToTank}>+</button> */}
               {/* <button className="btn btn-danger ms-2" id="decrement-fish-button">-</button> */}
