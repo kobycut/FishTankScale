@@ -151,6 +151,7 @@ export default function App() {
 
                     <Route path='/login' element={<Login userName={userName}
                         authState={authState} onAuthChange={(userName, authState) => {
+                            window.location.reload();
                             setAuthState(authState);
                             setUserName(userName);
                         }} />} />
