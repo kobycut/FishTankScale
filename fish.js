@@ -431,7 +431,7 @@ export const fishData = {
         ph_min: 6.3,
         ph_max: 8.6,
         incompatible_with: ['Silver Angelfish'],
-        size: 0.7,
+        size: 1.2,
         min_tank_size: 10,
         schooling: true,
         schooling_min: 5,
