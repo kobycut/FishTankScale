@@ -183,11 +183,8 @@ export function Alerts(fish, tankSize, filter) {
 
   };
   function checkMinTankSizePerfish(fishList, tankSize) {
-    console.log('we made it');
     for (let i = 0; i < fishList.length; i++) {
       const fish = fishList[i];
-      console.log(fish.min_tank_size);
-      console.log(tankSize);
       if (fish.min_tank_size > tankSize) {
         return `Danger, this tank size seems to be too small for ${fish.species}`;
       }
@@ -219,7 +216,6 @@ export function Alerts(fish, tankSize, filter) {
         if (firstFish.species == secondFish.species && firstFish.schooling == true) {
 
           fishTally[firstFish.species] += 1
-          console.log(fishTally[firstFish.species]);
           if (fishTally[firstFish.species] >= firstFish.schooling_min) {
             validSchoolingAmount[firstFish.species] = 1;
           }
