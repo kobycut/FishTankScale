@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { AuthState } from 'C:/Users/kobyc/OneDrive/Desktop/PastClasses/CS260/startup/src/login/authState.js';
-import { Alerts } from 'C:/Users/kobyc/OneDrive/Desktop/PastClasses/CS260/startup/src/alerts/alerts.jsx';
+import { Alerts } from '../alerts/alerts.jsx'
 import { fishData, Fish
-} from 'C:/Users/kobyc/OneDrive/Desktop/PastClasses/CS260/startup/fish.js'
-
-
+} from '../../fish.js'
 
 export function Tank({ setFish, setTankSize, setFilter, authState, tankSize, tank }) {
 

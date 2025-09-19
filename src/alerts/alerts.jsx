@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Fish } from 'C:/Users/kobyc/OneDrive/Desktop/PastClasses/CS260/startup/fish.js'
-
 
 export function Alerts(fish, tankSize, filter) {
 
