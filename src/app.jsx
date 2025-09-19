@@ -108,7 +108,7 @@ export default function App() {
                 <header>
                     <NavLink to="/tank">
                         <div id="picture" className="d-flex justify-content-center">
-                            <img width="250px" src="/FishTankScale.png"
+                            <img width="250px" src="/FishTankScale/FishTankScale.png" alt="Fish Tank Scale"
                             /></div>
                     </NavLink>
 
