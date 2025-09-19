@@ -103,7 +103,7 @@ export default function App() {
     }
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/FishTankScale">
             <div className='body bg-light text-dark'>
                 <header>
                     <NavLink to="/tank">
